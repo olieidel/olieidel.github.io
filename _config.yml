@@ -13,7 +13,7 @@ links:
     url:          /about
   # - name:         Email
   #   url:          mailto:oli@eidel.net
-    external:     true
+  #   external:     true
   - name:         GitHub
     url:          http://github.com/olieidel
     external:     true
