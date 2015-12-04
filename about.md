@@ -3,6 +3,6 @@ layout: page
 title: About Me
 ---
 
-Hello! I am Oli. I study medicine during the day and code at night.
+Hello! I am Oli. I study Medicine during the day and code at night.
 
-You may contact me via <a href="mailto:oli@eidel.net">email</a> if you feel particularly bodacious.
+You may contact me via [email](mailto:oli@eidel.net) if you feel bodacious.
