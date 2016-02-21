@@ -19,9 +19,9 @@ links:
   - name:         GitHub
     url:          http://github.com/olieidel
     external:     true
-highlighter:      rouge
+# highlighter:      rouge
 permalink:        pretty
 markdown:         kramdown
-redcarpet:
-  extensions:
-    - smart
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

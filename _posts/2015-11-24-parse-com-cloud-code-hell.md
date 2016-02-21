@@ -93,7 +93,6 @@ uploadImage.set("file", new ParseFile(/* file */));
 uploadObject = new Stuff();
 // Store Pointer to Image
 uploadObject.set("imagePointer", uploadImage);
-
 ```
 
 Now, on the server side, we want to store a pointer in the Image back to the Stuff object.
