@@ -3,6 +3,12 @@ layout: page
 title: About Me
 ---
 
-Hello! I am Oli. I study Medicine during the day and code at night.
+Hello! I am Oli. I am a medical doctor and like to code.
 
-You may contact me via [email](mailto:oli@eidel.net).
+You may contact me via [email].
+
+If you have a great job opportunity in which I could combine both,
+I'm interested!
+
+<!-- links -->
+[email]: mailto:oli@eidel.net
