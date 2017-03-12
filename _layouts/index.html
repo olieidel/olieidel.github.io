@@ -1,12 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta content='{{ site.title }}' property='og:title' />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Oliver Eidel's Blog">
+    <meta name="author" content="Oliver Eidel">
+
     <title>{{ site.title }}</title>
     {% include head.html %}
   </head>
+
   <body>
     {% include header.html %}
-    <div id='container'>
+    <div id="container">
       {% include links.html %}
       <div class="content">
         {{ content }}
