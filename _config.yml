@@ -1,10 +1,9 @@
-title:            Oliver Eidel's Blog
+title:            'Oliver Eidel''s Blog'
 description:      An App a Day keeps the Doctor away.
-url:              http://olieidel.github.io
+url:              http://www.eidel.io
 signoff:          Oliver Eidel
-disqus_shortname: olieidel # disqus comment thread for post header options. ( leave blank if unwanted. )
-facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
-google_analytics: UA-70715341-1 # set tracking, remove from /javascripts/basic.js if unwanted.
+disqus_shortname: olieidel
+google_analytics: UA-70715341-1
 
 links:
   - name:         Home
@@ -19,7 +18,6 @@ links:
   - name:         GitHub
     url:          http://github.com/olieidel
     external:     true
-# highlighter:      rouge
 permalink:        pretty
 markdown:         kramdown
 kramdown:
