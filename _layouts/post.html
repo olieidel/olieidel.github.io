@@ -1,30 +1,29 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta content='{{ page.title }} - {{ site.title }}' property='og:title' />
+    <meta content="{{ page.title }} - {{ site.title }}" property="og:title" />
     <title>{{ page.title }} - {{ site.title }}</title>
     {% include head.html %}
   </head>
   <body>
     {% include header.html %}
-    <div id='container'>
+    <div id="container">
       {% include links.html %}
       {% include pages.html %}
       <div class="content">
-        <section class='post'>
+        <section class="post">
           <h1 class="upcase">
-            <div class='date'>{{ page.date | date_to_string }}</div>
+            <div class="date">{{ page.date | date_to_string }}</div>
             {{ page.title }}
           </h1>
           {{ content }}
-
-
         </section>
       </div>
-      {% if page.share == 'y' %}
+      {% if page.share == "y" %}
         {% include share.html %}
       {% endif %}
 
-      {% if page.disqus == 'y' %}
+      {% if page.disqus == "y" %}
         {% include disqus.html %}
       {% endif %}
       {% include links.html %}
