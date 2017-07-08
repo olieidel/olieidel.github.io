@@ -15,7 +15,7 @@ breast_segment is one of those. I was using Mammographies from the
 [Digital Database for Screening Mammography]
 which were taken by using traditional X-Ray film and later digitalized (ugh!),
 there was lots of noise (dust, text) which had to be removed prior to training
-any sort of machine learning model on it. The seemingly obviousw way was to
+any sort of machine learning model on it. The seemingly obvious way was to
 develop some sort of automatic segmentation of the breast area.
 
 In medicine and especially medical research, sharing your data or even source code
