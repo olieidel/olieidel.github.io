@@ -1,6 +1,8 @@
-title:            'Oliver Eidel''s Blog'
-description:      An App a Day keeps the Doctor away.
+title:            Eidel.io
+description:      "Oliver Eidel's Blog"
+footer:           An App a Day keeps the Doctor away.
 url:              http://www.eidel.io
+author:           Oliver Eidel
 signoff:          Oliver Eidel
 disqus_shortname: olieidel
 google_analytics: UA-70715341-1
