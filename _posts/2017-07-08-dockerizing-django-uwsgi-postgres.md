@@ -44,7 +44,7 @@ In our first attempt, we spin up an Ubuntu image and pretend we've
 just logged into a fresh server onto which we want to deploy our
 app. Here's our `Dockerfile`:
 
-``` dockerfile
+``` text
 FROM ubuntu:16.04
 
 RUN apt-get update && \
@@ -71,7 +71,7 @@ another time.
 Anyway, we don't want to understand things, we want to containerize
 them. Let's use that python3 image now.
 
-``` dockerfile
+``` text
 FROM python:3.6
 
 RUN apt-get update && \
@@ -82,7 +82,7 @@ RUN apt-get update && \
 
 Looks better already. Let's copy our app into the container, too.
 
-``` dockerfile
+``` text
 COPY ./app /opt/app
 
 RUN pip3 install -r /opt/app/requirements.txt
