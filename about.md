@@ -3,7 +3,7 @@ layout: page
 title: About Me
 ---
 
-Hello! I am Oli. I am a medical doctor and like to code.
+Hello! I am Oli. I am a medical doctor and love coding.
 
 You may contact me via [email].
 

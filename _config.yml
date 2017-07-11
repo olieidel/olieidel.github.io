@@ -3,7 +3,6 @@ description:      "Oliver Eidel's Blog"
 footer:           An App a Day keeps the Doctor away.
 url:              http://www.eidel.io
 author:           Oliver Eidel
-signoff:          Oliver Eidel
 disqus_shortname: olieidel
 google_analytics: UA-70715341-1
 
@@ -14,9 +13,6 @@ links:
     url:          /about
   - name:         Publications
     url:          /publications
-  # - name:         Email
-  #   url:          mailto:oli@eidel.net
-  #   external:     true
   - name:         GitHub
     url:          http://github.com/olieidel
     external:     true
@@ -25,5 +21,3 @@ markdown:         kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-sass:
-  sass_dir: _sass
