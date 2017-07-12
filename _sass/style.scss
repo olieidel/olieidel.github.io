@@ -119,7 +119,14 @@ header, footer {
   flex-direction: column;
   justify-content: center;
   height: 60px;
-  width: 600px;
+
+  @include until($tablet) {
+    width: 100%;
+  }
+
+  @include from($tablet) {
+    width: 600px;
+  }
 }
 
 .root-container {
