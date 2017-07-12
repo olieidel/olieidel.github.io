@@ -219,7 +219,7 @@ header, footer {
       width: auto;
     }
 
-    ul {
+    ul, ol {
       padding: 0px;
     }
   }
@@ -265,7 +265,7 @@ code.highlighter-rouge {
   background-color: rgb(41, 40, 30);
   border-radius: 2px;
   font-size: 14px;
-  padding: 2px 4px 1px;
+  padding: 2px 4px;
 }
 
 div.highlighter-rouge,
