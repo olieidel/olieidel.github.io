@@ -27,7 +27,9 @@ beginning Elixir Alchemist, this is for you.
 If you're just interested in the library itself (I advise against
 shortcuts, young alchemist!)
 the [noun_projex code][noun_projex_github] is up
-on [GitHub][noun_projex_github].
+on [GitHub][noun_projex_github] you can find
+the [published package][noun_projex_hex_pm]
+on [Hex.pm][noun_projex_hex_pm].
 
 ## Getting started
 
@@ -905,8 +907,8 @@ For me, this was a great learning experience. I hope that I could save
 you some time and you learnt a lot along the way, too!
 
 The complete [noun_projex code][noun_projex_github] is up
-on [GitHub][noun_projex_github] and I'll push it to [hex.pm][hex_pm]
-in the next few days.
+on [GitHub][noun_projex_github]. It's also [published][noun_projex_hex_pm]
+to [Hex.pm][noun_projex_hex_pm].
 
 [noun_project]: https://thenounproject.com
 [noun_project_nodejs]: https://github.com/rosshettel/the-noun-project
@@ -925,4 +927,4 @@ in the next few days.
 [metaprogramming_elixir]: https://pragprog.com/book/cmelixir/metaprogramming-elixir
 [phoenix_framework]: http://www.phoenixframework.org
 [noun_projex_github]: https://github.com/olieidel/noun_projex
-[hex_pm]: https://hex.pm
+[noun_projex_hex_pm]: https://hex.pm/packages/noun_projex
