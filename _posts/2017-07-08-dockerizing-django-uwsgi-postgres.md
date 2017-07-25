@@ -48,7 +48,6 @@ app. Here's our `Dockerfile`:
 FROM ubuntu:16.04
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install build-essential \
                     python3 \
                     python3-dev \
@@ -75,7 +74,6 @@ them. Let's use that python3 image now.
 FROM python:3.6
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y && \
     pip3 install uwsgi
 ```
@@ -577,7 +575,7 @@ understand.
 
 So, should we containerize nginx? Let's see what I did...
 
-## Not containerizing nginx
+### Not containerizing nginx
 
 Here's my answer: I didn't. To be honest, I had been hacking away with
 Docker for three days already and was tired of containerizing
@@ -639,6 +637,10 @@ in React and it doesn't crash on input.
 
 Have fun containerizing things!
 
+I'd like to thank [@mhubig][mhubig], [@wshayes][wshayes]
+and [@messa][messa] for their corrections in the comments. Who would
+have known, there are always some more best practices to follow :)
+
 
 [python_3_image]: https://hub.docker.com/_/python/
 [python_3_dockerfile]: https://github.com/docker-library/python/blob/88ba87d31a3033d4dbefecf44ce25aa1b69ab3e5/3.6/Dockerfile
@@ -650,3 +652,6 @@ Have fun containerizing things!
 [letsencrypt]: https://letsencrypt.org
 [nginx_letsencrypt_docker]: https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion/
 [do_guide_nginx_letsencrypt]: https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
+[mhubig]: https://github.com/mhubig
+[wshayes]: https://github.com/wshayes
+[messa]: https://github.com/messa
