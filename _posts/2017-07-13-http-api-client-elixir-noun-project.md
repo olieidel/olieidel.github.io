@@ -120,8 +120,7 @@ defmodule NounProjex do
   """
   def get_collection(id) do
     # We're using string interpolation here.
-    # #{id} means it inserts the value of id which has to be a string
-    id = to_string(id)
+    # #{id} means it inserts the value of id
     url = "http://api.thenounproject.com/collection/#{id}"
     response =
       HTTPoison.get!(url)
@@ -161,8 +160,7 @@ def get_collection(id) do
   consumer_secret = "YOUR_CONSUMER_SECRET"
   method = "get"
 
-  # note how we inlined the to_string(id)
-  url = "http://api.thenounproject.com/collection/#{to_string(id)}"
+  url = "http://api.thenounproject.com/collection/#{id}"
 
   credentials = OAuther.credentials(consumer_key: consumer_key,
                                     consumer_secret: consumer_secret)
@@ -199,7 +197,7 @@ auth header first?
 ### OAuth 1 Voodoo refactored
 
 ``` elixir
-defmodule NounProjex
+defmodule NounProjex do
   @consumer_key = "YOUR_CONSUMER_KEY"
   @consumer_secret = "YOUR_CONSUMER_SECRET"
 
@@ -261,7 +259,7 @@ Our `get_collection/1` now becomes:
 
 ``` elixir
 def get_collection(id) do
-  url = "http://api.thenounproject.com/collection/#{to_string(id)}"
+  url = "http://api.thenounproject.com/collection/#{id}"
   header = construct_oauth_header("get", url)
   HTTPoison.get!(url, [header])
 end
@@ -278,7 +276,7 @@ handle some errors via a `case` statement:
 
 ``` elixir
 def get_collection(id) when is_integer(id) do
-  url = "http://api.thenounproject.com/collection/#{to_string(id)}"
+  url = "http://api.thenounproject.com/collection/#{id}"
   header = construct_oauth_header("get", url)
 
   case HTTPoison.get(url, headers) do
@@ -344,7 +342,7 @@ That's just copy-paste. Should be fine for now. Let's have a look at our updated
 
 ``` elixir
 def get_collection(id) when is_integer(id) do
-  url = "http://api.thenounproject.com/collection/#{to_string(id)}"
+  url = "http://api.thenounproject.com/collection/#{id}"
   header = construct_oauth_header("get", url)
 
   do_request(url, [header])
@@ -380,8 +378,7 @@ end
 ```
 
 Note that we use the guard `is_binary/1` here as strings are binaries
-in Elixir. Further, there's no need for the `to_string(id)` inside our
-constructed URL any more. The rest remains the same.
+in Elixir. The rest remains the same.
 
 ### Endpoint with parameters
 
@@ -398,7 +395,6 @@ def get_collection_icons(id, limit, offset, page)
       when is_integer(id) do
       # another guard
 
-  id = to_string(id)
   base_url = "http://api.thenounproject.com/collection/#{id}/icons"
   params = [limit: limit,  # 1.
             offset: offset,
@@ -570,6 +566,19 @@ parameter key is allowed and false otherwise. Using that in
 `Enum.filter/2` lets us simply discard all non-allowed params with
 their values. Nice!
 
+There's actually a built-in abstraction for that: `Keyword.take/2`. So
+we could go on and yet further simplify our implementation:
+
+``` elixir
+defp filter_params(params, allowed_params) do
+  Keyword.take(params, allowed_params)
+end
+```
+
+We could also call `Keyword.take/2` directly instead of calling it via
+`filter_params/2` - that's a matter of style and personal preference,
+I guess. You decide!
+
 ### Packing more into do_request
 
 Now there still are some low-hanging fruit. We still are repeatedly
@@ -673,7 +682,7 @@ earlier look now in their final iteration:
 
 ``` elixir
 def get_collection(id) when is_integer(id) do
-  do_request(:get, ["collection", to_string(id)])
+  do_request(:get, ["collection", id])
 end
 
 def get_collection(slug) when is_binary(slug) do
@@ -731,7 +740,7 @@ keys in a safe way (you remember that, right?) so we should take care
 of that now. Here is how it looks currently:
 
 ``` elixir
-defmodule NounProjex
+defmodule NounProjex do
   @consumer_key = "YOUR_CONSUMER_KEY"
   @consumer_secret = "YOUR_CONSUMER_SECRET"
 
@@ -792,7 +801,7 @@ We of course have to modify our module attributes in
 `lib/noun_projex.ex` accordingly:
 
 ``` elixir
-defmodule NounProjex
+defmodule NounProjex do
   @consumer_key Application.get_env(:noun_projex, :api_key)
   @consumer_secret Application.get_env(:noun_projex, :api_secret)
 
@@ -910,6 +919,9 @@ The complete [noun_projex code][noun_projex_github] is up
 on [GitHub][noun_projex_github]. It's also [published][noun_projex_hex_pm]
 to [Hex.pm][noun_projex_hex_pm].
 
+Thanks for corrections goes out to [@ggpasqualino], [@thorstendeinert]
+and [@schaary].
+
 [noun_project]: https://thenounproject.com
 [noun_project_nodejs]: https://github.com/rosshettel/the-noun-project
 [noun_project_php]: https://github.com/onassar/PHP-TheNounProject
@@ -928,3 +940,6 @@ to [Hex.pm][noun_projex_hex_pm].
 [phoenix_framework]: http://www.phoenixframework.org
 [noun_projex_github]: https://github.com/olieidel/noun_projex
 [noun_projex_hex_pm]: https://hex.pm/packages/noun_projex
+[@ggpasqualino]: https://github.com/ggpasqualino
+[@thorstendeinert]: https://disqus.com/by/thorstendeinert/
+[@schaary]: https://github.com/schaary
