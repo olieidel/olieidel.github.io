@@ -5,75 +5,98 @@ title: Reading List
 
 Books that I've read, in chronological order, some with comments.
 
+## 2018
+
+### Bad Blood (John Carreyrou)
+
+Crazy story and well written. Hard to put down this book. Finished in
+a few days.
+
+### Complications (Atul Gawande)
+
+Interesting read even (or especially?) for someone with a medical
+background like me.
+
+### Rework (Jason Fried, DHH)
+
+Super concise, these guy's to-the-point mentality really shines
+through. Heavily recommended.
+
+### The Personal MBA (Josh Kaufman)
+
+Condensed and to the point. Great read for non-business people like
+me.
+
+### Benjamin Franklin (Walter Isaacson)
+
+Would have loved to meet this guy (Franklin, not Isaacson) in person,
+he seems to have been quite entertaining. I'd like to emphasize his
+[Advice to a Friend on Choosing a Mistress][franklin-advice].
+
+### Principles (Ray Dalio)
+
+### Why We Sleep (Matthew Walker)
+
+A must-read for everyone who sleeps.
+
 ## 2017
 
----
+### The Black Swan (Nassim Nicholas Taleb)
 
-### Outliers by Malcolm Gladwell
+### Hatching Twitter (Nick Bilton)
 
----
+Quite entertaining read about the early stages and intrigues of
+Twitter.
 
-### Losing My Virginity by Richard Branson
+### Outliers (Malcolm Gladwell)
 
----
+### Losing My Virginity (Richard Branson)
 
-### Made in America by Sam Walton
+### Made in America (Sam Walton)
 
 Not as interesting as the reviews might suggest. I found it rather
 light on facts.
 
----
-
-### Delivering Happiness by Tony Hsieh
+### Delivering Happiness (Tony Hsieh)
 
 A great read and Tony Hsieh's humor really resonates with me.
 
----
+### The Upstarts (Brad Stone)
 
-### The Upstarts by Brad Stone
+### The Everything Store (Brad Stone)
 
----
-
-### The Everything Store by Brad Stone
-
----
-
-### Shoe Dog by Phil Knight
+### Shoe Dog (Phil Knight)
 
 Awesome and captivating book focusing on Phil Knight's
 "not-so-obvious" and emotional challenges of growing his business,
 Nike.
 
----
+### Deep Work (Cal Newport)
 
-### Deep Work by Cal Newport
-
----
+A must-read for everyone who wants to get stuff done.
 
 ## 2016
 
----
-
-### The 7 Day Startup by Dan Norris
+### The 7 Day Startup (Dan Norris)
 
 Not that rich in content. You could summarize it by saying "ship your
 product fast and gather feedback".
 
----
+### Zero to One (Peter Thiel)
 
-### Zero to One by Peter Thiel
+### So Good They Can't Ignore You (Cal Newport)
 
----
+### Originals (Adam Grant)
 
-### So Good They Can't Ignore You by Cal Newport
-
----
-
-### Originals by Adam Grant
-
----
-
-### Sherlock Holmes Books by Sir Arthur Conan Doyle
+### Sherlock Holmes Books (Sir Arthur Conan Doyle)
 
 A great read! Especially fun to discover all the hidden references
 after watching the series with Benedict Cumberbatch.
+
+### High Price (Carl Hart)
+
+A really interesting and arguably more realistic perspective on drug
+usage.
+
+
+[franklin-advice]: https://en.wikipedia.org/wiki/Advice_to_a_Friend_on_Choosing_a_Mistress
