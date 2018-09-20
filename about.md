@@ -3,11 +3,9 @@ layout: page
 title: About Me
 ---
 
-Hello! I am Oliver. I am a medical doctor and love coding. Currently,
-I'm working at [Merantix][merantix]{:target="_blank"} in Berlin where
-we're developing medical software (you guessed it).
+Hello! I am Oliver. I am a medical doctor and software engineer.
 
-You may contact me via [e-mail][email].
+You can contact me via [e-mail][email].
 
 ## Three-Sentence Bio
 
@@ -44,9 +42,13 @@ Nowadays, I'm a big fan of
 at one of the [Clojure Berlin][clojureberlin]{:target="_blank"}
 meetups.
 
+## Work
+
+I currently work at [Merantix][merantix]{:target="_blank"} where we
+develop medical software (what a coincidence!).
+
 
 <!-- links -->
-[merantix]: http://www.merantix.com
 [email]: mailto:oli@eidel.net
 [publications]: /publications
 [chris]: https://github.com/HerrFolgreich
@@ -55,3 +57,4 @@ meetups.
 [philter]: https://www.philter.in
 [clojure]: https://clojure.org
 [clojureberlin]: https://www.meetup.com/Clojure-Berlin/
+[merantix]: https://www.merantix.com
