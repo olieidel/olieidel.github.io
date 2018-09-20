@@ -11,10 +11,12 @@ links:
     url:          /
   - name:         About
     url:          /about
-  - name:         Reading
-    url:          /reading
+  - name:         Talks
+    url:          /talks
   - name:         Publications
     url:          /publications
+  - name:         Reading
+    url:          /reading
   - name:         GitHub
     url:          http://github.com/olieidel
     external:     true
