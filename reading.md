@@ -7,6 +7,16 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2018
 
+### It Doesn't Have to Be Crazy at Work (Jason Fried, DHH)
+
+Feels a bit like an extension to Rework. Good content and very
+concise.
+
+### Being Mortal (Atul Gawande)
+
+A great read about how our society and healthcare system fail at
+dealing with the growing challenges of "treating" the elderly.
+
 ### Bad Blood (John Carreyrou)
 
 Crazy story and well written. Hard to put down this book. Finished in
