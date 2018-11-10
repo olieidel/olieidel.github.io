@@ -7,6 +7,12 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2018
 
+### House of God (Samuel Shem)
+
+It was a great read and comparing it to my limited hospital experience
+sadly many things ring true. I recommend this book to all new medical
+students and hope they take it seriously.
+
 ### It Doesn't Have to Be Crazy at Work (Jason Fried, DHH)
 
 Feels a bit like an extension to Rework. Good content and very
