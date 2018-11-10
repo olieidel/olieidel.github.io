@@ -12,6 +12,13 @@ Books that I've read, in chronological order, some with comments.
 Feels a bit like an extension to Rework. Good content and very
 concise.
 
+### Inside Apple (Adam Lashinsky)
+
+Found this book while tidying up. Not recommended - I prefer
+Isaacson's biography of Steve Jobs instead. On a side note, it may be
+interesting to check out the recent book of Steve Jobs' daughter for
+different perspective (Small Fry by Lisa Brennan-Jobs).
+
 ### Being Mortal (Atul Gawande)
 
 A great read about how our society and healthcare system fail at
