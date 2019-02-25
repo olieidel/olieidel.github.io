@@ -5,7 +5,53 @@ title: Reading List
 
 Books that I've read, in chronological order, some with comments.
 
+## 2019
+
+### Utopia for Realists: And How We Can Get There (Rutger Bregman)
+
+### Sapiens: A Brief History of Humankind (Yuval Noah Harari)
+
+### The New Business Road Test (John Mullins)
+
+Continues where The Lean Startup left off. Firstly, it makes you
+evaluate new business ideas in a structured way. Secondly, it concedes
+that not every idea can be tested with a prototype as suggested in The
+Lean Startup.
+
+But that's not a huge problem as many other factors besides "building
+the wrong product" can kill your business, e.g. targeting a difficult
+market or going into a highly competitive industry. A great additional
+read.
+
+### On Writing: A Memoir of the Craft (Stephen King)
+
 ## 2018
+
+### Articles from Aaron Swartz's Blog
+
+I stumbled upon Aaron Swartzes blog and started randomly reading his
+posts. Well written and really interesting thoughts.
+
+Selection of articles I read: [I Hate the
+News][aaronsw-hate-the-news]{:target="_blank"}, Interpretation of
+Batman Movies ([Batman
+Begins][aaronsw-batman-begins]{:target="_blank"}, [The Dark
+Knight][aaronsw-the-dark-knight]{:target="_blank"}), [Cherish
+Mistakes][aaronsw-cherish-mistakes]{:target="_blank"}.
+
+### The Innovator's Prescription (Clayton Christensen, Jerome Grossman, Jason Hwang)
+
+### The Lean Startup (Eric Ries)
+
+Having gained more experience in the (Berlin) Startup Scene, I wanted
+to read this as people often quote it. My expectations were low and I
+anticipated a dull book full of business buzzwords.. However, I was
+positively surprised!
+
+The whole book focuses on the problem of "developing the wrong product
+due to not getting customer feedback". I agree that this is a huge and
+underrated problem in companies in general - it just surfaces more
+obviously in startups. Recommended.
 
 ### House of God (Samuel Shem)
 
@@ -123,3 +169,7 @@ usage.
 
 
 [franklin-advice]: https://en.wikipedia.org/wiki/Advice_to_a_Friend_on_Choosing_a_Mistress
+[aaronsw-hate-the-news]: http://www.aaronsw.com/weblog/hatethenews
+[aaronsw-batman-begins]: http://www.aaronsw.com/weblog/batmanbegins
+[aaronsw-the-dark-knight]: http://www.aaronsw.com/weblog/tdk
+[aaronsw-cherish-mistakes]: http://www.aaronsw.com/weblog/geremiah
