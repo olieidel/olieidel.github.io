@@ -7,9 +7,66 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### Tribe: On Homecoming and Belonging (Sebastian Junger)
+
+No. 2 on [Spenser's][spenser] all-time favorite reading list so it
+must be great, right? It is. Some very counter-intuitive findings,
+e.g. depression and other mental illnesses apparently declined in
+times of war. This is presented in conjunction with other evidence to
+make the point that we humans are happier when having purpose,
+community and equality. Super interesting as the author also seen some
+serious things.
+
+### Sprint (Jake Knapp, John Zeratsky, Braden Kowitz)
+
+A short book, I finished it on a 5-hour train ride. A tutorial on how
+to gather a group of people and systematically build and test a
+prototype in a week. Can be applied to anything from apps through
+hardware to business models.
+
+A nice add-on to The Lean Startup and a small part of The New Business
+Road Test but I wouldn't classify it as must-read - you'd probably be
+able to successfully grow a startup without reading this book.
+
+### Lost and Founder (Rand Fishkin)
+
+Really great read, highly recommended. I've been following Rand
+Fishkin since I did some (bad) SEO as a student. I really like his
+no-nonsense style of communication amid an industry which is known for
+its shadiness.
+
+In his book, he describes his experience founding and heading Moz, a
+SaaS startup which seemed successful when judged by common metrics
+(amount of money raised, employee count). However, the nature of being
+VC-funded leads to many problems which were not obvious in the
+beginning - for example growth at any cost and working towards selling
+the company. He ultimately ends up leaving.
+
+Insightful and incredibly dense with learnings which every startup
+founder should rather not experience herself. In its spirit, the book
+is related to the writing of DHH and Jason Fried while telling the
+story from a slightly more personal angle.
+
 ### Utopia for Realists: And How We Can Get There (Rutger Bregman)
 
+Rutger Bregman argues for universal basic income, open borders and
+other ideas which are non-intuitive in our current societal
+understanding but sound plausible when backed up by the studies he
+cites. Highly recommended.
+
+Funnily enough, it expands upon some of the concepts with which
+Sapiens ends. Therefore nice to read in succession.
+
 ### Sapiens: A Brief History of Humankind (Yuval Noah Harari)
+
+Great read on the history of.. us? It's surprising how fascinating
+history can be if well presented - contrary to my experience in high
+school. Some of the theories are quite thought-provoking: Why did we
+evolve to be so much "superior" to other animals (or are we?), how
+will we look back upon our way of treating animals in the future?
+
+Recommendation of my friend [Spenser][spenser] (no. 1 on his
+all-time favorite reading list).
 
 ### The New Business Road Test (John Mullins)
 
@@ -24,6 +81,12 @@ market or going into a highly competitive industry. A great additional
 read.
 
 ### On Writing: A Memoir of the Craft (Stephen King)
+
+I wanted to improve my writing and this came up on my reading list. It
+can be summarized as "read a lot, write a lot, don't forget to
+re-write". It's sometimes a bit arduous to read and you might notice
+that Stephen King rather prefers to write fiction. Still recommended
+if you're interested in improving your writing.
 
 ## 2018
 
@@ -173,3 +236,4 @@ usage.
 [aaronsw-batman-begins]: http://www.aaronsw.com/weblog/batmanbegins
 [aaronsw-the-dark-knight]: http://www.aaronsw.com/weblog/tdk
 [aaronsw-cherish-mistakes]: http://www.aaronsw.com/weblog/geremiah
+[spenser]: https://spenser.xyz
