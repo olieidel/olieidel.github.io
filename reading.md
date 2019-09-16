@@ -7,6 +7,44 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### Good to Great (Jim Collins)
+
+### Company of One (Paul Jarvis)
+
+### Remote (DHH, Json Fried)
+
+### Digital Minimalism (Cal Newport)
+
+### Rise and Kill First (Ronen Bergman)
+
+### Hacking Healthcare (Fred Trotter, David Uhlmann)
+
+### Creative Selection (Ken Kocienda)
+
+### Trillion Dollar Coach (Eric Schmidt, Jonathan Rosenberg, Alan Eagle)
+
+### High Output Management (Andrew S. Grove)
+
+### The Hard Thing About Hard Things (Ben Horowitz)
+
+### Founders at Work (Jessica Livingston)
+
+### Where Good Ideas Come From (Steven Johnson)
+
+### Powers of Two (Joshua Wolf Shenk)
+
+### How Not To Die (Michael Greger)
+
+### Crossing the Chasm (Geoffrey A. Moore)
+
+### Never Split the Difference (Chris Voss)
+
+### On Intelligence (Jeff Hawkings)
+
+### Can't Hurt Me (David Goggins)
+
+### Regulatory Hacking (Evan Burfield)
+
 ### Tribe: On Homecoming and Belonging (Sebastian Junger)
 
 No. 2 on [Spenser's][spenser] all-time favorite reading list so it
