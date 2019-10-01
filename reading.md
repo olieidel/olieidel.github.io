@@ -1,19 +1,62 @@
 ---
 layout: page
-title: Reading List
+title: Reading
 ---
 
 Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### This is Marketing (Seth Godin)
+
+This was my first Seth Godin book. His books seem quite popular but I
+was struggling. His writing style is very abstract. I feel like I got
+the main messages but it took my brain a lot of capacity to process
+them and I've probably missed a lot in between.
+
+### Atomic Habits (James Clear)
+
+Really like the whole idea of habits being more important than
+discipline (and most other things). James Clear really put a ton of
+research into the topic and I believe the recommendations for changing
+your habits are solid and can have a huge impact on anyone's life. I'm
+writing this right now as I'm getting into the habit of updating my
+personal website more often..
+
+### Turning the Flywheel (Jim Collins)
+
+A rather short book and not really comparable to the other Jim Collins
+books. Not sure if I would recommend reading it, most of the idea has
+already been described in Good to Great.
+
+### Great by Choice (Jim Collins, Morten T. Hansen)
+
+Good follow-up read on the Good to Great book, also recommended.
+
 ### Good to Great (Jim Collins)
+
+Really great book. The totally counter-intuitive finding that CEOs in
+the successful companies were rather quiet and non-charismatic debuffs
+a long-held belief in our society about successful CEOs.
 
 ### Company of One (Paul Jarvis)
 
-### Remote (DHH, Json Fried)
+The main idea is interesting but I didn't like the signal-to-noise
+ratio of the book. I thought there was a lot of noise.
+
+### Remote (DHH, Jason Fried)
+
+I had slightly higher expectations, maybe because I read the other DHH
+& Fried books before - those are arguably better. Nonetheless, still a
+good book about the Basecamp approach to remote work. I would have
+wished it to be more detailed.
 
 ### Digital Minimalism (Cal Newport)
+
+Changed how I use / consume media, hopefully forever. Any *thing*
+which provides you with information you weren't specifically looking
+for is toxic for your attention. Examples are news feeds (Facebook,
+Instagram) but also news websites and even instant messages.
 
 ### Rise and Kill First (Ronen Bergman)
 
@@ -21,7 +64,19 @@ Books that I've read, in chronological order, some with comments.
 
 ### Creative Selection (Ken Kocienda)
 
+Good read. My main takeaway is to have a super tight feedback loop:
+The iPhone team was using prototype iPhones daily to which they were
+pushing the latest code - that's an incredible amount of feedback
+flooding in every day! Forget periodic *customer testing*.
+
 ### Trillion Dollar Coach (Eric Schmidt, Jonathan Rosenberg, Alan Eagle)
+
+Solid book. Bill Campbell (whom the book is about) must have been a
+super interesting person. Imagine thousands of people attending his
+funeral, all feeling he was one of their best friends. I feel the book
+could have been even greater if he had written it himself but it
+sounds like he was too humble for that. Would have loved to meet him
+in person.
 
 ### High Output Management (Andrew S. Grove)
 
