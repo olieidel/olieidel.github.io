@@ -1,10 +1,13 @@
-title:            Eidel.io
+title:            Oliver Eidel
 description:      "Oliver Eidel's Blog"
-footer:           An App a Day keeps the Doctor at Play
 url:              http://www.eidel.io
 author:           Oliver Eidel
 disqus_shortname: olieidel
 google_analytics: UA-70715341-1
+funny_quotes:
+  - An App a Day keeps the Doctor at Play
+  - Better a doctor working as a programmer than a programmer working as a doctor
+  - "You can teach yourself to code you can't teach yourself medicine"
 
 links:
   - name:         Home

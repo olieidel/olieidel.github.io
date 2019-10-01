@@ -28,10 +28,19 @@
         {% endif %}
       </div>
       <footer>
-        <div class="muted">{{ site.footer }}</div>
+        <div class="muted" id="funny-quote">{{ site.funny_quotes.first }}</div>
       </footer>
     </div>
   </body>
+
+  <script type="text/javascript">
+   // We'll respect non-js people by having the first quote in the
+   // HTML DOM at the beginning
+   var funnyQuotes = {{ site.funny_quotes | jsonify }};
+   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+   var footerEl = document.getElementById('funny-quote');
+   footerEl.innerHTML = randomFunnyQuote;
+  </script>
 
   {% include google_analytics.html %}
 </html>
