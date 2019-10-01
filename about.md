@@ -3,17 +3,22 @@ layout: page
 title: About Me
 ---
 
-Hello! I am Oliver. I am a medical doctor and software engineer.
+Hello! I am Oliver. I am a Medical Doctor, Software Engineer and
+Regulatory Affairs Person.
 
 You can contact me via [e-mail][email].
 
-## Three-Sentence Bio
+## Bio
 
 I started coding when I was twelve even though it's quite a stretch to
-call writing hacky php code *coding*. Wanting to have some purpose in
-life I ended up becoming a doctor. However I also wanted to build
-things so I got back into coding while doing MRI research for my
-doctorate thesis.
+call writing hacky php scripts *coding*. I ended up graduating as a
+Medical Doctor. While doing MRI research for my doctorate thesis, I
+got reminded how fun coding was and realized how broken medical
+software is.
+
+I taught myself programming and started working on medical
+software. Right now, I think improving software is one of the largest
+levers we have for improving healthcare.
 
 ## Projects
 
@@ -24,28 +29,23 @@ At some stage, I was intrigued whether masturbation had an effect on
 our behaviour, specifically, our mood, energy and libido. Quite
 obviously, this is a problem which can be solved with an app, so I
 developed an app together with my friend
-[Chris][chris]{:target="_blank"}:
-[NofApp][nofapp]{:target="_blank"}. (Note: I think it's not visible in
-the US Play Store any more due to some trademark voodoo - use a VPN or
-ask me for a demo).
+[Chris][chris]{:target="_blank"}: [NofApp][nofapp]{:target="_blank"}
+(it may have been taken down by the Play Store by now).
 
 I worked as a React Native developer for [phellow
-seven][phellowseven]{:target="_blank"} developing an app for patients
-to view and manage their Electronic Health Records.
+seven][phellowseven]{:target="_blank"} developing a patient-centric
+Electronic Health Record app.
 
-While figuring out what to do with my life, I developed a dating app
-called [Philter][philter]{:target="_blank"} which lets you filter (get
-it?) people close by based on your answers to yes/no questions.
-
-Nowadays, I'm a big fan of
-[Clojure][clojure]{:target="_blank"}. Chances are you'll run into me
-at one of the [Clojure Berlin][clojureberlin]{:target="_blank"}
-meetups.
-
-## Work
+I developed a dating app called [Philter][philter]{:target="_blank"}
+(also offline by now) which lets you filter (haha) people close to you
+based on your answers to yes/no questions.
 
 I currently work at [Merantix][merantix]{:target="_blank"} where we
-develop medical software (what a coincidence!).
+develop medical software.
+
+I'm a big fan of [Clojure][clojure]{:target="_blank"}. Chances are
+you'll run into me at one of the [Clojure
+Berlin][clojureberlin]{:target="_blank"} meetups.
 
 
 <!-- links -->
