@@ -308,8 +308,11 @@ After two weeks of bending, it still fits less well than the other
 pair. So I guess there are some subtleties of making glasses which are
 not easily replaceable through an online store.
 
+[Discussion on Hacker News][hn-discussion]
+
 
 <!-- Links -->
 [lensmeter]: https://en.wikipedia.org/wiki/Lensmeter
 [autorefractor]: https://en.wikipedia.org/wiki/Autorefractor
 [phoropter]: https://en.wikipedia.org/wiki/Phoropter
+[hn-discussion]: https://news.ycombinator.com/item?id=21156637
