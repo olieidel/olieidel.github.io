@@ -1,6 +1,8 @@
 title:            Oliver Eidel
+# For some reason, jekyll-feed doesn't look at title but instead needs name
+name:             Oliver Eidel
 description:      "Oliver Eidel's Blog"
-url:              http://www.eidel.io
+url:              https://www.eidel.io
 author:           Oliver Eidel
 disqus_shortname: olieidel
 google_analytics: UA-70715341-1
@@ -28,3 +30,6 @@ markdown:         kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
