@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Don't Be An Engineer, Be A Producer"
+title: "Don't Be an Engineer, Be a Producer"
 date: 2019-10-09 12:00:00
 disqus: y
 ---
