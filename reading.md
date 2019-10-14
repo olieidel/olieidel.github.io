@@ -7,6 +7,27 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### Range (David J. Epstein)
+
+Really good book. Makes the case that the "10.000 hour rule" only
+applies to "kind" learning environments which are characterized by
+clear rules and immediate feedback. Accordingly, most real-world
+learning environments are not kind; and there, generalists perform
+better long-term. Generalist can loosely be defined as someone who is
+specialized in something but has broad knowledge across many other
+areas.
+
+This is something which Peter Drucker also mentions in The Effective
+Executive: People who are specialized at something should at least
+know what many other fields are about.
+
+Yet another solid [Spenser][spenser] recommendation.
+
+### Loonshots (Safi Bahcall)
+
+Good book on how to nurture innovative and somewhat unpolished ideas
+in initially non-receptive environments, i.e., the real world.
+
 ### This is Marketing (Seth Godin)
 
 This was my first Seth Godin book. His books seem quite popular but I
