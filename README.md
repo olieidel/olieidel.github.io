@@ -1,3 +1,10 @@
-My GitHub [Blog](http://olieidel.github.io). Based on the awesome
-[Scribble](https://github.com/muan/scribble) Theme by
-[muan](https://github.com/muan) with some minor modifications.
+My GitHub [Blog][blog].
+
+Initially, it was based on the awesome [Scribble][scribble-theme]
+theme. At some stage, I rewrote all of it, including the CSS.
+
+
+<!-- Links -->
+
+[blog]: https://www.eidel.io
+[scribble-theme]: https://github.com/muan/scribble
