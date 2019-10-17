@@ -235,6 +235,11 @@ header, footer {
     ul, ol {
       padding: 0px;
     }
+
+    // Images in posts should exactly fit the width of the text
+    img {
+      width: 100%;
+    }
   }
 
   ul.post-list {
