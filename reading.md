@@ -7,6 +7,23 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### The Effective Executive (Peter F. Drucker)
+
+I expected a boring business book, boy was I wrong. Peter Drucker is
+like the Master Yoda version of DHH. His book reads like a more
+complete, wisdom-enhanced version of the Basecamp books.
+
+It's unbelievable how accurate some of his predictions were; like that
+we'd have more diverse ways of communicating than via phone and that
+seeing how customers use our product with our own eyes becomes ever
+more important as computers present us with abstract information,
+shielding us from the reality.
+
+This book doesn't only apply to executives. As software developers and
+doctors, we are knowledge workers in the Druckerian sense and
+therefore, this book applies to us - it applies to almost everyone in
+a developed country. A must read.
+
 ### Range (David J. Epstein)
 
 Really good book. Makes the case that the "10.000 hour rule" only
