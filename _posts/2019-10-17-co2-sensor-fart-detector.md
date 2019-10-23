@@ -104,12 +104,57 @@ graph above, if you ignore the peaks.
 There's surely a lot more about measuring CO2 which I have yet to
 learn.
 
+---
+
+# Update
+
+A few more interesting findings which I'd like to share.
+
+## A Normal Night
+
+Some nights are actually just as I would have expected them to be: An
+almost linearly rising value of eCO2. The graph below shows a night in
+which I left by bedroom door open which increased the total "connected
+room volume" considerably as it now included my hallway and kitchen.
+
+During this night, values peaked at 2.5k ppm. That's concerning
+because, apparently, drowsiness can already be experienced at 1k; at
+2k, it gets even worse: Loss of cognitive function can occur, often
+accompanied by other complaints like headaches.
+
+[![A Normal Night][normal]][normal]
+
+*A normal night.*
+
+## A Night With Bedroom Doors Closed vs. Tilting a Window
+
+I usually keep my bedroom door open. But recently, friends came to
+visite me for the weekend which made me close it for the night. My
+bedroom is rather small so it would be very interesting to see whether
+this had a measurable impact.
+
+The results are staggering (left side of graph). Ignoring the peaks /
+farts, eCO2 values reach up to 6k ppm. That's already way beyond
+significant cognitive impairment! No wonder I felt crappy the next
+day.
+
+The next night (right side of graph) my bedroom door stayed closed but
+I tilted the window. eCO2 values were much lower and it didn't seem to
+accumulate - which makes sense.
+
+[![All doors closed (left) vs. tilted window
+(right)][closed-room-vs-window-tilted]][closed-room-vs-window-tilted]
+
+*All doors closed (left) vs. tilted window (right).*
+
 
 <!-- Images -->
 
 [spray]: /images/co2-sensor-spray.png
 [farty-night]: /images/co2-sensor-farty-night.png
 [not-at-home]: /images/co2-sensor-not-at-home.png
+[normal]: /images/co2-sensor-normal.png
+[closed-room-vs-window-tilted]: /images/co2-sensor-closed-room-vs-window-tilted.png
 
 
 <!-- Links -->
