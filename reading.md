@@ -17,7 +17,7 @@ It's unbelievable how accurate some of his predictions were; like that
 we'd have more diverse ways of communicating than via phone and that
 seeing how customers use our product with our own eyes becomes ever
 more important as computers present us with abstract information,
-shielding us from the reality.
+shielding us from reality.
 
 This book doesn't only apply to executives. As software developers and
 doctors, we are knowledge workers in the Druckerian sense and
