@@ -8,7 +8,7 @@ disqus: y
 Recently, one of my posts made Hacker News #1. That brought back
 childhood memories.
 
-!! The Paidmail Site
+## The Paidmail Site
 
 When I was thirteen, I launched a hacky *Paidmail* site. The concept
 was simple: You signed up to receive ad e-mails. At the end of the
@@ -38,7 +38,7 @@ created a subdomain on that domain for my Paidmail site. This was
 quite funny because the root domain was about building websites,
 totally unrelated to e-mails and earning money.
 
-!! The Launch
+## The Launch
 
 I was active on an online forum, a good old phpBB, on how to make
 money online. There was a subforum for people announcing their new
