@@ -4,7 +4,6 @@ name:             Oliver Eidel
 description:      "Oliver Eidel's Blog"
 url:              https://www.eidel.io
 author:           Oliver Eidel
-disqus_shortname: olieidel
 google_analytics: UA-70715341-1
 funny_quotes:
   - An App a Day keeps the Doctor at Play

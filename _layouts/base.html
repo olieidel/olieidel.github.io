@@ -22,10 +22,6 @@
         <div class="content">
           {{ content }}
         </div>
-        {% if page.disqus == 'y' %}
-        <hr />
-        {% include disqus.html %}
-        {% endif %}
       </div>
       <footer>
         <div class="muted" id="funny-quote">{{ site.funny_quotes.first }}</div>
