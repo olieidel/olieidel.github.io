@@ -7,6 +7,17 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### Managing for Results (Peter F. Drucker)
+
+I was quite excited after discovering Peter Drucker through The
+Effective Executive. This was another recommended book and I expected
+something similar. It is however much more technical and significantly
+harder to read. I suppose it's geared towards a much more business-y
+audience than me; for those people, I'd rather not recommend it.
+
+Maybe this helps you run an enterprise as CEO. For all normal business
+purposes, many of the other books here are more suitable.
+
 ### The Effective Executive (Peter F. Drucker)
 
 I expected a boring business book, boy was I wrong. Peter Drucker is
