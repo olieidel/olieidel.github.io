@@ -7,6 +7,65 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2019
 
+### Deep Medicine (Eric Topol)
+
+Eric Topol is a senior physician and summarizes current achievements
+in Machine / Deep Learning and how they could impact healthcare. He
+envisions a future in which a repetitive work is automated by
+algorithms and physicians have more time to spend with patients.
+
+While I share his passion about the hope of making healthcare more
+human again, I am less bullish on the impact of AI. I think we still
+have a really long way to go until truly useful applications will be
+in clinical practice, automating real work. Maybe it's possible with
+today's technology; in that case, his book is merely early and he's
+predicting the future. However, maybe it's not. In that case, we'll be
+heading into another AI winter and his book was overly optimistic.
+
+### Shape Up (Ryan Singer, Basecamp)
+
+Shape Up is an [online book][shape-up] by Basecamp about project
+management. Essentially, they have small teams work in six-week cycles
+while prioritizing shipping over scope. Would love to try out this
+method some time. A really good read in the typical, succinct
+Basecamp-style of writing.
+
+### The Start-up of You (Reid Hoffman)
+
+I expected a typical startup book but was pleasantly surprised. Sure,
+he's recommending to use LinkedIn every few pages, but his (other)
+advice is solid. He puts a lot of emphasis on personal networking and
+gives some actionable tips on how to do that successfully.
+
+### From Third World to First (Lee Kuan Yew)
+
+I was looking for read a book on Singapore as I was quite impressed
+how well-organized the country is. Obviously, the book by the ex -
+prime minister can expected to be biased it provides some interesting
+stories nonetheless.
+
+Three interesting takeaways for me:
+
+Their healthcare is funded through individual funds which each citizen
+has put aside (with contributions by employers); this is in alignment
+with the book The Innovator's Prescription which I read some time
+ago. In theory, this should provide much better incentives for
+limiting overuse and keeping healthcare costs low.
+
+While their model of governance has certain socialist aspects like
+government-subsidized housing and subsidized public infrastructure,
+they believe in capitalistic incentives for productivity, e.g. people
+are allowed to buy housing (at reduced prices).
+
+They heavily emphasize hiring the brightest people to work for the
+government. This reminded me of Jim Collins' books (Good to Great,
+Great by Choice), where he phrases it "First who, then what". This may
+sound obvious, but I don't see this happening in Germany. None of my
+bright friends is working anywhere close to government. But maybe I
+have a non-representative group of friends? A key factor is to have
+salaries which are comparable to the industry; that's certainly not
+the case for technology jobs here right now.
+
 ### Managing for Results (Peter F. Drucker)
 
 I was quite excited after discovering Peter Drucker through The
@@ -379,3 +438,4 @@ usage.
 [aaronsw-the-dark-knight]: http://www.aaronsw.com/weblog/tdk
 [aaronsw-cherish-mistakes]: http://www.aaronsw.com/weblog/geremiah
 [spenser]: https://spenser.xyz
+[shape-up]: https://basecamp.com/shapeup
