@@ -83,7 +83,7 @@ physically painful for me.
 
 On my way home, it occured to me that that was the only thing I could
 contribute. They seemed like a great bunch of people and that was my
-online way in. So I changed my mind and offered to write some frontend
+only way in. So I changed my mind and offered to write some frontend
 code until we'd have hired someone to take over.
 
 No one took over for quite some time.
