@@ -40,12 +40,16 @@ I developed a dating app called [Philter][philter]{:target="_blank"}
 (also offline by now) which lets you filter (haha) people close to you
 based on your answers to yes/no questions.
 
-I currently work at [Merantix][merantix]{:target="_blank"} where we
-develop medical software.
+I used to work at [Merantix][merantix]{:target="_blank"} (later
+[Merantix Healthcare][mxh]{:target="_blank"}) where we developed
+medical software. I was the first non-ML software engineer and doctor
+to join, built our software engineering team and got our product
+certified as a medical device. Those were good times.
 
-I'm a big fan of [Clojure][clojure]{:target="_blank"}. Chances are
-you'll run into me at one of the [Clojure
-Berlin][clojureberlin]{:target="_blank"} meetups.
+I left because I wanted to build new things again.
+
+Right now, I'm enjoying my freedom while freelancing, building things
+and finishing my pilot's license.
 
 
 <!-- links -->
@@ -58,3 +62,4 @@ Berlin][clojureberlin]{:target="_blank"} meetups.
 [clojure]: https://clojure.org
 [clojureberlin]: https://www.meetup.com/Clojure-Berlin/
 [merantix]: https://www.merantix.com
+[mxh]: https://www.varahealthcare.com
