@@ -5,7 +5,80 @@ title: Reading
 
 Books that I've read, in chronological order, some with comments.
 
+## 2020
+
+### Excellent Sheep (William Deresiewicz)
+
+An argument about how our society is headed downhill as it emphasizes
+objective results (grades, CVs) over building your
+character. Interesting to read this after having gone through med
+school.
+
+I generally agree that we've created a host of problems by only
+selecting students with good grades for med school. Those problems are
+invisible in the sense of not being "problems" per se - rather
+non-existing solutions due to non-original thinking.
+
+Take the system of publishing scientific findings: Academic journals
+with antiquated technology and paywalls. Imagine: If some of those
+loud, disruptive highschool kids (with crappy grades) would be doctors
+now, would we still be happily accepting crappy systems like these?
+
+### Adventures of a Bystander (Peter Drucker)
+
+An easy-to-read book with some great stories. A glimpse into what type
+of person Peter Drucker probably was. I really would have liked to
+meet him.
+
+### Taking to Strangers (Malcolm Gladwell)
+
+Apparently, we're terrible at "reading" the intentions of other humans
+if their behaviour deviates too far from what we're used to - or our
+past experiences have biased us. A cautionary tale about avoiding
+miscommunication.
+
+### Homo Deus (Yuval Noah Harari)
+
 ## 2019
+
+### (German) Startup-Recht (Jan Schnedler)
+
+A German book which attempts to summarize all relevant laws in an
+approachable way for startups and founders. It does a really good job
+at that - many of the facts presented would be news to the founders
+I've met so far. A must-read for would-be founders in Germany (if you
+can read German).
+
+### 12 Rules for Life (Jordan Peterson)
+
+I expected a tabloid-like book with some oversimplified psychological
+wisdom but was quite pleasantly surprised. It's well-written and the
+points made are backed up with good arguments.
+
+While I don't agree with all opinions of Jordan Peterson, I have a lot
+of respect for strongly opinionated people who stand their ground and
+root their opinions in scientific results. Jordan Peterson is one of
+those.
+
+### (German) Steuerwissen2go: Crashkurs Steuern für Kleinunternehmen und Freiberufler (Andreas Görlich)
+
+A great German book on our complicated tax system. It does a good job
+of reducing complexity and explaining things in simple language.
+
+### (German) Existenzgründung - Schritt für Schritt (Benjamin Michels)
+
+A German book on founding your own business. I expected more in-depth
+facts on regulations and laws. It was way more generic than that. If
+you've worked at a startup and have been exposed to some business
+stuff, probably not worthwhile reading.
+
+### Competing Against Luck (Clayton Christensen)
+
+In my opinion, the main reason why startups fail is that they build
+the wrong thing. Many people seem to overlook this and blame it on
+other symptoms instead, e.g. running out of money. This book is about
+building the right thing. There don't seem to be many other books on
+this topic which "get it". This one does. A very worthwhile read.
 
 ### Deep Medicine (Eric Topol)
 
