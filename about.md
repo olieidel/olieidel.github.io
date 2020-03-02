@@ -59,7 +59,5 @@ and finishing my pilot's license.
 [nofapp]: https://play.google.com/store/apps/details?id=com.betterarguruments.nofapp
 [phellowseven]: https://phellowseven.com
 [philter]: https://www.philter.in
-[clojure]: https://clojure.org
-[clojureberlin]: https://www.meetup.com/Clojure-Berlin/
 [merantix]: https://www.merantix.com
 [mxh]: https://www.varahealthcare.com
