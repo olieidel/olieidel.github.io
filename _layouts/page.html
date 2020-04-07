@@ -2,7 +2,12 @@
 layout: base
 ---
 
-<div class="post-title">
-  <h1>{{ page.title }}</h1>
-</div>
-{{ content }}
+<article class="mt-4 mx-3">
+  <div class="py-6 border-t border-b border-gray-500">
+    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">{{ page.title }}</h1>
+  </div>
+
+  <article class="post mt-6">
+    {{ content }}
+  </article>
+</article>
