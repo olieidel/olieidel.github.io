@@ -30,3 +30,4 @@ kramdown:
 
 plugins:
   - jekyll-feed
+  - jekyll-inline-svg
