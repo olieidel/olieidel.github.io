@@ -11,25 +11,37 @@
   author=site.author
   title=title %}
 
-  <body>
-    <div class="root-container">
-      <header>
-        <div class="muted"><a href="/">{{ site.title }}</a></div>
-      </header>
-      <div class="main-container">
-        {% include menu.html %}
-        <hr />
-        <div class="content">
-          {{ content }}
-        </div>
-      </div>
+  <body class="text-gray-400 gradient-dark">
+    <div id="main-overlay" class="mx-auto max-w-2xl mt-8 px-5 py-3 frosted-overlay rounded shadow-xl">
+      {% include menu.html %}
+      <main>
+        {{ content }}
+      </main>
       <footer>
-        <div class="muted" id="funny-quote">{{ site.funny_quotes.first }}</div>
+        <div class="text-xs text-gray-500 text-center" id="funny-quote">{{ site.funny_quotes.first }}</div>
       </footer>
+    </div>
+    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
+      <a id="look-behind" href="#">Look behind</a>
+    </div>
+    <div class="mx-auto h-screen flex items-center justify-center text-xs text-gray-800 text-center" style="display:none" id="show-content-container">
+      <a id="show-content" href="#">Ah, cool</a>
     </div>
   </body>
 
   <script type="text/javascript">
+   $('#look-behind').on('click', function() {
+     $('#look-behind-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#show-content-container').show();
+   });
+
+   $('#show-content').on('click', function() {
+     $('#show-content-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#look-behind-container').show();
+   });
+
    // We'll respect non-js people by having the first quote in the
    // HTML DOM at the beginning
    var funnyQuotes = {{ site.funny_quotes | jsonify }};

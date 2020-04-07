@@ -1,7 +1,17 @@
-<div class="menu">
-  <ul>
-  {% for link in site.links %}
-    <li><a target="{% if link.external %}_blank{% endif %}" href="{{ link.url }}">{{ link.name }}</a></li>
-  {% endfor %}
+<nav class="flex flex-row items-center mx-3 mb-6 pt-2 pb-4 border-b border-gray-500">
+  <div class="w-20">
+    <a class="text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+      <div>Oliver</div>
+      <div>Eidel</div>
+    </a>
+  </div>
+  <ul class="flex-1 flex flex-row justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+    <li class="mx-2"><a class="hover:text-white" href="/">Home</a></li>
+    <li class="mx-2"><a class="hover:text-white" href="/">About</a></li>
+    <li class="mx-2"><a class="hover:text-white" href="/">Talks</a></li>
+    <li class="mx-2"><a class="hover:text-white" href="/">Reading</a></li>
   </ul>
-</div>
+  <div class="w-20 text-right">
+    <span class="text-xs text-white uppercase">Icons</span>
+  </div>
+</nav>

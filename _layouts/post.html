@@ -2,10 +2,14 @@
 layout: base
 ---
 
-<div class="post-title">
-  <div class="post-date">{{ page.date | date_to_string }}</div>
-  <h1>{{ page.title }}</h1>
-</div>
-{{ content }}
-<hr />
+<article class="mx-3">
+  <div class="pb-6 border-b border-gray-500">
+    <div class="text-xs text-center text-gray-400 uppercase leading-tight">{{ page.date | date_to_string }}</div>
+    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">{{ page.title }}</h1>
+  </div>
+
+  <article class="post mt-6">
+    {{ content }}
+  </article>
+</article>
 {% include mailchimp.html %}
