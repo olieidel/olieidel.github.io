@@ -39,7 +39,7 @@ article {
     ol { @apply mt-3 list-decimal; }
     ul { @apply mt-3 list-disc; }
     li {
-      @apply ml-6;
+      @apply ml-6 text-gray-200;
       > ul { @apply mt-0; }
     }
     hr { @apply mt-6 border-gray-500; }
