@@ -1,58 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% if layout.title == 'index' %}
-  {% assign title = site.title %}
-  {% else %}
-  {% assign title = page.title %}
-  {% endif %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% include head.html
-  description=site.description
-  author=site.author
-  title=title %}
+    <!-- Atom Feed -->
+    {% feed_meta %}
 
-  <body class="text-gray-200 gradient-dark">
-    <div id="main-overlay" class="mx-auto max-w-2xl mt-8 px-5 py-3 frosted-overlay rounded shadow-xl">
+    <!-- SEO -->
+    {% seo %}
+
+    <!-- CSS and Fonts -->
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {% if jekyll.environment == 'production' %}
+    {% include google_analytics.html %}
+    {% include smartlook.html %}
+    {% endif %}
+  </head>
+
+  <body class="text-gray-200 bg-image">
+    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
       {% include menu.html %}
       <main>
         {{ content }}
       </main>
-      <footer>
-        <div class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">{{ site.funny_quotes.first }}</div>
-      </footer>
+      {% include footer_funny_quote.html %}
     </div>
-    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
-      <a id="look-behind" href="#">What's behind this?</a>
-    </div>
-    <div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
-      <section class="max-w-lg text-white text-center leading-tight">
-        <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
-        <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
-        <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
-        <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
-    </div>
+    {% include look_behind_image_credits.html %}
   </body>
-
-  <script type="text/javascript">
-   $('#look-behind').on('click', function() {
-     $('#look-behind-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#show-content-container').show();
-   });
-
-   $('#show-content').on('click', function() {
-     $('#show-content-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#look-behind-container').show();
-   });
-
-   // We'll respect non-js people by having the first quote in the
-   // HTML DOM at the beginning
-   var funnyQuotes = {{ site.funny_quotes | jsonify }};
-   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
-   var footerEl = document.getElementById('funny-quote');
-   footerEl.innerHTML = randomFunnyQuote;
-  </script>
-
-  {% include google_analytics.html %}
 </html>

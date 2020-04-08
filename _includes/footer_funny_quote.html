@@ -1,0 +1,12 @@
+<footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">{{ site.funny_quotes.first }}</footer>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   // We'll respect non-js people by having the first quote in the
+   // HTML DOM at the beginning
+   var funnyQuotes = {{ site.funny_quotes | jsonify }};
+   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+   var footerEl = document.getElementById('funny-quote');
+   footerEl.innerHTML = randomFunnyQuote;
+ });
+</script>

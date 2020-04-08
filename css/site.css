@@ -7,23 +7,23 @@
 
 /* Write your styles below this line. */
 
-.gradient-dark {
-  /* background: linear-gradient(-35deg, #1a202c, #718096); */
+.bg-image {
+  /* This linear gradient was a candidate, too. Consider using it while background image loads */
   /* background-image: linear-gradient(145deg, rgb(182, 244, 146), rgb(51, 139, 147)); */
   background: url("/images/background.jpg") no-repeat center center fixed;
   background-size: cover;
-  /* background-attachment: fixed; */
 }
 
-.frosted-overlay {
+.overlay-frosted {
   background-color: rgba(45, 55, 72, 0.95);
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .frosted-overlay {
+  .overlay-frosted {
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     background-color: rgba(45, 55, 72, 0.7);
+    /* Here's how it could look for light mode */
     /* background-color: rgba(255, 255, 255, 0.7); */
   }
 }
