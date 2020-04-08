@@ -5,23 +5,13 @@ description:      "Oliver Eidel's Blog"
 url:              https://www.eidel.io
 author:           Oliver Eidel
 google_analytics: UA-70715341-1
+smartlook:        c9c5a6df7647642a0876dbf981a16ef0c8351236
 funny_quotes:
   - An App a Day keeps the Doctor away.
   - Better a doctor working as a programmer than a programmer working as a doctor.
   - "You can teach yourself to code but you can't teach yourself medicine."
   - "A Quality Management System won't save you from writing crappy software."
 
-links:
-  - name:         Home
-    url:          /
-  - name:         About
-    url:          /about
-  - name:         Talks
-    url:          /talks
-  - name:         Publications
-    url:          /publications
-  - name:         Reading
-    url:          /reading
 permalink:        pretty
 markdown:         kramdown
 kramdown:
@@ -31,3 +21,18 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
+  - jekyll-postcss
+  - jekyll-purgecss
+  - jekyll-seo-tag
+
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules
+  - package.json
+  - postcss.config.js
+  - purgecss.config.js
+  - README.md
+  - yarn.lock
