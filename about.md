@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About
 ---
 
 Hello! I am Oliver. I am a Medical Doctor, Software Engineer and
