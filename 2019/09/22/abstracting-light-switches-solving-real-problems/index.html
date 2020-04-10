@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Atom Feed -->
+    <link type="application/atom+xml" rel="alternate" href="https://www.eidel.io/feed.xml" title="Oliver Eidel" />
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Abstracting Light Switches: How to Solve Real Problems | Oliver Eidel</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Abstracting Light Switches: How to Solve Real Problems" />
+<meta name="author" content="Oliver Eidel" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Zigbee-enabled light bulbs. Wifi-connected air purifiers. Autonomous thermostats. The smart home. Great technology. And just like with machine learning and blockchain, we humans don’t quite know yet what to do with it yet." />
+<meta property="og:description" content="Zigbee-enabled light bulbs. Wifi-connected air purifiers. Autonomous thermostats. The smart home. Great technology. And just like with machine learning and blockchain, we humans don’t quite know yet what to do with it yet." />
+<link rel="canonical" href="https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/" />
+<meta property="og:url" content="https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/" />
+<meta property="og:site_name" content="Oliver Eidel" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-22T14:00:00+02:00" />
+<script type="application/ld+json">
+{"url":"https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/","headline":"Abstracting Light Switches: How to Solve Real Problems","dateModified":"2019-09-22T14:00:00+02:00","datePublished":"2019-09-22T14:00:00+02:00","description":"Zigbee-enabled light bulbs. Wifi-connected air purifiers. Autonomous thermostats. The smart home. Great technology. And just like with machine learning and blockchain, we humans don’t quite know yet what to do with it yet.","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- CSS and Fonts -->
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'UA-70715341-1', {anonymize_ip: true });
+</script>
+
+    <script type='text/javascript'>
+ window.smartlook||(function(d) {
+   var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+   var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+   c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+ })(document);
+ smartlook('init', 'c9c5a6df7647642a0876dbf981a16ef0c8351236');
+</script>
+
+    
+  </head>
+
+  <body class="text-gray-200 bg-image">
+    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
+      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
+  <div class="sm:w-20">
+    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+      <div>Oliver</div>
+      <div class="ml-2 sm:ml-0">Eidel</div>
+    </a>
+  </div>
+  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
+  </ul>
+  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+</svg></a>
+  </div>
+</nav>
+
+      <main>
+        <article class="mt-4 mx-3">
+  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
+    <div class="text-xs text-center text-gray-400 uppercase leading-tight">22 Sep 2019</div>
+    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">Abstracting Light Switches: How to Solve Real Problems</h1>
+  </div>
+
+  <article class="post mt-6">
+    <p>Zigbee-enabled light bulbs. Wifi-connected air purifiers. Autonomous
+thermostats. The smart home. Great technology. And just like with
+machine learning and blockchain, we humans don’t quite know yet what
+to do with it yet.</p>
+
+<p>Similar to those technologies, the smart home offers solutions for
+non-existent problems. Now I can control my light bulbs from an app
+instead through a light switch. But wait.. wasn’t I faster using the
+switch? But having another app is great, I guess. Oh well.</p>
+
+<p>When I moved to Berlin, I took great care in replacing all light bulbs
+and thermostats with their smart equivalents. Then, I spun up <a href="https://www.home-assistant.io">home
+assistant</a> on a raspberry pi and, four weekends later, had connected
+everything to it. And now, finally, time to code some clever
+automations so that my home deserves the name smart home!</p>
+
+<p>So let’s get started. Let’s make a list of things to automate!</p>
+
+<p>Hm.</p>
+
+<p>Maybe not a list.. what would the first thing be to automate?</p>
+
+<p>Hm.</p>
+
+<p>Anything?</p>
+
+<p>Empty thoughts.</p>
+
+<p>Just like with machine learning and blockchain, using a certain
+technology as starting point and looking for problems to solve is a
+haphazard approach. It’s the reason machine learning startups are
+doomed to fail unless they take a step back and start by identifying a
+real problem to solve first.</p>
+
+<p>And just like databases and the internet were exciting technologies in
+the past, machine learning and blockchain are exciting technologies of
+the present. But a technology in itself isn’t a business. Solving a
+problem is a business. And when trying to solve problems, technology
+can help you a great deal.</p>
+
+<p>Think about it - can you think of any “We build something cool with
+Internet Technology” startup which survived the dot-com bubble? How
+about “Database Technology” startups in the decade before that?</p>
+
+<p>No. We must start by identifying problems and only then are we allowed
+to look around for great technology to solve it with.</p>
+
+<p>Great quote on this topic from a guy at Apple:</p>
+
+<blockquote>
+  <p>And, one of the things I’ve always found is that you’ve got to start
+with the customer experience and work backwards for the
+technology. You can’t start with the technology and try to figure
+out where you’re going to try to sell it. And I made this mistake
+probably more than anybody else in this room. And I got the scar
+tissue to prove it.</p>
+</blockquote>
+
+<p><em>(Steve Jobs, 1997)</em></p>
+
+<p>Armed with Steve Jobs wisdom, how do we fix my smart home problem?
+Three steps.</p>
+
+<ol>
+  <li><strong>Forget the technology for a moment:</strong> Power down the raspberry pi.</li>
+  <li><strong>Observe:</strong> Observe what I do at home.</li>
+  <li><strong>Identify problems:</strong> Identify things which are problematic and/or
+repetitive.</li>
+</ol>
+
+<p>Perhaps these steps could be even more generalized and would save a
+startup or two out there from building products which don’t solve any
+real problems.</p>
+
+<p>Onwards. Power down the raspberry pi. Step one complete. Step two. I
+observed myself for a few days. It’s crucial to do this for multiple
+days to identify the repetitive things.</p>
+
+<p>Step three. I identified these things which I did repeatedly:</p>
+
+<ol>
+  <li>Turn lights on when I come home in the evening, setting them to
+a warm temperature and dimming them a bit.</li>
+  <li>An hour before bed, dim the lights.</li>
+  <li>Turn all lights off just before sleeping.</li>
+  <li>Turn lights on when getting up for breakfast, setting them to a
+cold temperatue and full brightness.</li>
+  <li>Turn all lights off before leaving the house.</li>
+</ol>
+
+<p>And not only did I identify repetitive tasks, I also found some
+problems:</p>
+
+<ol>
+  <li>In rare cases, I forgot to switch off a light before leaving the
+house.</li>
+  <li>When going on vacation, I sometimes wasn’t sure whether I had
+turned all thermostats off (i.e. the heating, those knobs on the
+radiators here in Germany).</li>
+</ol>
+
+<p>I now was armed with a list of things of problems and repetitive
+actions. And I already knew of a technology which could solve it - my
+raspberry pi and home assistant. If this were a business, I suppose
+this would be the point at which you and your co-founder start working
+like crazy.</p>
+
+<p>But this was just my smart home. So I booted the raspberry pi back up
+and started hacking. And once the problems I was trying to solve were
+clear, writing the code suddenly became a minor task.</p>
+
+<p>Let’s look at my solution:</p>
+
+<ol>
+  <li>I created different lighting scenes for my flat as home assistant
+scripts. “Evening lighting” (warm white, dimmed slightly), “Night
+lighting” (warm white, heavily dimmed, some bulbs off) and
+“Morning lighting” (cold white, full brightness, only in kitchen
+and bathroom). I can manually trigger these from all my devices
+via the home assistant webapp.</li>
+  <li>I added a trigger which runs every time my bathroom light is
+turned on, checks the time and changes the color temperature and
+brightness accordingly. So, every time I turn the light on in my
+bathroom (it still has a switch), the color temperature adjusts
+based on the time of day. No need to fiddle with my phone.</li>
+  <li>When my phone re-connects to wifi <em>and</em> it’s in the evening
+<em>and</em> the sun has set, execute the lighting scene “Evening
+lighting”. So this detects when I come home in the evening and
+lights up my flat even before I’ve reached my door.</li>
+  <li>When my phone disconnects from wifi, turn all lights off. This
+assumes that I’ve left the house and in case I’ve left any lights
+on, they’re turned off.</li>
+  <li>Create a script which turns all thermostats to the “off” position.</li>
+</ol>
+
+<p>Problems solved! I hope Mr. Jobs would approve. I put the customer
+experience first.</p>
+
+<p>And like with every great technology-based solution, I’ve introduced
+some new problems:</p>
+
+<ol>
+  <li>When I run OS updates on my phone in the evening, it reboots,
+disconnects from the wifi and.. guess what? All lights turn
+off. Recently, there was an especially hilarious situation where I
+turned my phone off to carefully put on a new screen protector. I
+turned my phone off for that. Just as I was about to lower the
+sticky side onto the display, my flat went dark.</li>
+  <li>If I take a nap in the evening and switch my phone to airplane
+mode and later turn it back on, all lights go on. This startled me
+as I was expecting to slowly wake up by turning only my bedroom
+lights on.</li>
+  <li>When trying to clean my bathroom in the evening, I need some
+bright light. But it always sets itself to dim, warm light because
+it’s in the evening. So I have to disable the trigger which
+adjusts its color temperature. It’s funny when you start battling
+your own home automation.</li>
+</ol>
+
+<p>This was a fun and instructive experience. I wouldn’t have expected to
+be forced to identify and solve real problems before diving deep into
+technology. And I’m sure certain aspects of my experience generalize
+well to building great products.</p>
+
+<!-- Links -->
+
+  </article>
+</article>
+<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
+  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+
+  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+
+  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+  </form>
+</section>
+
+
+      </main>
+      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   // We'll respect non-js people by having the first quote in the
+   // HTML DOM at the beginning
+   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
+   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+   var footerEl = document.getElementById('funny-quote');
+   footerEl.innerHTML = randomFunnyQuote;
+ });
+</script>
+
+    </div>
+    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
+  <a id="look-behind" href="#">What's behind this?</a>
+</div>
+<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
+  <section class="max-w-lg text-white text-center leading-tight">
+    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
+    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
+    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
+    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
+</div>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('#look-behind').on('click', function() {
+     $('#look-behind-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#show-content-container').show();
+   });
+
+   $('#show-content').on('click', function() {
+     $('#show-content-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#look-behind-container').show();
+   });
+ });
+</script>
+
+  </body>
+</html>

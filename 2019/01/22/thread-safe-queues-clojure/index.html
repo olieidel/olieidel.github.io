@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Atom Feed -->
+    <link type="application/atom+xml" rel="alternate" href="https://www.eidel.io/feed.xml" title="Oliver Eidel" />
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Thread-safe queues in Clojure | Oliver Eidel</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Thread-safe queues in Clojure" />
+<meta name="author" content="Oliver Eidel" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Imagine the following: You have a pool of workers. Each worker should get an item from a queue and process it." />
+<meta property="og:description" content="Imagine the following: You have a pool of workers. Each worker should get an item from a queue and process it." />
+<link rel="canonical" href="https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/" />
+<meta property="og:url" content="https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/" />
+<meta property="og:site_name" content="Oliver Eidel" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-22T09:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/","headline":"Thread-safe queues in Clojure","dateModified":"2019-01-22T09:00:00+01:00","datePublished":"2019-01-22T09:00:00+01:00","description":"Imagine the following: You have a pool of workers. Each worker should get an item from a queue and process it.","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- CSS and Fonts -->
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'UA-70715341-1', {anonymize_ip: true });
+</script>
+
+    <script type='text/javascript'>
+ window.smartlook||(function(d) {
+   var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+   var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+   c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+ })(document);
+ smartlook('init', 'c9c5a6df7647642a0876dbf981a16ef0c8351236');
+</script>
+
+    
+  </head>
+
+  <body class="text-gray-200 bg-image">
+    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
+      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
+  <div class="sm:w-20">
+    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+      <div>Oliver</div>
+      <div class="ml-2 sm:ml-0">Eidel</div>
+    </a>
+  </div>
+  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
+  </ul>
+  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+</svg></a>
+  </div>
+</nav>
+
+      <main>
+        <article class="mt-4 mx-3">
+  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
+    <div class="text-xs text-center text-gray-400 uppercase leading-tight">22 Jan 2019</div>
+    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">Thread-safe queues in Clojure</h1>
+  </div>
+
+  <article class="post mt-6">
+    <p>Imagine the following: You have a pool of workers. Each worker should
+get an item from a queue and process it.</p>
+
+<h2 id="using-workers-from-coreasync">Using “workers” from core.async</h2>
+
+<p>Great! How do we launch those workers? Let’s use <code class="highlighter-rouge">core.async</code> for
+that, specifically <code class="highlighter-rouge">go</code>:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">'</span><span class="p">[</span><span class="n">clojure.core.async</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">async</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="p">[</span><span class="n">go</span><span class="p">]])</span><span class="w">
+
+</span><span class="p">(</span><span class="nb">dotimes</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">go</span><span class="w">
+    </span><span class="p">(</span><span class="nb">println</span><span class="w"> </span><span class="s">"Processing"</span><span class="w"> </span><span class="n">i</span><span class="p">)))</span><span class="w">
+</span></code></pre></div></div>
+
+<p>By the way, <code class="highlighter-rouge">core.async</code> has a fixed-size thread pool of 8 workers,
+but that’s stuff for another post.</p>
+
+<p>Every time <code class="highlighter-rouge">dotimes</code> runs with a new value of <code class="highlighter-rouge">i</code>, it starts a new
+<code class="highlighter-rouge">go</code>-block, simulating an asynchronous job running on the thread
+pool. The <code class="highlighter-rouge">go</code> will return immediately, more specifically, it will
+return a channel.</p>
+
+<p>This will print <code class="highlighter-rouge">Processing 0</code>, <code class="highlighter-rouge">Processing 1</code>, etc. to the
+console. Those <code class="highlighter-rouge">Processing</code> lines will appear almost at the same
+time. They won’t be in the correct order though. That’s fine.</p>
+
+<p>Now we want to keep track of completed jobs. How can we accomplish
+that?</p>
+
+<h2 id="keeping-track-of-completed-jobs">Keeping track of completed jobs</h2>
+
+<p>Let’s introduce a vector in an atom to keep track of completed jobs:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">completed</span><span class="w"> </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">[])]</span><span class="w">
+  </span><span class="p">(</span><span class="nb">dotimes</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span><span class="w">
+    </span><span class="p">(</span><span class="nf">go</span><span class="w">
+      </span><span class="p">(</span><span class="nf">swap!</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nb">conj</span><span class="w"> </span><span class="n">i</span><span class="p">)))</span><span class="w">
+
+  </span><span class="c1">;; hacky! don't do this at home. wait for the workers to finish</span><span class="w">
+  </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">
+
+  </span><span class="c1">;; return the value of the atom by dereferencing it</span><span class="w">
+  </span><span class="o">@</span><span class="n">completed</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>After each job is completed in a <code class="highlighter-rouge">go</code> block, we add its index <code class="highlighter-rouge">i</code> to
+the <code class="highlighter-rouge">completed</code> vector. <code class="highlighter-rouge">conj</code>ing to a vector adds it to the end of it
+so that’s perfect for us. We wait a few milliseconds (100) for the
+workers to finish, then return the value of the atom by dereferencing
+it with <code class="highlighter-rouge">@</code>.</p>
+
+<p>Running this would yield an output like this:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>No surprises there. All jobs defined by the index <code class="highlighter-rouge">i</code> get done.</p>
+
+<p>What if you want to process a queue of arbitrary things, not integer
+indices like in our example?</p>
+
+<p>If your items are known from the start, it’s easy: You could replace
+<code class="highlighter-rouge">dotimes</code> above with <code class="highlighter-rouge">doseq</code> and replace <code class="highlighter-rouge">10</code> with your collection,
+e.g. <code class="highlighter-rouge">(range 10)</code>. A better and more elegant way would be using
+<a href="https://clojuredocs.org/clojure.core.async/pipeline">pipeline</a> (material for another post, again).</p>
+
+<h2 id="using-atoms-to-keep-track-of-jobs-to-be-done">Using atoms to keep track of jobs-to-be-done?</h2>
+
+<p>But what if not all of your items are known from the start? Then,
+things get hairy. Consider this:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; don't use this!</span><span class="w">
+</span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">queue</span><span class="w">     </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">(</span><span class="nf">vec</span><span class="w"> </span><span class="p">(</span><span class="nb">range</span><span class="w"> </span><span class="mi">20</span><span class="p">)))</span><span class="w">
+      </span><span class="n">completed</span><span class="w"> </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">[])]</span><span class="w">
+    </span><span class="p">(</span><span class="nb">dotimes</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="p">(</span><span class="nb">count</span><span class="w"> </span><span class="o">@</span><span class="n">queue</span><span class="p">)]</span><span class="w">
+      </span><span class="p">(</span><span class="nf">go</span><span class="w">
+        </span><span class="c1">;; get the first item off the "queue"</span><span class="w">
+        </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="nb">peek</span><span class="w"> </span><span class="o">@</span><span class="n">queue</span><span class="p">)]</span><span class="w">
+          </span><span class="c1">;; simulate some light work which takes 2ms</span><span class="w">
+          </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">
+          </span><span class="c1">;; add the item to the vector of completed items</span><span class="w">
+          </span><span class="p">(</span><span class="nf">swap!</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nb">conj</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w">
+          </span><span class="c1">;; update the queue by removing this item from it</span><span class="w">
+          </span><span class="p">(</span><span class="nf">swap!</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="nb">pop</span><span class="p">))))</span><span class="w">
+
+    </span><span class="c1">;; hacky! wait for workers to finish</span><span class="w">
+    </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1">;; return the completed items</span><span class="w">
+    </span><span class="o">@</span><span class="n">completed</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Do you see the problem? Have a look at this output:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Oh god! What happened?</p>
+
+<p>The first worker peeked at the queue and got the value <code class="highlighter-rouge">19</code>. Then, it
+started “processing” it (via <code class="highlighter-rouge">Thead/sleep</code>) which took 2ms. In the
+meantime, the second worker peeked at the queue which was still
+unchanged and got the value <code class="highlighter-rouge">19</code>. It also started processing it for
+2ms.</p>
+
+<p>When the first worker was done, it <code class="highlighter-rouge">swap!</code>ed the queue and <code class="highlighter-rouge">pop</code>ped
+it, removing 19. Shortly after, the second worker was done, also
+<code class="highlighter-rouge">pop</code>ped it, removing 18.</p>
+
+<p>Wait, now 18 wasn’t processed at all - woops.</p>
+
+<h2 id="atomic-popping">Atomic Popping?</h2>
+
+<p>The problem here is that the <code class="highlighter-rouge">peek</code> and <code class="highlighter-rouge">pop</code> operation should execute
+atomically, i.e. we want to pop but also receive the value which we
+have popped off the queue.</p>
+
+<p>You may now think “but if we move the <code class="highlighter-rouge">swap!</code> just below the <code class="highlighter-rouge">peek</code>,
+then we’re fine!” - nope, sadly we don’t get any guarantee that those
+two statements are executed with nothing in between.</p>
+
+<h2 id="languages-with-mutability">Languages with Mutability</h2>
+
+<p>Thinking about this, in programming languages with mutability, this is
+fairly easy. Python and Java have queue data types which remove and
+return an item at once, mutating the queue. With Clojure’s immutable
+data structures, this actually is a bit tricky.</p>
+
+<h2 id="solve-it-with-refs-and-stm">Solve it with <code class="highlighter-rouge">ref</code>s and STM?</h2>
+
+<p>Our problem boils down to “we want to peek at a queue and pop it at
+once”. Could Clojure’s STM with <code class="highlighter-rouge">ref</code>s solve this problem?</p>
+
+<p>Let’s give it a go. The changes are straightforward which is a
+compliment to Clojure’s language design. We exchange our <code class="highlighter-rouge">atom</code> for a
+<code class="highlighter-rouge">ref</code> and the <code class="highlighter-rouge">swap!</code>s for <code class="highlighter-rouge">alter</code>s. Further, we wrap the operation
+which should run “at once” in <code class="highlighter-rouge">dosync</code>:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; don't use this!</span><span class="w">
+</span><span class="c1">;; note that `queue` is now a `ref`</span><span class="w">
+</span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">queue</span><span class="w">     </span><span class="p">(</span><span class="nb">ref</span><span class="w"> </span><span class="p">(</span><span class="nf">vec</span><span class="w"> </span><span class="p">(</span><span class="nb">range</span><span class="w"> </span><span class="mi">20</span><span class="p">)))</span><span class="w">
+      </span><span class="n">completed</span><span class="w"> </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">[])]</span><span class="w">
+    </span><span class="p">(</span><span class="nb">dotimes</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="p">(</span><span class="nb">count</span><span class="w"> </span><span class="o">@</span><span class="n">queue</span><span class="p">)]</span><span class="w">
+      </span><span class="p">(</span><span class="nf">go</span><span class="w">
+        </span><span class="c1">;; get the first item off the "queue"</span><span class="w">
+        </span><span class="c1">;; refs can also be dereferenced, just like atoms</span><span class="w">
+        </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="nb">peek</span><span class="w"> </span><span class="o">@</span><span class="n">queue</span><span class="p">)]</span><span class="w">
+          </span><span class="c1">;; use dosync here</span><span class="w">
+          </span><span class="p">(</span><span class="nb">dosync</span><span class="w">
+            </span><span class="c1">;; simulate some light work which takes 2ms</span><span class="w">
+            </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">
+            </span><span class="c1">;; add the item to the vector of completed items</span><span class="w">
+            </span><span class="p">(</span><span class="nf">swap!</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nb">conj</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w">
+            </span><span class="c1">;; update the queue by removing this item from it</span><span class="w">
+            </span><span class="p">(</span><span class="nb">alter</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="nb">pop</span><span class="p">)))))</span><span class="w">
+
+    </span><span class="c1">;; hacky! wait for workers to finish</span><span class="w">
+    </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1">;; return the completed items</span><span class="w">
+    </span><span class="o">@</span><span class="n">completed</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Looks good? Here’s the output:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="n">...</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It didn’t work again but in a different way (um.. progress?).</p>
+
+<p>STM allows us to maintain “integrity” <em>between</em> <code class="highlighter-rouge">ref</code>s. So if you
+would be running bank transactions, you’d want to use <code class="highlighter-rouge">ref</code>s as hey
+would ensure that any time you deduct money from an account you also
+successfully deposit it in another.</p>
+
+<p>Our use case is different though: We just want to peek and pop at once
+from a single <code class="highlighter-rouge">ref</code>. This is not a problem for <code class="highlighter-rouge">ref</code>s to solve.</p>
+
+<p>Side note: I’m not an STM / Clojure <code class="highlighter-rouge">ref</code> expert. It would be
+interesting to understand the differences of the past two
+examples. Also, replacing <code class="highlighter-rouge">alter</code> with <code class="highlighter-rouge">commute</code> changes things in yet
+another way. Fascinating.</p>
+
+<h2 id="taking-a-step-back">Taking a Step Back</h2>
+
+<p>Pondering this problem, it boils down to this:</p>
+
+<ul>
+  <li>Clojure’s data structures are immutable</li>
+  <li>An <code class="highlighter-rouge">atom</code> is the recommended way of storing data which can be
+accessed in a shared way (by multiple workers)</li>
+  <li>Due to immutability, we can’t <code class="highlighter-rouge">peek</code> and <code class="highlighter-rouge">pop</code> at the same time</li>
+</ul>
+
+<p>So how can we <code class="highlighter-rouge">peek</code> and <code class="highlighter-rouge">pop</code> on an atom at the same time?</p>
+
+<p>Turns out, <code class="highlighter-rouge">clojure.core</code> has us covered! With <code class="highlighter-rouge">swap-vals!</code>, we can
+get both the old and new value of an atom. This is how it works:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">def</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">]))</span><span class="w">
+</span><span class="p">(</span><span class="nf">swap-vals!</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="nb">pop</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Which returns:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">swap-vals!</code> returns a vector in which the first item is the old value
+of the atom and the second one is the new value. If we call <code class="highlighter-rouge">pop</code> on
+<code class="highlighter-rouge">queue</code> above, we can easily see that the popped item of the old queue
+is <code class="highlighter-rouge">0</code> (it’s missing in the new queue), we just would have to call
+<code class="highlighter-rouge">first</code> on it the old one to peek.</p>
+
+<p>With this in mind, let’s fix our code:</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">;; correct solution</span><span class="w">
+</span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[</span><span class="n">queue</span><span class="w">     </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">(</span><span class="nf">vec</span><span class="w"> </span><span class="p">(</span><span class="nb">range</span><span class="w"> </span><span class="mi">20</span><span class="p">)))</span><span class="w">
+      </span><span class="n">completed</span><span class="w"> </span><span class="p">(</span><span class="nf">atom</span><span class="w"> </span><span class="p">[])]</span><span class="w">
+    </span><span class="p">(</span><span class="nb">dotimes</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="p">(</span><span class="nb">count</span><span class="w"> </span><span class="o">@</span><span class="n">queue</span><span class="p">)]</span><span class="w">
+      </span><span class="p">(</span><span class="nf">go</span><span class="w">
+        </span><span class="c1">;; change the queue by popping it. also get the old</span><span class="w">
+        </span><span class="c1">;; queue. from the old queue, get the first item</span><span class="w">
+        </span><span class="c1">;; which is the item we want to process</span><span class="w">
+        </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">[[</span><span class="n">old</span><span class="w"> </span><span class="nb">new</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nf">swap-vals!</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="nb">pop</span><span class="p">)</span><span class="w">
+              </span><span class="n">item</span><span class="w"> </span><span class="p">(</span><span class="nb">peek</span><span class="w"> </span><span class="n">old</span><span class="p">)]</span><span class="w">
+          </span><span class="c1">;; simulate some light work which takes 2ms</span><span class="w">
+          </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">
+          </span><span class="c1">;; add the item to the vector of completed items</span><span class="w">
+          </span><span class="p">(</span><span class="nf">swap!</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nb">conj</span><span class="w"> </span><span class="n">item</span><span class="p">))))</span><span class="w">
+
+    </span><span class="c1">;; hacky! wait for workers to finish</span><span class="w">
+    </span><span class="p">(</span><span class="nf">Thread/sleep</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">
+
+    </span><span class="c1">;; return the completed items</span><span class="w">
+    </span><span class="o">@</span><span class="n">completed</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>What’s the result?</p>
+
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">15</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Awesome! We’re done :)</p>
+
+<p>Well, not quite. There are still some improvements.</p>
+
+<h2 id="improvement-use-clojurelangpersistentqueue">Improvement: Use clojure.lang.PersistentQueue</h2>
+
+<p>So far we’ve been (mis-)using a vector as queue. Did you know that
+Clojure has a queue data type?</p>
+
+<p>You can create an empty queue by calling
+<code class="highlighter-rouge">(clojure.lang.PersistentQueue/EMPTY)</code>. It supports <code class="highlighter-rouge">peek</code> and <code class="highlighter-rouge">pop</code>.</p>
+
+<p>It’s also a persistent and immutable data structure so you’ll still
+have to wrap it in an <code class="highlighter-rouge">atom</code> and use the <code class="highlighter-rouge">swap-vals!</code> approach :)</p>
+
+<h2 id="alternative-use-a-java-queue">Alternative: Use a Java Queue</h2>
+
+<p>If you feel like venturing out into the dangerous forest of
+Mutability, you could use a Java Queue.</p>
+
+<p>The ClojureScript compiler actually does that. When you specify
+<code class="highlighter-rouge">:parallel-build true</code> in the build options, in constructs a
+<code class="highlighter-rouge">LinkedBlockingDeque</code> with things-to-be-compiled and calls
+<code class="highlighter-rouge">.pollFirst</code> to pop.</p>
+
+<p>Check out <a href="https://github.com/clojure/clojurescript/blob/4d54c041703672600eece45d67e559e769f68dbf/src/main/clojure/cljs/closure.clj#L1027">the implementation</a> if you’re
+interested.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/18785871/which-is-the-ideal-clojure-concurrency-construct-for-maintaining-queue-of-data-t">Stackoverflow question</a> which prompted me
+to write this post.</li>
+  <li><a href="https://github.com/clojure/clojure/blob/28b87d53909774af28f9f9ba6dfa2d4b94194a57/src/clj/clojure/core.clj#L7012"><code class="highlighter-rouge">pmap</code> implementation</a> which has nothing to
+do with queues and <code class="highlighter-rouge">core.async</code> but is interesting to look at. It’s
+implemented with <code class="highlighter-rouge">future</code>s and a <code class="highlighter-rouge">lazy-seq</code>.</li>
+</ul>
+
+<h2 id="bonus-explaining-this-to-non-programmers">Bonus: Explaining this to non-programmers</h2>
+
+<p>I was on a walk with a friend who’s not into coding but was
+nonetheless interested in what I was writing. I came up with this
+analogy:</p>
+
+<p>Imagine you’re running an Asian food-delivery restaurant (that’s what
+we do as Asians). You cook meals and put them into take-out boxes. To
+deliver those, you have a driver. For the driver to know which box is
+the “oldest” (the one which has been waiting the longest time for
+delivery), you put the boxes in a line, sorted by when you finished
+them - a queue. The driver picks up the oldest box, delivers it to a
+customer and then comes back and picks up the next oldest one. Let’s
+ignore the inefficiency of only delivering one box at a time. Pretty
+simple, right?</p>
+
+<p>Now you have more customers and want to increase deliveries. You hire
+more drivers. Any time a driver comes to your restaurant, he picks up
+the oldest box and delivers that to the customer. If another driver
+arrives at the restaurant in the meantime, he picks up the oldest box
+which is currently there.</p>
+
+<p>What happens if two drivers arrive at the restaurant at the same time?
+Well, human behaviour: The one who reaches the line of boxes first
+grabs the oldest one while the other one waits for a few
+seconds. Then, the other one proceeds to grab the next oldest one. No
+problem.</p>
+
+<p>But, see, in computer software you don’t have human behaviour to save
+you from these so-called “race conditions”. It could happen that both
+drivers arrive at the same time, spot the same oldest box and grab it
+at the same time! Worse yet, both of them could take it and suddenly
+you have two copies of the same box! The customer only ordered one but
+will be happy receive two boxes of the same food.</p>
+
+<p>Imagine this happening with 100 drivers arriving at the
+restaurant. The customer will be less happy about 100 boxes.</p>
+
+<p>How to solve this? You make changes to the queue atomic. That probably
+doesn’t make any sense to you, so here’s the analogy: In the
+restaurant, an old Chinese lady sits at the entrance to the room full
+of boxes. Drivers arrive. She only allows one driver to go in at a
+time, pick up the oldest box and go out. Then, the next driver is
+permitted to go in.</p>
+
+<p>The drivers always respect these rules because she’s a secret kung fu
+master.</p>
+
+<p>So there you have it. If you have race conditions in your code,
+consider installing an old Chinese lady in it.</p>
+
+<!-- Links -->
+
+
+  </article>
+</article>
+<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
+  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+
+  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+
+  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+  </form>
+</section>
+
+
+      </main>
+      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   // We'll respect non-js people by having the first quote in the
+   // HTML DOM at the beginning
+   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
+   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+   var footerEl = document.getElementById('funny-quote');
+   footerEl.innerHTML = randomFunnyQuote;
+ });
+</script>
+
+    </div>
+    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
+  <a id="look-behind" href="#">What's behind this?</a>
+</div>
+<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
+  <section class="max-w-lg text-white text-center leading-tight">
+    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
+    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
+    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
+    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
+</div>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('#look-behind').on('click', function() {
+     $('#look-behind-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#show-content-container').show();
+   });
+
+   $('#show-content').on('click', function() {
+     $('#show-content-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#look-behind-container').show();
+   });
+ });
+</script>
+
+  </body>
+</html>

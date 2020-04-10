@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Oliver Eidel - Articles</title>
+        <description>Oliver Eidel's Blog</description>
+        <link>https://www.eidel.io</link>
+        <atom:link href="https://www.eidel.io/feed.xml" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Pioneers vs. Process People</title>
+            
+            <description>&lt;p&gt;Today is my last day at Merantix Healthcare.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Fri, 31 Jan 2020 09:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2020/01/31/pioneers-vs-process-people/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2020/01/31/pioneers-vs-process-people/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Become a Full-Stack Person</title>
+            
+            <description>&lt;p&gt;Let’s look at how most software is developed. I’m not talking about
+those shiny SaaS products like Slack. Those were built for developers,
+by other developers. No, I’m talking about the large underwater
+iceberg of &lt;em&gt;boring&lt;/em&gt; software running enterprises, governments,
+hospitals and nuclear reactors. Real-world software. Software outside
+the Silicon Valley tech bubble.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Sat, 16 Nov 2019 13:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2019/11/16/become-a-full-stack-person/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/11/16/become-a-full-stack-person/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>The (Un-)Natural Progression of Machine Learning</title>
+            
+            <description>&lt;p&gt;Machine Learning is everywhere. Unfortunately. Most industries aren’t
+ready for it.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Sun, 10 Nov 2019 13:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2019/11/10/the-un-natural-progression-of-machine-learning/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/11/10/the-un-natural-progression-of-machine-learning/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>I Wanted a CO2 Sensor, I Got a Fart Detector</title>
+            
+            <description>&lt;p&gt;In the everlasting quest of optimizing my sleep, I recently started
+measuring air quality in my bedroom. I hope to write up the setup at a
+later time; here, I’ll focus on some surprising results.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Thu, 17 Oct 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/10/17/co2-sensor-fart-detector/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/10/17/co2-sensor-fart-detector/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>The Rush of Shipping</title>
+            
+            <description>&lt;p&gt;Recently, one of my posts made Hacker News #1. That brought back
+childhood memories.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Mon, 14 Oct 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/10/14/the-rush-of-shipping/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/10/14/the-rush-of-shipping/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Don't Be an Engineer, Be a Producer</title>
+            
+            <description>&lt;p&gt;I’m currently reading &lt;em&gt;Range&lt;/em&gt; by David Epstein [1].&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Wed, 09 Oct 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/10/09/dont-be-an-engineer-be-a-producer/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/10/09/dont-be-an-engineer-be-a-producer/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Businesspeople Are Useless</title>
+            
+            <description>&lt;p&gt;Interacting with businesspeople never ceases to amaze me. They presume
+that they’re qualified to run companies. Why? Because they are
+businesspeople.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Tue, 01 Oct 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/10/01/businesspeople-are-useless/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/10/01/businesspeople-are-useless/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Abstracting Light Switches: How to Solve Real Problems</title>
+            
+            <description>&lt;p&gt;Zigbee-enabled light bulbs. Wifi-connected air purifiers. Autonomous
+thermostats. The smart home. Great technology. And just like with
+machine learning and blockchain, we humans don’t quite know yet what
+to do with it yet.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Sun, 22 Sep 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>We need more Hackers</title>
+            
+            <description>&lt;h2 id=&quot;the-hackers-first-project&quot;&gt;The Hacker’s First Project&lt;/h2&gt;
+
+</description>
+            
+            <pubDate>Wed, 05 Jun 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/06/05/we-need-more-hackers/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/06/05/we-need-more-hackers/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Making My Own Glasses</title>
+            
+            <description>&lt;p&gt;It’s a long weekend, I’m standing in my flat, 10 lenses scattered
+across the desk in front of me. I’m wearing weird glasses consisting
+of an empty plastic frame and some lenses stuck into it. I squint out
+of the window, trying to read number plates of cars parked in the
+street.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Wed, 24 Apr 2019 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2019/04/24/making-my-own-glasses/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/04/24/making-my-own-glasses/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Thread-safe queues in Clojure</title>
+            
+            <description>&lt;p&gt;Imagine the following: You have a pool of workers. Each worker should
+get an item from a queue and process it.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Tue, 22 Jan 2019 09:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>React less</title>
+            
+            <description>&lt;h2 id=&quot;push-vs-pull-notifications&quot;&gt;Push vs. Pull notifications&lt;/h2&gt;
+
+</description>
+            
+            <pubDate>Mon, 31 Dec 2018 21:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2018/12/31/react-less/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2018/12/31/react-less/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>The Correlation Project</title>
+            
+            <description>&lt;p&gt;As a coder, concentration and mental focus become very
+important. Writing code is a very brain-intense activity which makes
+daily fluctuations of mental focus very obvious.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Sat, 29 Sep 2018 22:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2018/09/29/correlation-project/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2018/09/29/correlation-project/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Two Years of Sleep Optimization</title>
+            
+            <description>&lt;p&gt;As a kid, I became obsessed with my sleep. When I couldn’t fall
+asleep, I panicked - oh no, I’m not getting enough sleep for school
+tomorrow!  As a good Asian kid, that thought was very scary.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Wed, 19 Sep 2018 02:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2018/09/19/two-years-of-sleep-optimization/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2018/09/19/two-years-of-sleep-optimization/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Asking Stupid Questions</title>
+            
+            <description>&lt;p&gt;After graduating from Medical School, I started working at a startup
+as a software engineer. While I did learn a lot of things in this
+time, one thing which sticks out particularly is asking stupid
+questions.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Mon, 21 May 2018 02:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2018/05/21/asking-stupid-questions/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2018/05/21/asking-stupid-questions/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Writing a HTTP API Client in Elixir for the Noun Project</title>
+            
+            <description>&lt;p&gt;Doing some HTTP requests is usually one of the first things I do when
+I’m learning a new language (apart from comparing its performance in
+highly artificial benchmarks and checking whether it scales).&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Thu, 13 Jul 2017 11:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Dockerizing Django, uWSGI and Postgres the serious way</title>
+            
+            <description>&lt;p&gt;So you want to get in on the hot new stuff and decided it’s time to
+learn Docker. Good on you! Docker is the new kid on the block which
+allows you to containerize stuff. Well, not really - it’s not that new
+at all. I tend to miss these pieces of software which emerge from the
+darkness of the interwebs, silently creeping around behind me until
+they suddenly establish themselves as some sort of standard and
+everybody except me uses them.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Mon, 10 Jul 2017 14:00:00 +0200</pubDate>
+            <link>https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Open-Sourcing breast_segment</title>
+            
+            <description>&lt;h2 id=&quot;fully-automated-breast-segmentation-on-mammographies&quot;&gt;Fully automated Breast Segmentation on Mammographies&lt;/h2&gt;
+
+</description>
+            
+            <pubDate>Tue, 03 Jan 2017 13:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2017/01/03/open-sourcing-breast-segment/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2017/01/03/open-sourcing-breast-segment/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Framework Overflow</title>
+            
+            <description>&lt;p&gt;Sometimes I miss the old days in which you could simply yank out a bad PHP script interspersed with some HTML and - bezonga - you had a website. Since then, things have become somewhat more complicated.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Sun, 21 Feb 2016 13:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2016/02/21/framework-overflow/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2016/02/21/framework-overflow/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Bangkok Travel Advice for Non-Bozos</title>
+            
+            <description>&lt;p&gt;After living in Bangkok for 4 months and having worked as an intern in Siriraj Hospital, here’s my take on “how to get around Bangkok and enjoy the attractions without being a bozo tourist”.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Mon, 08 Feb 2016 13:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2016/02/08/bangkok-travel/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2016/02/08/bangkok-travel/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Parse.com Cloud Code Hell</title>
+            
+            <description>&lt;p&gt;I would really, really love to be able to like Cloud Code. The idea of
+simplifying any backend into one unified platform with push-capabilities and
+node.js-style extendability sounds awesome.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Wed, 25 Nov 2015 00:00:00 +0100</pubDate>
+            <link>https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>Hello World</title>
+            
+            <description>&lt;p&gt;Oh wow, now this is &lt;em&gt;really neat&lt;/em&gt;.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Fri, 23 Oct 2015 01:50:00 +0200</pubDate>
+            <link>https://www.eidel.io/2015/10/23/hello-world/</link>
+            <guid isPermaLink="true">https://www.eidel.io/2015/10/23/hello-world/</guid>
+        </item>
+        
+        
+    </channel>
+</rss>

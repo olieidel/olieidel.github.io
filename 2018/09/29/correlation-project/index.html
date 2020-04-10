@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Atom Feed -->
+    <link type="application/atom+xml" rel="alternate" href="https://www.eidel.io/feed.xml" title="Oliver Eidel" />
+
+    <!-- SEO -->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>The Correlation Project | Oliver Eidel</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="The Correlation Project" />
+<meta name="author" content="Oliver Eidel" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As a coder, concentration and mental focus become very important. Writing code is a very brain-intense activity which makes daily fluctuations of mental focus very obvious." />
+<meta property="og:description" content="As a coder, concentration and mental focus become very important. Writing code is a very brain-intense activity which makes daily fluctuations of mental focus very obvious." />
+<link rel="canonical" href="https://www.eidel.io/2018/09/29/correlation-project/" />
+<meta property="og:url" content="https://www.eidel.io/2018/09/29/correlation-project/" />
+<meta property="og:site_name" content="Oliver Eidel" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-29T22:00:00+02:00" />
+<script type="application/ld+json">
+{"url":"https://www.eidel.io/2018/09/29/correlation-project/","headline":"The Correlation Project","dateModified":"2018-09-29T22:00:00+02:00","datePublished":"2018-09-29T22:00:00+02:00","description":"As a coder, concentration and mental focus become very important. Writing code is a very brain-intense activity which makes daily fluctuations of mental focus very obvious.","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2018/09/29/correlation-project/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- CSS and Fonts -->
+    <link href="/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'UA-70715341-1', {anonymize_ip: true });
+</script>
+
+    <script type='text/javascript'>
+ window.smartlook||(function(d) {
+   var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+   var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+   c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+ })(document);
+ smartlook('init', 'c9c5a6df7647642a0876dbf981a16ef0c8351236');
+</script>
+
+    
+  </head>
+
+  <body class="text-gray-200 bg-image">
+    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
+      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
+  <div class="sm:w-20">
+    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+      <div>Oliver</div>
+      <div class="ml-2 sm:ml-0">Eidel</div>
+    </a>
+  </div>
+  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
+    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
+  </ul>
+  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
+</svg></a>
+    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+</svg></a>
+  </div>
+</nav>
+
+      <main>
+        <article class="mt-4 mx-3">
+  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
+    <div class="text-xs text-center text-gray-400 uppercase leading-tight">29 Sep 2018</div>
+    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">The Correlation Project</h1>
+  </div>
+
+  <article class="post mt-6">
+    <p>As a coder, concentration and mental focus become very
+important. Writing code is a very brain-intense activity which makes
+daily fluctuations of mental focus very obvious.</p>
+
+<p>I already noticed this while studying medicine. Luckily, studying
+medicine is not an activity which requires a lot of brain activity
+(it’s more about being organised). When I started working as a
+software engineer however, this became more important.</p>
+
+<h2 id="side-note-theres-a-talk">Side note: There’s a talk</h2>
+
+<p>I gave <a href="https://www.youtube.com/watch?v=jpFveXUe65I">a talk</a> about this at <a href="https://www.youtube.com/watch?v=jpFveXUe65I">ClojuTRE
+2018</a> in which I summarized the whole concept and my
+findings in 20 minutes. Of course, there wasn’t enough time to talk
+about everything - that’s what this post is for.</p>
+
+<h2 id="medical-considerations">Medical Considerations</h2>
+
+<p>On a practical level, I wanted to be able to rate my mental focus
+quickly and in a way which reflects how I feel when I leave the house
+in the morning. At this time I usually get a good feeling for whether
+it’s going to be a good or bad day concentration-wise.</p>
+
+<p>Thinking a bit more about this, I came up with the idea of rating
+<em>Brain Fog</em> which for me is more or less the opposite of mental
+focus. <a href="https://github.com/HerrFolgreich?tab=overview&amp;from=2018-08-01&amp;to=2018-08-31">Chris</a> and I had done something very similar for
+masturbation already (long story) in which we wanted to correlate
+masturbation habits with mood, energy and libido in the days
+thereafter. At the time we decided to make users enter that data on a
+scale of 1 to 5 which proved quite usable. So I decided to adapt this
+slightly this time and choose a scale of 0 to 5 for “subjective Brain
+Fog”.</p>
+
+<p>Apart from that, I didn’t put much work into medical
+considerations. That probably wasn’t very wise. I did however consider
+<a href="https://en.wikipedia.org/wiki/Coeliac_disease">coeliac disease</a> as a potential culprit even though
+I thought it would be unlikely in my case. My data however should be
+sufficient enough to prove this, right?</p>
+
+<h2 id="engineering-considerations">Engineering Considerations</h2>
+
+<p>This being a side project and me being a software engineer, I had the
+obvious tendency to overengineer everything to be able to try out all
+new technologies at the same time. Let’s write a backend in Clojure!
+Perfect opportunity to try out GraphQL! Let’s make the frontend a
+progressive web app with offline-first capabilities!</p>
+
+<p>Well, that didn’t happen. Turns out I have a full-time job at Merantix
+and need to take care of some other aspects of my life in my spare
+time (sleeping, eating, brushing teeth).</p>
+
+<p>Reflecting upon this, it became clear that I didn’t even know the
+structure of my data yet: What sort of data is a meal? What about an
+activity like going to the gym? How do I measure my mental focus? On
+which scale? How often?</p>
+
+<p>As a software engineer, this is a great opportunity to put your
+engineering pride behind you and use Google Sheets.</p>
+
+<h2 id="google-sheets">Google Sheets</h2>
+
+<p>Google Sheets is the unsung hero of prototyping data-driven
+ideas. Contrast the following things to Postgres:</p>
+
+<p>Want to move around some data? It’s as easy as marking some cells and
+copy-pasting them around.</p>
+
+<p>Want to rename some columns and change their data type? Just rename
+them, don’t bother about the data type.</p>
+
+<p>Want to enter some data from your phone? No problem, download the
+Google Sheets app and start typing. Syncing included.</p>
+
+<p>Of course, there are drawbacks, too. No data validation being one of
+them. You accrue technical debt by having to parse the data later on
+(everything will be a string) but for this purpose the benefits
+outweigh the drawbacks.</p>
+
+<h2 id="data-structure">Data Structure</h2>
+
+<p>I decided on a fairly simple data structure. Everything is an
+<em>event</em>. An event has four fields:</p>
+
+<ul>
+  <li>datetime (datetime string)</li>
+  <li>category (string)</li>
+  <li>event (string)</li>
+  <li>value (number, can be empty)</li>
+</ul>
+
+<p>The <em>datetime</em> is the time of the event. Cool trick: In Google Sheets
+(on macOS), you can enter the current datetime by selecting a cell and
+pressing <kbd>⌘</kbd>+<kbd>Option</kbd>+<kbd>Shift</kbd>+<kbd>;</kbd>.</p>
+
+<p>The <em>category</em> would be something like <code class="highlighter-rouge">food</code>, <code class="highlighter-rouge">activity</code>, etc.</p>
+
+<p>The <em>event</em> describes what actually happened. For example <code class="highlighter-rouge">gym</code> or
+<code class="highlighter-rouge">rice</code>. I’ll get back to that later.</p>
+
+<p>The <em>value</em> is a number (float or integer) in case the <em>event</em> was
+something measurable. For example, a <code class="highlighter-rouge">weight</code> event could have my
+weight in kg as a <em>value</em>. This value is optional.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Check out this example in which I enter some data:</p>
+
+<p><img src="/images/google_sheets.gif" alt="Entering data into Google Sheets" /></p>
+
+<h2 id="types-of-data">Types of Data</h2>
+
+<h3 id="brain-fog-extroversion-libido">Brain Fog, Extroversion, Libido</h3>
+
+<p>I recorded these three parameters on a subjective scale of 0 to 5. I
+came up with the choice of these parameters because they were the ones
+which I noticed the most and also which changed quite a bit.</p>
+
+<h4 id="brain-fog">Brain Fog</h4>
+
+<p>Defined by the question: “How foggy / unconcentrated do you feel right
+now?”.</p>
+
+<h4 id="extroversion">Extroversion</h4>
+
+<p>A measure of how extroverted I’d feel. More specifically, trying to
+measure my openness of doing things which cost social “energy”,
+e.g. talking to someone new, going to an event (e.g. a Clojure meetup)
+or working from a random coffee shop.</p>
+
+<h4 id="libido">Libido</h4>
+
+<p>Pretty obvious. The minimum of libido is defined as “I don’t care
+whatsoever” whereas the maximum is pretty much “I care a lot because I
+can’t think straight”.</p>
+
+<h3 id="poop">Poop</h3>
+
+<p>Also, I kept track of every time I had a, let’s say, a significant
+deployment event on the toilet. I even rated it on the <a href="https://en.wikipedia.org/wiki/Bristol_stool_scale">Bristol stool
+scale</a>! As a great side effect, I now know the
+Bristol stool scale by heart.</p>
+
+<p>The idea here was that maybe I would be able to predict the type of my
+stool. How cool is that. So useful.</p>
+
+<h3 id="google-fit">Google Fit</h3>
+
+<p>You remember those Sundays when you don’t leave the house and then
+feel kinda sluggish the whole day? I had this theory that leaving the
+house and walking around would be beneficial by reducing Brain
+Fog. Luckily, Google had already been recording my location history of
+the past two years (thanks!) and the Google Fit data even includes the
+step count every few minutes or so.</p>
+
+<p>Fetching Google Fit data is surprisingly easy via <a href="https://takeout.google.com">Google
+Takeout</a>. You end up with some CSVs. I wrote a
+<a href="https://github.com/olieidel/correlate/blob/master/src/correlate/google_fit.clj">parser</a> to import the data.</p>
+
+<h3 id="emfit-qs">Emfit QS</h3>
+
+<p>Thinking back to those Sundays, I often tend to sleep unreasonably
+long. I didn’t want to buy a smart watch and tracking sleep accurately
+without a smartwatch is actually not that easy. Finally, I decided
+this would be a great excuse to buy the Emfit QS which is a sleep
+tracker which you put under your mattress (!).</p>
+
+<p>It continuously measures you heart rate, respiratory rate and
+movements. Of course, it also calculates your sleep duration. And
+guess what, you can also export the data as CSVs! I wrote <a href="https://github.com/olieidel/correlate/blob/master/src/correlate/emfit_qs.clj">another
+parser</a> for that.</p>
+
+<h2 id="analysis">Analysis</h2>
+
+<p>Analyzing time series data is non-trivial; the two weeks of statistics
+I had in medical school were definitely not sufficient for that (nope,
+doctors don’t have much education in statistics).</p>
+
+<p>I coincidentally came across this <a href="https://github.com/arielf/weight-loss">weight-loss</a> project
+on GitHub via Hacker News. The approach was simple, but really clever:
+He would write down his weight and what he did the last day in
+keywords. This would mostly include food types and sleep habits.</p>
+
+<p>Then, he would fit a machine learning model (vowpal-wabbit, basically
+a type SVM) on this data with the goal of predicting his daily weight
+changes based on what he did on the prior day.</p>
+
+<p>Finally, he would output the weights of the model, specifically the
+weight of each of the keywords (food, sleep habits etc.). Then he
+would end up with a list of factors where he could see which factors
+are correlated with weight loss vs. which factors are correlated with
+weight gain. Definitely check out <a href="https://github.com/arielf/weight-loss">the repository</a> for
+some cool figures!</p>
+
+<h3 id="vowpal-wabbit">Vowpal-Wabbit</h3>
+
+<p>My idea was to use the same approach with some minor modifications:
+Firstly, I would not have a fixed time window like in the weight loss
+project - there, it was always about 24 hours as only the prior day
+was taken into account for each weight measurement. Instead, I would
+be able to define different time windows and see if this changes my
+results.</p>
+
+<p>Secondly, I wasn’t interested in my weight but in other things. I
+would run separate analyses of all the parameters I had been recording
+(brain fog, extroversion, libido, poop score). That means that I would
+have to run multiple analyses.</p>
+
+<h4 id="vowpal-wabbit-results">Vowpal-Wabbit Results</h4>
+
+<p>Turns out, it didn’t work. For Brain Fog, I would get a training
+accuracy of only 0.3 which is better than guessing (0.16) but really
+not all that good. The training accuracy of the other parameters
+(including poop) turned out to be similar.</p>
+
+<h3 id="simple-correlations-reviving-the-incanter">Simple Correlations: Reviving the Incanter</h3>
+
+<p>I decided I had to take a step back. I was just stupidly feeding data
+into Vowpal-Wabbit in the naive hope that some magical result would
+come out. In the case of the weight-loss repo, that turned out to be
+the case. In my case, not so much.</p>
+
+<p>An important aspect of data science is actually getting a feel for
+your data. This includes plotting some things. Just “plotting some
+things” in Clojure is however not something which people do very
+often. People nowadays use Python for Data Science (why?) so most
+well-maintained, fully-featured packages are in that ecosystem.</p>
+
+<p>There is however a hidden old gem to be found: The
+<a href="https://github.com/incanter/incanter">Incanter</a> project. In the old ages of Clojure, this was a
+promising and active project. Sadly it’s hardly maintained
+nowadays. The good news is that 1) Clojure’s backward compatibility is
+fantastic and 2) Incanter’s API is easy to understand.</p>
+
+<p>Plotting some things is actually really straightforward. Ironically,
+it’s probably easier to plot things with Clojure and Incanter than
+with a Jupyter Notebook and matplotlib. Having a simple, functional
+API is much more developer-friendly than the concoction of
+MATLAB-inspired, mutable-state <em>things</em> of matplotlib.</p>
+
+<h4 id="simple-correlation-results">Simple Correlation Results</h4>
+
+<p>I couldn’t shake the feeling that my sleep was a central factor in
+causing my Brain Fog. I therefore correlated values of the Emfit QS
+for each night with my Brain Fog the next day. There are lots of
+values which are provided: Total sleep duration, duration in REM
+sleep, duration awake (but in bed), and count of awakenings just to
+name a few. While correlating all these values with my Brain Fog, I
+had to think of <a href="https://xkcd.com/882/">this xkcd</a> about multiple
+testing.</p>
+
+<p>Interestingly, the total sleep duration correlated with my Brain Fog -
+<em>positively</em>! That means that the longer I sleep each night, the higher
+my Brain Fog would be the next morning.</p>
+
+<p>This is quite puzzling.</p>
+
+<p>From intuition, longer sleep should actually correlate <em>negatively</em>
+with Brain Fog, right? The longer you sleep, the more focused you’re
+going to be the next morning and the less Brain Fog you’re going to
+have, right? That didn’t seem to be the case.</p>
+
+<p>One of the reasons may be that I didn’t have a broad range of sleeping
+durations - the range was between 6 and 10 hours. I could imagine the
+curve to actually be U-shaped - high Brain Fog for very little sleep
+(say, 0 to 4 hours), low Brain Fog for intermediate sleep durations (4
+to 7 hours) and high Brain Fog for long sleep (7+ hours). But I’m just
+guessing here.</p>
+
+<p>More interstingly, the correlation was even stronger for duration
+spent awake in bed. That again makes sense: I remember those Sunday
+mornings when I’d hang around in bed for ages just to get up and feel
+groggy the whole day.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Even though I didn’t come away with a clear result, I learned a lot of
+things.</p>
+
+<p>Firstly, it’s not necessarily a good idea just to collect a large
+amount of data and whip it into a Machine Learning model and hope that
+interesting results emerge from it. Even though we live in the age of
+Machine Learning, this still doesn’t spare us from putting thought
+into what we want to investigate and what type of data we want to
+collect.</p>
+
+<p>Secondly, doing these sort of medical studies, you should always
+prefer objective values over subjective ones. This may sound obvious,
+but it’s not: I was measuring Brain Fog on a subjective scale from 0
+to 5 and only later switched to a more objective concentration test
+(Stroop Test).</p>
+
+<p>Thirdly, doing Data Science in Clojure is hard. It’s a truly great
+language (and it continues to undoubtedly be my language of choice)
+but Data Science and Machine Learning are fields which are
+particularly dependency-heavy. You really don’t want to implement your
+own plotting library or SVM for a small side project. So while the
+preprocessing is great in Clojure and arguably faster than in Python
+(both in development and execution), the analysis is more frustrating
+and takes more time.</p>
+
+<p>Finally, I really don’t get a lot of fun out of Data Science. Compared
+to building tangible things like web apps, this feels so unrewarding.</p>
+
+<p>That notwithstanding, it actually piqued my interest for this whole
+medical self-optimization field. Follow-up experiments are already
+underway. Stay tuned.</p>
+
+<!-- images -->
+
+<!-- links -->
+
+  </article>
+</article>
+<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
+  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+
+  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+
+  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+  </form>
+</section>
+
+
+      </main>
+      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   // We'll respect non-js people by having the first quote in the
+   // HTML DOM at the beginning
+   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
+   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
+   var footerEl = document.getElementById('funny-quote');
+   footerEl.innerHTML = randomFunnyQuote;
+ });
+</script>
+
+    </div>
+    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
+  <a id="look-behind" href="#">What's behind this?</a>
+</div>
+<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
+  <section class="max-w-lg text-white text-center leading-tight">
+    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
+    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
+    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
+    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
+</div>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('#look-behind').on('click', function() {
+     $('#look-behind-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#show-content-container').show();
+   });
+
+   $('#show-content').on('click', function() {
+     $('#show-content-container').hide();
+     $('#main-overlay').fadeToggle(500);
+     $('#look-behind-container').show();
+   });
+ });
+</script>
+
+  </body>
+</html>
