@@ -36,3 +36,4 @@ exclude:
   - purgecss.config.js
   - README.md
   - yarn.lock
+  - yarn-error.log
