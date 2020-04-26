@@ -7,6 +7,47 @@ Books that I've read, in chronological order, some with comments.
 
 ## 2020
 
+### Always Day One (Alex Kantrowitz)
+
+It tries to describe the culture and principles of Google, Facebook, and others which led to their success. I
+would have expected a higher density of interesting facts though - and of course there's a bit of correlation
+vs. causation problem in attributing success to certain cultural traits.
+
+### Anything You Want (Derek Sivers)
+
+A great read. Very much in the style of the Basecamp / DHH books. Straight to the point, really interesting
+stories. Recommended to every person founding a company!
+
+### The 1-Page Marketing Plan (Allan Dib)
+
+Part of my ongoing effort to learn more marketing stuff. This book was a great choice, not only in my
+respect. It tries to succinctly cover all aspects of marketing when selling stuff with your own company. While
+this may seem like high goal, it actually delivers on that. It's concise and to-the-point. Recommended!
+
+### The Mom Test (Rob Fitzpatrick)
+
+One of the few books which cover how to build the right thing when considering startup product ideas. Or
+rather, not getting side-tracked into building the wrong thing. Applying the principles in this book could
+have saved quite a few startups from failing.
+
+### Only the Paranoid Survive (Andrew S. Grove)
+
+For me, the main takeaway is to listen more to your employees "in the trenches", those on the forefront of
+whatever you're building - engineers, salespeople, UX researchers etc. Often, they have the right insights.
+But, for some reason, those insights don't make it up the reporting chain.
+
+### Measure What Matters (John Doerr)
+
+### Software Requirements (Karl Wiegers, Joy Beatty) (unfinished)
+
+Haven't finished reading it yet. So far, quite a difficult read. Big surprise! Eliciting and documenting
+Software Requirements is certainly not the most sexy topic on this planet.
+
+Main takeaways so far are: There's no consensus on how to document Software Requirements (granularity, method,
+etc.), it's always a huge documentation effort unless you're the customer yourself, and software development
+is still plagued by _developing the wrong thing_ (TM). So far, there's no silver bullet - even being an expert
+in Software Requirements won't save you every time.
+
 ### Excellent Sheep (William Deresiewicz)
 
 An argument about how our society is headed downhill as it emphasizes
