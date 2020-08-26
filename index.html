@@ -3,22 +3,22 @@ layout: base
 title: Home
 ---
 
-<div class="mx-3 border-t border-gray-500"></div>
-
-<ul>
-  {% for post in site.posts %}
-  <li>
-    <a class="block" href="{{ post.url }}">
-      {% comment %}
-      Jekyll "post output" always needs to be wrapped in divs as otherwise it destroys your
-      layout by creating p and a tags
-      {% endcomment %}
-      <div class="my-4 px-3 py-4 rounded border border-transparent hover:border-gray-500 hover:bg-gray-700 hover:shadow-lg">
-        <p class="text-xs text-gray-400 uppercase leading-tight">{{ post.date | date_to_string }}</p>
-        <h2 class="mt-1 text-white text-base text-lg font-semibold tracking-wide leading-tight">{{ post.title }}</h2>
-        <div class="mt-2 text-sm text-gray-400 tracking-wide">{{ post.excerpt }}</div>
-      </div>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+<div class="mx-auto mt-8 max-w-xl">
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <a class="block" href="{{ post.url }}">
+        <div class="my-4 px-3 py-4 rounded">
+          <p class="text-xs text-gray-800 uppercase leading-tight">{{ post.date | date_to_string }}</p>
+          <h2 class="mt-1 text-gray-900 text-base text-lg font-semibold tracking-wide leading-tight">{{ post.title }}</h2>
+          {% comment %}
+          Jekyll "post output" always contains p tags and sometimes contains a tags (links).
+          Prefer to strip_html because the a tags break the parent a tag.
+          {% endcomment %}
+          <div class="mt-2 text-sm text-gray-800 tracking-wide">{{ post.excerpt | strip_html }}</div>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="w-full pt-4 sm:pt-6 sm:px-5 {{ include.bg_color }}">
+  <nav class="flex flex-col sm:flex-row items-center max-w-2xl mx-auto px-3 sm:py-2">
+    <div class="sm:w-20">
+      <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col {{ include.logo_text_color }} hover:{{ include.logo_text_color_hover }} text-sm uppercase tracking-widest leading-tight" href="/">
+        <div>Oliver</div>
+        <div class="ml-2 sm:ml-0">Eidel</div>
+      </a>
+    </div>
+    <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center {{ include.menu_text_color }} text-sm uppercase font-medium leading-tight tracking-wider">
+      <a class="px-2 py-1 hover:underline hover:{{ include.menu_text_color_hover }}" href="/"><li>Home</li></a>
+      <a class="px-2 py-1 hover:underline hover:{{ include.menu_text_color_hover }}" href="/about"><li>About</li></a>
+      <a class="px-2 py-1 hover:underline hover:{{ include.menu_text_color_hover }}" href="/talks"><li>Talks</li></a>
+      <a class="px-2 py-1 hover:underline hover:{{ include.menu_text_color_hover }}" href="/reading"><li>Reading</li></a>
+      <a class="px-2 py-1 hover:underline hover:{{ include.menu_text_color_hover }}" href="/publications"><li>Publications</li></a>
+    </ul>
+    <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end {{ include.icon_color }}">
+      <a class="p-1 sm:p-0 hover:{{ include.icon_color_hover }}" href="https://github.com/olieidel/" rel="nofollow" target="_blank">{% svg "_assets/svg/github.svg" class="fill-current w-5 h-5" %}</a>
+      <a class="ml-1 p-1 sm:p-0 hover:{{ include.icon_color_hover }}" href="https://twitter.com/olieidel" rel="nofollow" target="_blank">{% svg "_assets/svg/twitter.svg" class="fill-current w-5 h-5" %}</a>
+      <a class="ml-1 p-1 sm:p-0 hover:{{ include.icon_color_hover }}" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank">{% svg "_assets/svg/linkedin.svg" class="fill-current w-5 h-5" %}</a>
+    </div>
+  </nav>
+</div>

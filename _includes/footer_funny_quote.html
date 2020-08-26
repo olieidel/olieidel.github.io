@@ -1,12 +1,56 @@
-<footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">{{ site.funny_quotes.first }}</footer>
+<footer class="mt-8 pb-8 text-xs text-gray-600 text-center">
+  <!-- We'll respect non-js people by having the first quote in the HTML DOM at the beginning -->
+  <a id="funny-quote" href="#">{{ site.funny_quotes.first }}</a>
+</footer>
 
 <script type="text/javascript">
  $(document).ready(function() {
-   // We'll respect non-js people by having the first quote in the
-   // HTML DOM at the beginning
-   var funnyQuotes = {{ site.funny_quotes | jsonify }};
-   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
-   var footerEl = document.getElementById('funny-quote');
-   footerEl.innerHTML = randomFunnyQuote;
+   // Load array from config and shuffle
+   var funnyQuotes = shuffle({{ site.funny_quotes | jsonify }});
+   var funnyQuoteNode = $('#funny-quote');
+   var i = 0;
+
+   // Set first quote on initial load
+   setFunnyQuote();
+
+   // Cycle through quotes on clicks
+   funnyQuoteNode.click(function(event) {
+     event.preventDefault();
+
+     // Prevent off-by-one error, classic
+     if (i == funnyQuotes.length - 1) {
+       i = 0;
+     } else {
+       i++;
+     }
+
+     setFunnyQuote();
+   });
+
+   // Lots of closures here, because we can
+   function setFunnyQuote() {
+     funnyQuoteNode.text(funnyQuotes[i]);
+   }
  });
+
+ function shuffle(array) {
+   // https://stackoverflow.com/a/2450976/4593972
+
+   var currentIndex = array.length, temporaryValue, randomIndex;
+
+   // While there remain elements to shuffle...
+   while (0 !== currentIndex) {
+
+     // Pick a remaining element...
+     randomIndex = Math.floor(Math.random() * currentIndex);
+     currentIndex -= 1;
+
+     // And swap it with the current element.
+     temporaryValue = array[currentIndex];
+     array[currentIndex] = array[randomIndex];
+     array[randomIndex] = temporaryValue;
+   }
+
+   return array;
+ }
 </script>

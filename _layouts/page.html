@@ -1,13 +1,18 @@
 ---
 layout: base
+menu: dark
 ---
 
-<article class="mt-4 mx-3">
-  <div class="py-6 border-t border-b border-gray-500">
-    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">{{ page.title }}</h1>
+<div class="w-full pt-12 pb-6 px-3 bg-gray-800 shadow-lg">
+  <div class="mx-auto max-w-2xl text-center leading-tight">
+    <h1 class="text-4xl text-white font-semibold tracking-wide">{{ page.title }}</h1>
   </div>
+</div>
 
-  <article class="post mt-6">
+<div class="mx-auto max-w-2xl px-3 py-3">
+  <article class="post">
     {{ content }}
   </article>
-</article>
+</div>
+
+{% include newsletter.html %}

@@ -3,7 +3,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       'mono': ['Roboto Mono', 'monospace'],
-      'sans': ['Open Sans', 'sans-serif']
+      'sans': ['IBM Plex Sans', 'sans-serif']
     }
   },
   variants: {},
