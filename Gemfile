@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
+
 gem 'jekyll', '~> 3.8', '>= 3.8.6'
+
+gem "kramdown-parser-gfm", "~> 1.1"
 
 group :jekyll_plugins do
   # Needed for Tailwind CSS
