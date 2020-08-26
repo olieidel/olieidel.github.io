@@ -11,7 +11,7 @@
     <!-- SEO -->
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Parse.com Cloud Code Hell | Oliver Eidel</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Parse.com Cloud Code Hell" />
 <meta name="author" content="Oliver Eidel" />
 <meta property="og:locale" content="en_US" />
@@ -23,16 +23,17 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-11-25T00:00:00+01:00" />
 <script type="application/ld+json">
-{"url":"https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/","headline":"Parse.com Cloud Code Hell","dateModified":"2015-11-25T00:00:00+01:00","datePublished":"2015-11-25T00:00:00+01:00","description":"I would really, really love to be able to like Cloud Code. The idea of simplifying any backend into one unified platform with push-capabilities and node.js-style extendability sounds awesome.","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/"},"url":"https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/","headline":"Parse.com Cloud Code Hell","dateModified":"2015-11-25T00:00:00+01:00","datePublished":"2015-11-25T00:00:00+01:00","author":{"@type":"Person","name":"Oliver Eidel"},"description":"I would really, really love to be able to like Cloud Code. The idea of simplifying any backend into one unified platform with push-capabilities and node.js-style extendability sounds awesome.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- CSS and Fonts -->
     <link href="/css/site.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/assets/js/turbolinks-5.2.0.js"></script>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
@@ -55,43 +56,50 @@
     
   </head>
 
-  <body class="text-gray-200 bg-image">
-    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
-      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
-  <div class="sm:w-20">
-    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
-      <div>Oliver</div>
-      <div class="ml-2 sm:ml-0">Eidel</div>
-    </a>
-  </div>
-  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
-    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
-  </ul>
-  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
-    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <body class="bg-gray-200 text-gray-800">
+    
+    <div class="w-full pt-4 sm:pt-6 sm:px-5 bg-gray-800">
+  <nav class="flex flex-col sm:flex-row items-center max-w-2xl mx-auto px-3 sm:py-2">
+    <div class="sm:w-20">
+      <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+        <div>Oliver</div>
+        <div class="ml-2 sm:ml-0">Eidel</div>
+      </a>
+    </div>
+    <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/"><li>Home</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/about"><li>About</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/talks"><li>Talks</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/reading"><li>Reading</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/publications"><li>Publications</li></a>
+    </ul>
+    <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+      <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
 </svg></a>
-  </div>
-</nav>
+    </div>
+  </nav>
+</div>
 
-      <main>
-        <article class="mt-4 mx-3">
-  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
-    <div class="text-xs text-center text-gray-400 uppercase leading-tight">25 Nov 2015</div>
-    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">Parse.com Cloud Code Hell</h1>
-  </div>
 
-  <article class="post mt-6">
+    
+
+    <main>
+      <div class="w-full pt-12 pb-6 px-3 bg-gray-800 shadow-lg">
+  <div class="mx-auto max-w-2xl text-center leading-tight">
+    <p class="text-xs text-gray-400 uppercase">25 Nov 2015</p>
+    <h1 class="mt-2 text-4xl text-white font-semibold tracking-wide">Parse.com Cloud Code Hell</h1>
+  </div>
+</div>
+
+<div class="mx-auto max-w-2xl px-3 py-3">
+  <article class="post">
     <p>I would really, really love to be able to like Cloud Code. The idea of
 simplifying any backend into one unified platform with push-capabilities and
 node.js-style extendability sounds awesome.</p>
@@ -115,20 +123,20 @@ as long as an SDK is coherent in itself and well-documented, it’s no problem.<
 
 <h3 id="logging-is-incomplete">Logging is incomplete</h3>
 
-<p>You may log to the console via <code class="highlighter-rouge">console.log()</code>. You can view the log on
-Parse.com or in your own console if you are running <code class="highlighter-rouge">Parse develop project-name</code>. This may sound nice, but it’s highly frustrating. If you log a Parse Object to the console, simply nothing is logged.</p>
+<p>You may log to the console via <code class="language-plaintext highlighter-rouge">console.log()</code>. You can view the log on
+Parse.com or in your own console if you are running <code class="language-plaintext highlighter-rouge">Parse develop project-name</code>. This may sound nice, but it’s highly frustrating. If you log a Parse Object to the console, simply nothing is logged.</p>
 
 <h2 id="important-stuff">Important stuff</h2>
 
 <h3 id="beforesave-and-aftersave-are-always-being-called">beforeSave and afterSave are always being called</h3>
 
-<p>Wondering why your methods are throwing some sort of “too many recursive function calls” error? Guess what, any time you modify an Object in your Parse DB, the associated <code class="highlighter-rouge">beforeSave</code> and <code class="highlighter-rouge">afterSave</code> methods are called, even if you execute the query with the master key. You may detect this, read on.</p>
+<p>Wondering why your methods are throwing some sort of “too many recursive function calls” error? Guess what, any time you modify an Object in your Parse DB, the associated <code class="language-plaintext highlighter-rouge">beforeSave</code> and <code class="language-plaintext highlighter-rouge">afterSave</code> methods are called, even if you execute the query with the master key. You may detect this, read on.</p>
 
 <h3 id="check-if-query-is-being-executed-via-master-key">Check if Query is being executed via Master Key</h3>
 
-<p>Sometimes you will have Background Jobs cleaning up the database and modifying objects. Under these circumstances, you might not want the associated <code class="highlighter-rouge">beforeSave</code> and <code class="highlighter-rouge">afterSave</code> methods being called. Guess what, there’s another undocumented value which helps you out here. It’s <code class="highlighter-rouge">request.master</code> (if you bind your request to the var request, obviously).</p>
+<p>Sometimes you will have Background Jobs cleaning up the database and modifying objects. Under these circumstances, you might not want the associated <code class="language-plaintext highlighter-rouge">beforeSave</code> and <code class="language-plaintext highlighter-rouge">afterSave</code> methods being called. Guess what, there’s another undocumented value which helps you out here. It’s <code class="language-plaintext highlighter-rouge">request.master</code> (if you bind your request to the var request, obviously).</p>
 
-<p>So for example, you might early abort a <code class="highlighter-rouge">beforeSave</code> function like so:</p>
+<p>So for example, you might early abort a <code class="language-plaintext highlighter-rouge">beforeSave</code> function like so:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">master</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">response</span><span class="p">.</span><span class="nx">success</span><span class="p">();</span>
@@ -137,25 +145,25 @@ Parse.com or in your own console if you are running <code class="highlighter-rou
 
 <h3 id="getting-an-objects-id">Getting an Objects ID</h3>
 
-<p>You can get the ID of an (existing) Parse Object by accessing <code class="highlighter-rouge">object.id</code>, so if your object resides in the <code class="highlighter-rouge">request</code> variable it becomes <code class="highlighter-rouge">request.object.id</code>. Note that <code class="highlighter-rouge">object.get('objectId')</code> will <strong>not</strong> work, even though it works on the Client SDKs. Argh!</p>
+<p>You can get the ID of an (existing) Parse Object by accessing <code class="language-plaintext highlighter-rouge">object.id</code>, so if your object resides in the <code class="language-plaintext highlighter-rouge">request</code> variable it becomes <code class="language-plaintext highlighter-rouge">request.object.id</code>. Note that <code class="language-plaintext highlighter-rouge">object.get('objectId')</code> will <strong>not</strong> work, even though it works on the Client SDKs. Argh!</p>
 
 <h2 id="beforesave--aftersave">beforeSave / afterSave</h2>
 
 <h3 id="which-user-is-uploading">Which user is uploading?</h3>
 
-<p>You may get the current user via <code class="highlighter-rouge">object.user</code>. Don’t try to log it to the console.</p>
+<p>You may get the current user via <code class="language-plaintext highlighter-rouge">object.user</code>. Don’t try to log it to the console.</p>
 
 <h3 id="queries-are-executed-as-the-user">Queries are executed as the User</h3>
 
-<p>If your queries are returning empty or incomplete data, you might not be using the Master Key and Parse will therefore be applying the ACL of the objects in question. Remember to set <code class="highlighter-rouge">Parse.Cloud.useMasterKey()</code> in the beginning of your Cloud Code Function if you want to execute queries with master privileges.</p>
+<p>If your queries are returning empty or incomplete data, you might not be using the Master Key and Parse will therefore be applying the ACL of the objects in question. Remember to set <code class="language-plaintext highlighter-rouge">Parse.Cloud.useMasterKey()</code> in the beginning of your Cloud Code Function if you want to execute queries with master privileges.</p>
 
-<h3 id="different-behavior-in-beforesave">Different behavior in <code class="highlighter-rouge">beforeSave</code></h3>
+<h3 id="different-behavior-in-beforesave">Different behavior in <code class="language-plaintext highlighter-rouge">beforeSave</code></h3>
 
-<p>Note that in your <code class="highlighter-rouge">beforeSave</code> functions, you don’t have to call <code class="highlighter-rouge">object.save()</code> when you’re done. Calling <code class="highlighter-rouge">object.set('key', 'value')</code> is sufficient to trigger a save when the function is done. Note that in all other Cloud Code Functions, you will have to call <code class="highlighter-rouge">object.save()</code> if you want to save your modifications to an object.</p>
+<p>Note that in your <code class="language-plaintext highlighter-rouge">beforeSave</code> functions, you don’t have to call <code class="language-plaintext highlighter-rouge">object.save()</code> when you’re done. Calling <code class="language-plaintext highlighter-rouge">object.set('key', 'value')</code> is sufficient to trigger a save when the function is done. Note that in all other Cloud Code Functions, you will have to call <code class="language-plaintext highlighter-rouge">object.save()</code> if you want to save your modifications to an object.</p>
 
 <h3 id="object-exists-already">Object exists already?</h3>
 
-<p>In <code class="highlighter-rouge">beforeSave</code> and <code class="highlighter-rouge">afterSave</code>, you might want to check if you are actually updating an existing object or creating a new one. Instead of wasting a query, you can use <code class="highlighter-rouge">object.isNew()</code> which returns a Boolean. Ready for some more confusion? This should be used in beforeSave, in afterSave, you should rather use <code class="highlighter-rouge">object.existed()</code> as noted by <a href="https://parse.com/questions/difference-between-existed-and-isnew">Bryan Klimt in the Parse Forums</a>:</p>
+<p>In <code class="language-plaintext highlighter-rouge">beforeSave</code> and <code class="language-plaintext highlighter-rouge">afterSave</code>, you might want to check if you are actually updating an existing object or creating a new one. Instead of wasting a query, you can use <code class="language-plaintext highlighter-rouge">object.isNew()</code> which returns a Boolean. Ready for some more confusion? This should be used in beforeSave, in afterSave, you should rather use <code class="language-plaintext highlighter-rouge">object.existed()</code> as noted by <a href="https://parse.com/questions/difference-between-existed-and-isnew">Bryan Klimt in the Parse Forums</a>:</p>
 <blockquote>
   <p>In a beforeSave handler, use isNew. isNew is a Backbone method originally designed for client code. All isNew does is check whether the object has an objectId. In a beforeSave handler, a new object will not have an id yet, so it will do what you want.</p>
 
@@ -166,9 +174,9 @@ Parse.com or in your own console if you are running <code class="highlighter-rou
 
 <p>This is sort of documented, but not very clearly. In your Client, you have to upload your ParseFile first, then in the success callback, upload your ParseObject with a pointer to the (alredy uploaded) file. It may work if you ignore this, but it may throw random errors. Have fun debugging.</p>
 
-<h3 id="saving-pointers-in-beforesave">Saving Pointers in <code class="highlighter-rouge">beforeSave</code></h3>
+<h3 id="saving-pointers-in-beforesave">Saving Pointers in <code class="language-plaintext highlighter-rouge">beforeSave</code></h3>
 
-<p>It’s not possible. So frustrating. This cost me like 4 hours. Apparently, fetching a Pointer and trying to modify it inside a <code class="highlighter-rouge">beforeSave</code> function triggers a save of the <code class="highlighter-rouge">beforeSave</code> object, not the Pointer object! Argh! That makes you end up calling your <code class="highlighter-rouge">beforeSave</code> function recursively. Lots of fun to debug this.</p>
+<p>It’s not possible. So frustrating. This cost me like 4 hours. Apparently, fetching a Pointer and trying to modify it inside a <code class="language-plaintext highlighter-rouge">beforeSave</code> function triggers a save of the <code class="language-plaintext highlighter-rouge">beforeSave</code> object, not the Pointer object! Argh! That makes you end up calling your <code class="language-plaintext highlighter-rouge">beforeSave</code> function recursively. Lots of fun to debug this.</p>
 
 <p>See this example. Say, we have uploaded a ParseFile to the Class “Images” and stored a Pointer to it in Stuff. Also, we would like to store a Pointer to the uploading user in Images and Stuff. And maybe a Pointer in Images pointing to the associated Stuff class, like so:</p>
 
@@ -208,11 +216,11 @@ Parse.com or in your own console if you are running <code class="highlighter-rou
 <span class="p">});</span>
 </code></pre></div></div>
 
-<p>So, what’s happening here? I don’t really know completely, to be honest. Apparently, calling <code class="highlighter-rouge">result.save()</code> doesn’t save the Pointer Object (Class Images) as it should, but it tries to save the Stuff Object and therefore recursively calls the same <code class="highlighter-rouge">beforeSave</code> function, which is kind of senseless.</p>
+<p>So, what’s happening here? I don’t really know completely, to be honest. Apparently, calling <code class="language-plaintext highlighter-rouge">result.save()</code> doesn’t save the Pointer Object (Class Images) as it should, but it tries to save the Stuff Object and therefore recursively calls the same <code class="language-plaintext highlighter-rouge">beforeSave</code> function, which is kind of senseless.</p>
 
-<p>Note that anywhere else outside <code class="highlighter-rouge">beforeSave</code>, say, in a Background Job, it would work. Argh!</p>
+<p>Note that anywhere else outside <code class="language-plaintext highlighter-rouge">beforeSave</code>, say, in a Background Job, it would work. Argh!</p>
 
-<p>So, what’s the solution? I found that simply doing this sort of stuff in an <code class="highlighter-rouge">afterSave</code> function instead does the trick. Oh, and while youre migrating your function to <code class="highlighter-rouge">afterSave</code>, don’t forget that <code class="highlighter-rouge">afterSave</code> and <code class="highlighter-rouge">afterDelete</code> don’t have a <code class="highlighter-rouge">response</code> object so don’t even try to set a response. This might make debugging a little more difficult, by the way.</p>
+<p>So, what’s the solution? I found that simply doing this sort of stuff in an <code class="language-plaintext highlighter-rouge">afterSave</code> function instead does the trick. Oh, and while youre migrating your function to <code class="language-plaintext highlighter-rouge">afterSave</code>, don’t forget that <code class="language-plaintext highlighter-rouge">afterSave</code> and <code class="language-plaintext highlighter-rouge">afterDelete</code> don’t have a <code class="language-plaintext highlighter-rouge">response</code> object so don’t even try to set a response. This might make debugging a little more difficult, by the way.</p>
 
 <h2 id="background-jobs--functions">Background Jobs / Functions</h2>
 
@@ -226,7 +234,7 @@ Parse.com or in your own console if you are running <code class="highlighter-rou
 
 <h3 id="fetching-parsefiles-may-time-out">Fetching ParseFiles may time out</h3>
 
-<p>Ready for some more fun? Sometimes the request times out and your function gets killed prematurely (in normal Parse Functions, not in Background Jobs, which have less aggressive time limits). So say, if you have a Parse Function which generates some thumbnails in an <code class="highlighter-rouge">afterSave</code> function, it may happen that the http request to fetch the ParseFile may time out and your thumbnails don’t get generated.</p>
+<p>Ready for some more fun? Sometimes the request times out and your function gets killed prematurely (in normal Parse Functions, not in Background Jobs, which have less aggressive time limits). So say, if you have a Parse Function which generates some thumbnails in an <code class="language-plaintext highlighter-rouge">afterSave</code> function, it may happen that the http request to fetch the ParseFile may time out and your thumbnails don’t get generated.</p>
 
 <p>Get ready to write some Background Jobs which tidy up your database, looking for incomplete entries due to aborted functions.</p>
 
@@ -237,61 +245,81 @@ Parse.com or in your own console if you are running <code class="highlighter-rou
 <p>Have fun. It’s completely undocumented. Try looking at <a href="https://parse.com/docs/cloudcode/guide#cloud-code-modules-parse-image">this example in the documentation</a>.</p>
 
   </article>
-</article>
-<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
-  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+</div>
 
-  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+<section class="max-w-xl mt-8 px-3 mx-auto">
+  <section class="p-4 border border-gray-500 bg-gray-800 rounded shadow-lg">
+    <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Damn, you read this far?</h3>
 
-  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
-    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
-  </form>
+    <p class="mt-2 text-sm text-gray-400">Let me make you an offer you can't refuse: Subscribe to my newsletter and be the first to read my new articles! 5 happy subscribers (including me) and counting.</p>
+
+    <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+      <input class="appearance-none px-3 py-2 bg-gray-500 hover:bg-gray-600 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+    </form>
+  </section>
 </section>
 
 
-      </main>
-      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+    </main>
+
+    <footer class="mt-8 pb-8 text-xs text-gray-600 text-center">
+  <!-- We'll respect non-js people by having the first quote in the HTML DOM at the beginning -->
+  <a id="funny-quote" href="#">An App a Day keeps the Doctor away.</a>
+</footer>
 
 <script type="text/javascript">
  $(document).ready(function() {
-   // We'll respect non-js people by having the first quote in the
-   // HTML DOM at the beginning
-   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
-   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
-   var footerEl = document.getElementById('funny-quote');
-   footerEl.innerHTML = randomFunnyQuote;
- });
-</script>
+   // Load array from config and shuffle
+   var funnyQuotes = shuffle(["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","No Quality Management System on this planet will save you from writing crappy software."]);
+   var funnyQuoteNode = $('#funny-quote');
+   var i = 0;
 
-    </div>
-    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
-  <a id="look-behind" href="#">What's behind this?</a>
-</div>
-<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
-  <section class="max-w-lg text-white text-center leading-tight">
-    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
-    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
-    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
-    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
-</div>
+   // Set first quote on initial load
+   setFunnyQuote();
 
-<script type="text/javascript">
- $(document).ready(function() {
-   $('#look-behind').on('click', function() {
-     $('#look-behind-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#show-content-container').show();
+   // Cycle through quotes on clicks
+   funnyQuoteNode.click(function(event) {
+     event.preventDefault();
+
+     // Prevent off-by-one error, classic
+     if (i == funnyQuotes.length - 1) {
+       i = 0;
+     } else {
+       i++;
+     }
+
+     setFunnyQuote();
    });
 
-   $('#show-content').on('click', function() {
-     $('#show-content-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#look-behind-container').show();
-   });
+   // Lots of closures here, because we can
+   function setFunnyQuote() {
+     funnyQuoteNode.text(funnyQuotes[i]);
+   }
  });
+
+ function shuffle(array) {
+   // https://stackoverflow.com/a/2450976/4593972
+
+   var currentIndex = array.length, temporaryValue, randomIndex;
+
+   // While there remain elements to shuffle...
+   while (0 !== currentIndex) {
+
+     // Pick a remaining element...
+     randomIndex = Math.floor(Math.random() * currentIndex);
+     currentIndex -= 1;
+
+     // And swap it with the current element.
+     temporaryValue = array[currentIndex];
+     array[currentIndex] = array[randomIndex];
+     array[randomIndex] = temporaryValue;
+   }
+
+   return array;
+ }
 </script>
 
   </body>

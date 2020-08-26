@@ -11,7 +11,7 @@
     <!-- SEO -->
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Dockerizing Django, uWSGI and Postgres the serious way | Oliver Eidel</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Dockerizing Django, uWSGI and Postgres the serious way" />
 <meta name="author" content="Oliver Eidel" />
 <meta property="og:locale" content="en_US" />
@@ -23,16 +23,17 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-07-10T14:00:00+02:00" />
 <script type="application/ld+json">
-{"url":"https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/","headline":"Dockerizing Django, uWSGI and Postgres the serious way","dateModified":"2017-07-10T14:00:00+02:00","datePublished":"2017-07-10T14:00:00+02:00","description":"So you want to get in on the hot new stuff and decided it’s time to learn Docker. Good on you! Docker is the new kid on the block which allows you to containerize stuff. Well, not really - it’s not that new at all. I tend to miss these pieces of software which emerge from the darkness of the interwebs, silently creeping around behind me until they suddenly establish themselves as some sort of standard and everybody except me uses them.","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/"},"url":"https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/","headline":"Dockerizing Django, uWSGI and Postgres the serious way","dateModified":"2017-07-10T14:00:00+02:00","datePublished":"2017-07-10T14:00:00+02:00","author":{"@type":"Person","name":"Oliver Eidel"},"description":"So you want to get in on the hot new stuff and decided it’s time to learn Docker. Good on you! Docker is the new kid on the block which allows you to containerize stuff. Well, not really - it’s not that new at all. I tend to miss these pieces of software which emerge from the darkness of the interwebs, silently creeping around behind me until they suddenly establish themselves as some sort of standard and everybody except me uses them.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- CSS and Fonts -->
     <link href="/css/site.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/assets/js/turbolinks-5.2.0.js"></script>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
@@ -55,43 +56,50 @@
     
   </head>
 
-  <body class="text-gray-200 bg-image">
-    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
-      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
-  <div class="sm:w-20">
-    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
-      <div>Oliver</div>
-      <div class="ml-2 sm:ml-0">Eidel</div>
-    </a>
-  </div>
-  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
-    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
-  </ul>
-  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
-    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <body class="bg-gray-200 text-gray-800">
+    
+    <div class="w-full pt-4 sm:pt-6 sm:px-5 bg-gray-800">
+  <nav class="flex flex-col sm:flex-row items-center max-w-2xl mx-auto px-3 sm:py-2">
+    <div class="sm:w-20">
+      <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+        <div>Oliver</div>
+        <div class="ml-2 sm:ml-0">Eidel</div>
+      </a>
+    </div>
+    <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/"><li>Home</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/about"><li>About</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/talks"><li>Talks</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/reading"><li>Reading</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/publications"><li>Publications</li></a>
+    </ul>
+    <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+      <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
 </svg></a>
-  </div>
-</nav>
+    </div>
+  </nav>
+</div>
 
-      <main>
-        <article class="mt-4 mx-3">
-  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
-    <div class="text-xs text-center text-gray-400 uppercase leading-tight">10 Jul 2017</div>
-    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">Dockerizing Django, uWSGI and Postgres the serious way</h1>
-  </div>
 
-  <article class="post mt-6">
+    
+
+    <main>
+      <div class="w-full pt-12 pb-6 px-3 bg-gray-800 shadow-lg">
+  <div class="mx-auto max-w-2xl text-center leading-tight">
+    <p class="text-xs text-gray-400 uppercase">10 Jul 2017</p>
+    <h1 class="mt-2 text-4xl text-white font-semibold tracking-wide">Dockerizing Django, uWSGI and Postgres the serious way</h1>
+  </div>
+</div>
+
+<div class="mx-auto max-w-2xl px-3 py-3">
+  <article class="post">
     <p>So you want to get in on the hot new stuff and decided it’s time to
 learn Docker. Good on you! Docker is the new kid on the block which
 allows you to containerize stuff. Well, not really - it’s not that new
@@ -129,7 +137,7 @@ to reverse-proxy our visitor’s requests.</p>
 
 <p>In our first attempt, we spin up an Ubuntu image and pretend we’ve
 just logged into a fresh server onto which we want to deploy our
-app. Here’s our <code class="highlighter-rouge">Dockerfile</code>:</p>
+app. Here’s our <code class="language-plaintext highlighter-rouge">Dockerfile</code>:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM ubuntu:16.04
 
@@ -180,18 +188,18 @@ CMD ["uwsgi", "--ini", "/opt/app/uwsgi.ini"]
 <p>Ah, almost done. But we’re always almost done, right? So what’s going
 on here: First, we copy our app (which resides in the same directory
 as the Dockerfile) into the docker container. In the container, it
-will be in the directory <code class="highlighter-rouge">/opt/app</code>.</p>
+will be in the directory <code class="language-plaintext highlighter-rouge">/opt/app</code>.</p>
 
-<p>Next, we <code class="highlighter-rouge">pip3 install</code> our Python 3 App requirements. You do have a
-<code class="highlighter-rouge">requirements.txt</code> and some sort of <a href="https://www.kennethreitz.org/essays/a-better-pip-workflow">workflow</a> for it,
+<p>Next, we <code class="language-plaintext highlighter-rouge">pip3 install</code> our Python 3 App requirements. You do have a
+<code class="language-plaintext highlighter-rouge">requirements.txt</code> and some sort of <a href="https://www.kennethreitz.org/essays/a-better-pip-workflow">workflow</a> for it,
 right?</p>
 
-<p>We then set the environment variable <code class="highlighter-rouge">DJANGO_ENV</code> to <code class="highlighter-rouge">prod</code>, telling
+<p>We then set the environment variable <code class="language-plaintext highlighter-rouge">DJANGO_ENV</code> to <code class="language-plaintext highlighter-rouge">prod</code>, telling
 our Django App that we’re in production and serious production settings
 should be used instead of our usual development settings. You could
-read this variable in your <code class="highlighter-rouge">settings.py</code> like so:</p>
+read this variable in your <code class="language-plaintext highlighter-rouge">settings.py</code> like so:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'DJANGO_ENV'</span><span class="p">)</span> <span class="o">==</span> <span class="s">'prod'</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'DJANGO_ENV'</span><span class="p">)</span> <span class="o">==</span> <span class="s">'prod'</span><span class="p">:</span>
     <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'.snakeoil.com'</span><span class="p">]</span>
     <span class="c1"># ...
@@ -200,12 +208,12 @@ read this variable in your <code class="highlighter-rouge">settings.py</code> li
     <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div></div>
 
-<p>Be sure to use <code class="highlighter-rouge">os.getenv('KEY')</code> and not <code class="highlighter-rouge">os.environ['KEY']</code> as the
-latter will throw a <code class="highlighter-rouge">KeyError</code> if the key doesn’t exist whereas the
-former will return <code class="highlighter-rouge">None</code>. As we’re probably not setting this variable
+<p>Be sure to use <code class="language-plaintext highlighter-rouge">os.getenv('KEY')</code> and not <code class="language-plaintext highlighter-rouge">os.environ['KEY']</code> as the
+latter will throw a <code class="language-plaintext highlighter-rouge">KeyError</code> if the key doesn’t exist whereas the
+former will return <code class="language-plaintext highlighter-rouge">None</code>. As we’re probably not setting this variable
 to any value in development, we should choose the former.</p>
 
-<p>Continuing to go through our Dockerfile, we type <code class="highlighter-rouge">EXPOSE 8000</code> to tell
+<p>Continuing to go through our Dockerfile, we type <code class="language-plaintext highlighter-rouge">EXPOSE 8000</code> to tell
 Docker to expose port 8000 to the host. Why do we need to do that? All
 Docker containers are isolated by default meaning their file system
 and network can not interact with the host. And that’s a good thing,
@@ -213,7 +221,7 @@ right? Our containers are nice and isolated. However, we developers
 now have to jump through all sorts of hoops to get into our
 containers. But let’s procrastinate and sort that out later.</p>
 
-<p>Finally, we run uwsgi with our config <code class="highlighter-rouge">uwsgi.ini</code> which should look
+<p>Finally, we run uwsgi with our config <code class="language-plaintext highlighter-rouge">uwsgi.ini</code> which should look
 similar to this:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[uwsgi]
@@ -227,7 +235,7 @@ threads = 2
 
 <p>It’s important to note that we are using http-sockets instead of uwsgi
 sockets. This yields slightly worse performance but makes it easier to
-debug, as we can point our browser to <code class="highlighter-rouge">127.0.0.1:8000</code> and actually
+debug, as we can point our browser to <code class="language-plaintext highlighter-rouge">127.0.0.1:8000</code> and actually
 see something. As the performance difference most
 likely <a href="https://stackoverflow.com/questions/11783907/is-uwsgi-protocol-faster-than-http-protocol">does not matter</a>, luckily we should be able
 to scale anyway.</p>
@@ -241,15 +249,15 @@ simply choose processes = cores and threads = 2.</p>
 <h2 id="dockerizing-the-database">Dockerizing the Database</h2>
 
 <p>To get a feel for things, let’s play around a bit with containerized
-Postgres. We shall name our container <code class="highlighter-rouge">our_db</code> for better
+Postgres. We shall name our container <code class="language-plaintext highlighter-rouge">our_db</code> for better
 identification later on.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker run <span class="nt">-it</span> <span class="nt">--name</span> our_db postgres:9.6
 </code></pre></div></div>
 
 <p>Hum. Now our terminal is full of stuff and we can’t do
-anything. <code class="highlighter-rouge">ctrl-c</code> brings us out but also shuts our container
-down. What did we do? By passing the flags <code class="highlighter-rouge">-it</code> (short for <code class="highlighter-rouge">-i -t</code>,
+anything. <code class="language-plaintext highlighter-rouge">ctrl-c</code> brings us out but also shuts our container
+down. What did we do? By passing the flags <code class="language-plaintext highlighter-rouge">-it</code> (short for <code class="language-plaintext highlighter-rouge">-i -t</code>,
 in case that wasn’t obvious) we start our Docker container in an
 interactive session which allows us to see its output and input some
 input.</p>
@@ -267,7 +275,7 @@ once we trash the container?</p>
 
 <p>Think of the container as a simple virtual machine with Postgres
 installed. All written data ends up in
-<code class="highlighter-rouge">/var/lib/postgresql/data</code>. Once you remove the virtual machine, it’s
+<code class="language-plaintext highlighter-rouge">/var/lib/postgresql/data</code>. Once you remove the virtual machine, it’s
 gone. Same goes for the Docker container: The data ends up in the same
 directory in the container and once you remove the container,
 everything’s lost.</p>
@@ -290,8 +298,8 @@ learn how to shell into a container and execute stuff.</p>
 
 <p>Note that the double backslashes are added for readability.</p>
 
-<p>We make docker execute <code class="highlighter-rouge">/bin/bash</code>, thereby creating a new shell for
-us without forgetting to add the flags <code class="highlighter-rouge">-it</code> again, otherwise things
+<p>We make docker execute <code class="language-plaintext highlighter-rouge">/bin/bash</code>, thereby creating a new shell for
+us without forgetting to add the flags <code class="language-plaintext highlighter-rouge">-it</code> again, otherwise things
 get weird.</p>
 
 <p>So, now we’ve got a shell in our container. Why did we need that? No
@@ -302,8 +310,8 @@ idea. How about some sql:</p>
 </code></pre></div></div>
 
 <p>Well, that wasn’t really sql, but we now can see which databases currently
-exist. No surprises there. Let’s exit psql with <code class="highlighter-rouge">\q</code> and the
-container’s shell with <code class="highlighter-rouge">ctrl-d</code>.</p>
+exist. No surprises there. Let’s exit psql with <code class="language-plaintext highlighter-rouge">\q</code> and the
+container’s shell with <code class="language-plaintext highlighter-rouge">ctrl-d</code>.</p>
 
 <p>So there’s actually a shortcut to that:</p>
 
@@ -318,7 +326,7 @@ correctly.</p>
 
 <p>For persisting data in Docker, we have two options: Mounting a
 directory of the machine which is running Docker (the “host”) or
-creating a Docker data volume. Both are set via the <code class="highlighter-rouge">-v</code> flag. Let’s
+creating a Docker data volume. Both are set via the <code class="language-plaintext highlighter-rouge">-v</code> flag. Let’s
 have a look at them.</p>
 
 <h3 id="mounting-a-host-directory">Mounting a host directory</h3>
@@ -340,23 +348,23 @@ as otherwise you may be inadvertently…</p>
                 postgres:9.6
 </code></pre></div></div>
 
-<p>This creates the Docker data volume <code class="highlighter-rouge">db_volume</code> and mounts it in the
+<p>This creates the Docker data volume <code class="language-plaintext highlighter-rouge">db_volume</code> and mounts it in the
 specified container directory.</p>
 
-<p>But where do we find our Docker data volumes? <code class="highlighter-rouge">docker volume</code> is your
+<p>But where do we find our Docker data volumes? <code class="language-plaintext highlighter-rouge">docker volume</code> is your
 friend.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker volume <span class="nb">ls</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">ls</code> lists all your docker volumes and <code class="highlighter-rouge">create</code> and <code class="highlighter-rouge">rm</code> do what you would
-expect. I find <code class="highlighter-rouge">prune</code> particularly useful, as it deletes all volumes
+<p><code class="language-plaintext highlighter-rouge">ls</code> lists all your docker volumes and <code class="language-plaintext highlighter-rouge">create</code> and <code class="language-plaintext highlighter-rouge">rm</code> do what you would
+expect. I find <code class="language-plaintext highlighter-rouge">prune</code> particularly useful, as it deletes all volumes
 which are not linked to any container (i. e., the containers which
 were created with them do not exist any more).</p>
 
 <h3 id="putting-it-together">Putting it together</h3>
 
-<p>Due to Postgres saving data to <code class="highlighter-rouge">/var/lib/postgresql/data</code> out of the
+<p>Due to Postgres saving data to <code class="language-plaintext highlighter-rouge">/var/lib/postgresql/data</code> out of the
 box, we have to slightly modify our command to persist our Postgres
 data correctly:</p>
 
@@ -390,7 +398,7 @@ once again:</p>
 </code></pre></div></div>
 
 <p>Now, in our Postgres container we are able to access the directory
-<code class="highlighter-rouge">/pg_backups</code> which points to the data volume with the same name. How
+<code class="language-plaintext highlighter-rouge">/pg_backups</code> which points to the data volume with the same name. How
 about dumping our db and copying it to the host. But first, let’s create
 a database to export:</p>
 
@@ -398,7 +406,7 @@ a database to export:</p>
 CREATE DATABASE serious_db<span class="p">;</span>
 </code></pre></div></div>
 
-<p>Exit with <code class="highlighter-rouge">ctrl-d</code>. We have created some serious data.</p>
+<p>Exit with <code class="language-plaintext highlighter-rouge">ctrl-d</code>. We have created some serious data.</p>
 
 <p>Now, onwards. Dump it:</p>
 
@@ -406,14 +414,14 @@ CREATE DATABASE serious_db<span class="p">;</span>
 pg_dump serious_db <span class="o">&gt;</span> /pg_backups/serious_db_20170709.sql
 </code></pre></div></div>
 
-<p>Done! Now it’s in our <code class="highlighter-rouge">pg_backups</code> data volume. Hm, that doesn’t help
+<p>Done! Now it’s in our <code class="language-plaintext highlighter-rouge">pg_backups</code> data volume. Hm, that doesn’t help
 much. We still can’t access it from the host. To do that, our options
 boil down to two:</p>
 
 <ul>
-  <li>Instead of having created <code class="highlighter-rouge">pg_backups</code> as a data volume, we could
-have mounted a host directory instead, e.g., linking <code class="highlighter-rouge">/pg_backups</code>
-in the container to <code class="highlighter-rouge">/host/some_path/</code>. This would certainly make
+  <li>Instead of having created <code class="language-plaintext highlighter-rouge">pg_backups</code> as a data volume, we could
+have mounted a host directory instead, e.g., linking <code class="language-plaintext highlighter-rouge">/pg_backups</code>
+in the container to <code class="language-plaintext highlighter-rouge">/host/some_path/</code>. This would certainly make
 accessing backups easier at the cost of making the container more
 host-dependent by mounting a host directory all the time and having
 to specify the same host directory each time we spin up new one. If
@@ -423,7 +431,7 @@ directories.</li>
 up which has also mounted a host directory. This is slightly more
 complex, therefore we choose it. It also has the nice effect of
 keeping our Postgres container nice and isolated from the host,
-accessing <code class="highlighter-rouge">pg_backups</code> only when we need to.</li>
+accessing <code class="language-plaintext highlighter-rouge">pg_backups</code> only when we need to.</li>
 </ul>
 
 <p>This time, I’m choosing Ubuntu as an image, simply because I know my
@@ -441,20 +449,20 @@ space.</p>
 <span class="nb">cp</span> /pg_backups/<span class="k">*</span> /host_backups/
 </code></pre></div></div>
 
-<p>Once we hit <code class="highlighter-rouge">ctrl-d</code>, our Ubuntu container nods approvingly and
-disappears forever (hence the <code class="highlighter-rouge">--rm</code>). So what did we do?</p>
+<p>Once we hit <code class="language-plaintext highlighter-rouge">ctrl-d</code>, our Ubuntu container nods approvingly and
+disappears forever (hence the <code class="language-plaintext highlighter-rouge">--rm</code>). So what did we do?</p>
 
 <p>We created a new container which had two mounts: One pointing to our
-well-known <code class="highlighter-rouge">pg_backups</code> data volume, mounting it in the container at
-<code class="highlighter-rouge">/pg_backups</code>. This is the exact same data volume which is currently
+well-known <code class="language-plaintext highlighter-rouge">pg_backups</code> data volume, mounting it in the container at
+<code class="language-plaintext highlighter-rouge">/pg_backups</code>. This is the exact same data volume which is currently
 also mounted in our Postgres container! It therefore includes our
-precious <code class="highlighter-rouge">serious_db_20170709.sql</code> file.</p>
+precious <code class="language-plaintext highlighter-rouge">serious_db_20170709.sql</code> file.</p>
 
-<p>The other one mounts a host directory <code class="highlighter-rouge">/host/dir/pg_backups</code> (which
-should exist, but be empty) into <code class="highlighter-rouge">/host_backups</code> in the container.</p>
+<p>The other one mounts a host directory <code class="language-plaintext highlighter-rouge">/host/dir/pg_backups</code> (which
+should exist, but be empty) into <code class="language-plaintext highlighter-rouge">/host_backups</code> in the container.</p>
 
-<p>We then proceed to copy all backups in <code class="highlighter-rouge">/pg_backups</code> into the host
-directory <code class="highlighter-rouge">/host_backups</code>.</p>
+<p>We then proceed to copy all backups in <code class="language-plaintext highlighter-rouge">/pg_backups</code> into the host
+directory <code class="language-plaintext highlighter-rouge">/host_backups</code>.</p>
 
 <p>In simplified terms, we “bridge the gap” between data volume and host
 by creating a container which has mounted both, copying the files we
@@ -463,11 +471,11 @@ need. Sounds easy now, right?</p>
 <h2 id="composing-containers">Composing containers</h2>
 
 <p>But how do we hook up our database to our Django
-container? <code class="highlighter-rouge">docker-compose</code> answers that question and makes us pose
+container? <code class="language-plaintext highlighter-rouge">docker-compose</code> answers that question and makes us pose
 many more.</p>
 
 <p>For some reason, docker-compose files are to be written in YAML. Let’s
-give it a go and whip up a <code class="highlighter-rouge">docker-compose.yml</code>:</p>
+give it a go and whip up a <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
 
@@ -499,24 +507,24 @@ docker-compose file (3). This stuff is evolving quickly and you may find
 examples on the internet which refer to older versions. By the time
 you’ve found this blog entry, we already may be at version 100.</p>
 
-<p>Look at the bottom. Here, we define our volumes, <code class="highlighter-rouge">pg_data</code> and
-<code class="highlighter-rouge">pg_backups</code>. The curved brackets are empty maps, we could pass some
+<p>Look at the bottom. Here, we define our volumes, <code class="language-plaintext highlighter-rouge">pg_data</code> and
+<code class="language-plaintext highlighter-rouge">pg_backups</code>. The curved brackets are empty maps, we could pass some
 options here instead, but for now we’ll settle with the defaults.</p>
 
 <p>Looking back at the top, we define our containers (or, um,
 “services”). First up is our db container, based off the Docker Hub
 Postgres image, version 9.6, exposing the default Postgres
-port 5432. It has two data volume mounts, namely <code class="highlighter-rouge">pg_data</code> and
-<code class="highlighter-rouge">pg_backups</code>. To polish things a little bit, we define the Postgres
+port 5432. It has two data volume mounts, namely <code class="language-plaintext highlighter-rouge">pg_data</code> and
+<code class="language-plaintext highlighter-rouge">pg_backups</code>. To polish things a little bit, we define the Postgres
 username and password. Note that the definition of the username is
-actually not needed, as the default username already is <code class="highlighter-rouge">postgres</code>.</p>
+actually not needed, as the default username already is <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
 
 <p>Our next service, web, is not based off a Docker Hub image - it’s
-based off our Dockerfile which we wrote earlier, hence the <code class="highlighter-rouge">build: .</code>,
+based off our Dockerfile which we wrote earlier, hence the <code class="language-plaintext highlighter-rouge">build: .</code>,
 assuming that our docker-compose.yml is in the same directory as the
 Dockerfile, of course. We map port 8000 to the hosts port 8000,
 meaning that our app server will be reachable in the host via
-<code class="highlighter-rouge">127.0.0.1:8000</code> once it’s running. Finally, we specify that this
+<code class="language-plaintext highlighter-rouge">127.0.0.1:8000</code> once it’s running. Finally, we specify that this
 container relies on our db container being started up first, so
 docker-compose can plan the startup order of our containers
 accordingly.</p>
@@ -533,14 +541,14 @@ specified locations.</p>
 
 <p>Your shell should be flooded with text, good job. It’s interesting to
 see that the output of each container is prefixed with its name,
-e.g. <code class="highlighter-rouge">db_1 |</code>.</p>
+e.g. <code class="language-plaintext highlighter-rouge">db_1 |</code>.</p>
 
-<p>To stop this madness, hit <code class="highlighter-rouge">ctrl-c</code>.</p>
+<p>To stop this madness, hit <code class="language-plaintext highlighter-rouge">ctrl-c</code>.</p>
 
 <p>As always, we have solved some problems while creating some more. Now,
 our database server is isolated from our Django app (uWSGI) server
 which is a good thing. However, we will have to point our Django app
-to our new database location. Open up your <code class="highlighter-rouge">settings.py</code> and modify this bit:</p>
+to our new database location. Open up your <code class="language-plaintext highlighter-rouge">settings.py</code> and modify this bit:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
@@ -554,20 +562,20 @@ to our new database location. Open up your <code class="highlighter-rouge">setti
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>We set our database host to the variable <code class="highlighter-rouge">POSTGRES_HOST</code>. Further up,
+<p>We set our database host to the variable <code class="language-plaintext highlighter-rouge">POSTGRES_HOST</code>. Further up,
 insert this:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'DOCKER_CONTAINER'</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'DOCKER_CONTAINER'</span><span class="p">):</span>
     <span class="n">POSTGRES_HOST</span> <span class="o">=</span> <span class="s">'db'</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">POSTGRES_HOST</span> <span class="o">=</span> <span class="s">'127.0.0.1'</span>
 </code></pre></div></div>
 
-<p>Remember how we set the environment variable <code class="highlighter-rouge">DOCKER_CONTAINER</code> in our
+<p>Remember how we set the environment variable <code class="language-plaintext highlighter-rouge">DOCKER_CONTAINER</code> in our
 Dockerfile at the beginning? Now it helps us by being able to query
 whether our Django App is running in a container und setting the
-database host accordingly. <code class="highlighter-rouge">db</code> refers to the hostname of our database
-which is specified in our <code class="highlighter-rouge">docker-compose.yml</code>.</p>
+database host accordingly. <code class="language-plaintext highlighter-rouge">db</code> refers to the hostname of our database
+which is specified in our <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
 
 <p>Please note that the art of splitting development and production
 settings has more history than meets the eye in this simple
@@ -580,7 +588,7 @@ on that.</p>
 <h3 id="django-migrations-in-docker">Django migrations in Docker</h3>
 
 <p>More progress, more questions. How do we run Django migrations now?
-Easy. Start up our composition if it is not running yet with <code class="highlighter-rouge">sudo
+Easy. Start up our composition if it is not running yet with <code class="language-plaintext highlighter-rouge">sudo
 docker-compose up</code>, then:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker-compose <span class="nb">exec </span>web /bin/bash
@@ -592,13 +600,13 @@ python3 manage.py migrate
 migrations. But what exactly did we do here?</p>
 
 <p>First, we opened up a shell in our web container. Note the difference:
-This time, we’re using <code class="highlighter-rouge">docker-compose exec</code> instead of <code class="highlighter-rouge">docker
+This time, we’re using <code class="language-plaintext highlighter-rouge">docker-compose exec</code> instead of <code class="language-plaintext highlighter-rouge">docker
 exec</code>. Does it matter? It depends. You could of course look up the
 auto-generated name of your web container, most likely
-<code class="highlighter-rouge">projectname_web_1</code> and simply run our old friend <code class="highlighter-rouge">docker exec -it</code>
+<code class="language-plaintext highlighter-rouge">projectname_web_1</code> and simply run our old friend <code class="language-plaintext highlighter-rouge">docker exec -it</code>
 with the same options. However, if you have multiple containers with
 the same name and want to apply a command to all of them at the same
-time, you will need <code class="highlighter-rouge">docker-compose exec</code>.</p>
+time, you will need <code class="language-plaintext highlighter-rouge">docker-compose exec</code>.</p>
 
 <p>From there on it’s straight sailing: Change the directory to the
 Django app directory and run the migrations.</p>
@@ -657,7 +665,7 @@ up in the host os.</p>
 a <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04">a great guide</a> on exactly this topic
 and our setup differs only slightly from theirs. Here’s our simplified
 nginx site config, sitting in
-<code class="highlighter-rouge">/etc/nginx/sites-available/serious_project</code>:</p>
+<code class="language-plaintext highlighter-rouge">/etc/nginx/sites-available/serious_project</code>:</p>
 
 <div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">upstream</span> <span class="s">app</span> <span class="p">{</span>
     <span class="kn">server</span> <span class="nf">127.0.0.1</span><span class="p">:</span><span class="mi">8000</span><span class="p">;</span>
@@ -711,61 +719,81 @@ have known, there are always some more best practices to follow :)</p>
 
 
   </article>
-</article>
-<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
-  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+</div>
 
-  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+<section class="max-w-xl mt-8 px-3 mx-auto">
+  <section class="p-4 border border-gray-500 bg-gray-800 rounded shadow-lg">
+    <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Damn, you read this far?</h3>
 
-  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
-    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
-  </form>
+    <p class="mt-2 text-sm text-gray-400">Let me make you an offer you can't refuse: Subscribe to my newsletter and be the first to read my new articles! 5 happy subscribers (including me) and counting.</p>
+
+    <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+      <input class="appearance-none px-3 py-2 bg-gray-500 hover:bg-gray-600 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+    </form>
+  </section>
 </section>
 
 
-      </main>
-      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+    </main>
+
+    <footer class="mt-8 pb-8 text-xs text-gray-600 text-center">
+  <!-- We'll respect non-js people by having the first quote in the HTML DOM at the beginning -->
+  <a id="funny-quote" href="#">An App a Day keeps the Doctor away.</a>
+</footer>
 
 <script type="text/javascript">
  $(document).ready(function() {
-   // We'll respect non-js people by having the first quote in the
-   // HTML DOM at the beginning
-   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
-   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
-   var footerEl = document.getElementById('funny-quote');
-   footerEl.innerHTML = randomFunnyQuote;
- });
-</script>
+   // Load array from config and shuffle
+   var funnyQuotes = shuffle(["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","No Quality Management System on this planet will save you from writing crappy software."]);
+   var funnyQuoteNode = $('#funny-quote');
+   var i = 0;
 
-    </div>
-    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
-  <a id="look-behind" href="#">What's behind this?</a>
-</div>
-<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
-  <section class="max-w-lg text-white text-center leading-tight">
-    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
-    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
-    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
-    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
-</div>
+   // Set first quote on initial load
+   setFunnyQuote();
 
-<script type="text/javascript">
- $(document).ready(function() {
-   $('#look-behind').on('click', function() {
-     $('#look-behind-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#show-content-container').show();
+   // Cycle through quotes on clicks
+   funnyQuoteNode.click(function(event) {
+     event.preventDefault();
+
+     // Prevent off-by-one error, classic
+     if (i == funnyQuotes.length - 1) {
+       i = 0;
+     } else {
+       i++;
+     }
+
+     setFunnyQuote();
    });
 
-   $('#show-content').on('click', function() {
-     $('#show-content-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#look-behind-container').show();
-   });
+   // Lots of closures here, because we can
+   function setFunnyQuote() {
+     funnyQuoteNode.text(funnyQuotes[i]);
+   }
  });
+
+ function shuffle(array) {
+   // https://stackoverflow.com/a/2450976/4593972
+
+   var currentIndex = array.length, temporaryValue, randomIndex;
+
+   // While there remain elements to shuffle...
+   while (0 !== currentIndex) {
+
+     // Pick a remaining element...
+     randomIndex = Math.floor(Math.random() * currentIndex);
+     currentIndex -= 1;
+
+     // And swap it with the current element.
+     temporaryValue = array[currentIndex];
+     array[currentIndex] = array[randomIndex];
+     array[randomIndex] = temporaryValue;
+   }
+
+   return array;
+ }
 </script>
 
   </body>

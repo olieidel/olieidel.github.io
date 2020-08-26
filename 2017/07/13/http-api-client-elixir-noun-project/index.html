@@ -11,7 +11,7 @@
     <!-- SEO -->
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Writing a HTTP API Client in Elixir for the Noun Project | Oliver Eidel</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Writing a HTTP API Client in Elixir for the Noun Project" />
 <meta name="author" content="Oliver Eidel" />
 <meta property="og:locale" content="en_US" />
@@ -23,16 +23,17 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-07-13T11:00:00+02:00" />
 <script type="application/ld+json">
-{"url":"https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/","headline":"Writing a HTTP API Client in Elixir for the Noun Project","dateModified":"2017-07-13T11:00:00+02:00","datePublished":"2017-07-13T11:00:00+02:00","description":"Doing some HTTP requests is usually one of the first things I do when I’m learning a new language (apart from comparing its performance in highly artificial benchmarks and checking whether it scales).","author":{"@type":"Person","name":"Oliver Eidel"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/"},"url":"https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/","headline":"Writing a HTTP API Client in Elixir for the Noun Project","dateModified":"2017-07-13T11:00:00+02:00","datePublished":"2017-07-13T11:00:00+02:00","author":{"@type":"Person","name":"Oliver Eidel"},"description":"Doing some HTTP requests is usually one of the first things I do when I’m learning a new language (apart from comparing its performance in highly artificial benchmarks and checking whether it scales).","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- CSS and Fonts -->
     <link href="/css/site.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="/assets/js/turbolinks-5.2.0.js"></script>
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70715341-1"></script>
@@ -55,43 +56,50 @@
     
   </head>
 
-  <body class="text-gray-200 bg-image">
-    <div id="main-overlay" class="overlay-frosted mx-auto max-w-2xl sm:mt-8 sm:px-5 py-3 sm:rounded shadow-xl">
-      <nav class="flex flex-col sm:flex-row items-center mx-3 sm:py-2">
-  <div class="sm:w-20">
-    <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
-      <div>Oliver</div>
-      <div class="ml-2 sm:ml-0">Eidel</div>
-    </a>
-  </div>
-  <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
-    <a class="px-2 py-1 hover:text-white" href="/"><li>Home</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/about"><li>About</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/talks"><li>Talks</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/reading"><li>Reading</li></a>
-    <a class="px-2 py-1 hover:text-white" href="/publications"><li>Publications</li></a>
-  </ul>
-  <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
-    <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+  <body class="bg-gray-200 text-gray-800">
+    
+    <div class="w-full pt-4 sm:pt-6 sm:px-5 bg-gray-800">
+  <nav class="flex flex-col sm:flex-row items-center max-w-2xl mx-auto px-3 sm:py-2">
+    <div class="sm:w-20">
+      <a class="px-2 sm:px-0 py-1 flex flex-row sm:flex-col text-gray-400 hover:text-white text-sm uppercase tracking-widest leading-tight" href="/">
+        <div>Oliver</div>
+        <div class="ml-2 sm:ml-0">Eidel</div>
+      </a>
+    </div>
+    <ul class="mt-1 sm:mt-0 flex-1 flex flex-row flex-wrap justify-center text-gray-200 text-sm uppercase font-medium leading-tight tracking-wider">
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/"><li>Home</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/about"><li>About</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/talks"><li>Talks</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/reading"><li>Reading</li></a>
+      <a class="px-2 py-1 hover:underline hover:text-white" href="/publications"><li>Publications</li></a>
+    </ul>
+    <div class="mt-2 sm:mt-0 sm:w-20 flex sm:justify-end text-gray-400">
+      <a class="p-1 sm:p-0 hover:text-white" href="https://github.com/olieidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://twitter.com/olieidel" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"/>
 </svg></a>
-    <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
+      <a class="ml-1 p-1 sm:p-0 hover:text-white" href="https://www.linkedin.com/in/oliver-eidel/" rel="nofollow" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24" class="fill-current w-5 h-5">
   <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
 </svg></a>
-  </div>
-</nav>
+    </div>
+  </nav>
+</div>
 
-      <main>
-        <article class="mt-4 mx-3">
-  <div class="py-6 bg-gray-700 border border-gray-500 rounded shadow-lg hover:shadow-2xl cursor-default">
-    <div class="text-xs text-center text-gray-400 uppercase leading-tight">13 Jul 2017</div>
-    <h1 class="text-3xl text-center text-white font-semibold tracking-wide leading-tight">Writing a HTTP API Client in Elixir for the Noun Project</h1>
-  </div>
 
-  <article class="post mt-6">
+    
+
+    <main>
+      <div class="w-full pt-12 pb-6 px-3 bg-gray-800 shadow-lg">
+  <div class="mx-auto max-w-2xl text-center leading-tight">
+    <p class="text-xs text-gray-400 uppercase">13 Jul 2017</p>
+    <h1 class="mt-2 text-4xl text-white font-semibold tracking-wide">Writing a HTTP API Client in Elixir for the Noun Project</h1>
+  </div>
+</div>
+
+<div class="mx-auto max-w-2xl px-3 py-3">
+  <article class="post">
     <p>Doing some HTTP requests is usually one of the first things I do when
 I’m learning a new language (apart from comparing its performance in
 highly artificial benchmarks and checking whether it scales).</p>
@@ -143,7 +151,7 @@ shall choose <a href="https://hex.pm/packages/httpoison">HTTPoison</a> for the f
 and <a href="https://hex.pm/packages/poison">Poison</a> for the latter. Further, we will
 need <a href="https://hex.pm/packages/oauther">oauther</a> for some serious OAuthing Voodoo.</p>
 
-<p>Let’s edit our <code class="highlighter-rouge">deps</code> function in <code class="highlighter-rouge">mix.exs</code> and insert those
+<p>Let’s edit our <code class="language-plaintext highlighter-rouge">deps</code> function in <code class="language-plaintext highlighter-rouge">mix.exs</code> and insert those
 aforementioned dependencies:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">deps</span> <span class="k">do</span>
@@ -154,7 +162,7 @@ aforementioned dependencies:</p>
 </code></pre></div></div>
 
 <p>Note that after Elixir 1.4 we no longer need to add HTTPoison to our
-<code class="highlighter-rouge">applications</code> function as it is automatically inferred (see
+<code class="language-plaintext highlighter-rouge">applications</code> function as it is automatically inferred (see
 the <a href="https://elixir-lang.org/blog/2017/01/05/elixir-v1-4-0-released/">Elixir 1.4 release announcement</a>, section
 “Application inference”).</p>
 
@@ -181,15 +189,15 @@ sort of conclusion.</p>
 <h3 id="naive-approach">Naive approach</h3>
 
 <p>Let’s take a quick look at the <a href="http://api.thenounproject.com/documentation.html">API docs</a>. How
-about trying to query that first endpoint <code class="highlighter-rouge">GET /collection/(int:id)</code>?</p>
+about trying to query that first endpoint <code class="language-plaintext highlighter-rouge">GET /collection/(int:id)</code>?</p>
 
-<p>Quick note: The way we write functions shall be <code class="highlighter-rouge">function_name/arity</code>
+<p>Quick note: The way we write functions shall be <code class="language-plaintext highlighter-rouge">function_name/arity</code>
 where arity means the number of arguments the function takes. It’s the
 Erlang / Elixir way of writing things.</p>
 
 <p>Having briefly looked at
-the <a href="https://github.com/edgurgel/httpoison">HTTPoison GitHub Readme</a>, our <code class="highlighter-rouge">get_collection/1</code> should
-look something like this in <code class="highlighter-rouge">lib/noun_projex.ex</code>. Add some
+the <a href="https://github.com/edgurgel/httpoison">HTTPoison GitHub Readme</a>, our <code class="language-plaintext highlighter-rouge">get_collection/1</code> should
+look something like this in <code class="language-plaintext highlighter-rouge">lib/noun_projex.ex</code>. Add some
 documentation for good measure:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">NounProjex</span> <span class="k">do</span>
@@ -236,7 +244,7 @@ you the solution to save you precious time:</p>
   <li>It works. Done.</li>
 </ol>
 
-<p>This is how our naive <code class="highlighter-rouge">get_collection/1</code> should look now with some
+<p>This is how our naive <code class="language-plaintext highlighter-rouge">get_collection/1</code> should look now with some
 Voodoo sprinkled in:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
@@ -268,7 +276,7 @@ continue?</p>
 
 <p>Nope. The naive coding approach is good in the way that it gets us
 going quickly but we should look out for opportunities for refactoring
-(and not procrastinate). Here, our <code class="highlighter-rouge">get_collection/1</code> function is
+(and not procrastinate). Here, our <code class="language-plaintext highlighter-rouge">get_collection/1</code> function is
 suboptimal because it actually has two tasks: Requesting the API auth
 header and calling the API endpoint. Also, we would have to copy-paste
 those code blocks every time we would write a function for another API
@@ -304,13 +312,13 @@ auth header first?</p>
 actually depends on the exact URL (with parameters) you request. Just
 thought I’d mention that as it cost me two hours of clueless debugging.</p>
 
-<p>We also extract our <code class="highlighter-rouge">consumer_key</code> and <code class="highlighter-rouge">consumer_secret</code> and set them
+<p>We also extract our <code class="language-plaintext highlighter-rouge">consumer_key</code> and <code class="language-plaintext highlighter-rouge">consumer_secret</code> and set them
 as <a href="https://elixir-lang.org/getting-started/module-attributes.html">module attributes</a> at the top of our
 module. Later on, we will follow best practices and put them in a more
 appropriate place but for now this is good enough.</p>
 
-<p>The content of the <code class="highlighter-rouge">construct_oauth_header/2</code> function is pretty much
-identical to what we saw before. We only return the <code class="highlighter-rouge">header</code> as we’re
+<p>The content of the <code class="language-plaintext highlighter-rouge">construct_oauth_header/2</code> function is pretty much
+identical to what we saw before. We only return the <code class="language-plaintext highlighter-rouge">header</code> as we’re
 not interested in the rest.</p>
 
 <p>However, another less obvious opportunity for refactoring can be seen
@@ -334,10 +342,10 @@ a <a href="http://openmymind.net/Elixirs-With-Statement/">with statement</a>, ri
 
 <p>Ah. Nice and sweet. We’re basically doing the same stuff as before but
 this time our code looks more concise and we could later on add an
-<code class="highlighter-rouge">else</code> block to our <code class="highlighter-rouge">with</code> statement to handle all function
+<code class="language-plaintext highlighter-rouge">else</code> block to our <code class="language-plaintext highlighter-rouge">with</code> statement to handle all function
 errors in one place.</p>
 
-<p>Our <code class="highlighter-rouge">get_collection/1</code> now becomes:</p>
+<p>Our <code class="language-plaintext highlighter-rouge">get_collection/1</code> now becomes:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
   <span class="n">url</span> <span class="o">=</span> <span class="s2">"http://api.thenounproject.com/collection/</span><span class="si">#{</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
@@ -346,14 +354,14 @@ errors in one place.</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Looks good so far. In Elixir, functions ending with a bang <code class="highlighter-rouge">!</code> usually
+<p>Looks good so far. In Elixir, functions ending with a bang <code class="language-plaintext highlighter-rouge">!</code> usually
 throw exceptions when an error occurs. We would have to catch those
 when they happen - however, that’s not the Elixir way of doing things.</p>
 
 <h3 id="better-error-handling">Better error handling</h3>
 
-<p>We rather use HTTPoison’s <code class="highlighter-rouge">get</code> function without a bang instead and
-handle some errors via a <code class="highlighter-rouge">case</code> statement:</p>
+<p>We rather use HTTPoison’s <code class="language-plaintext highlighter-rouge">get</code> function without a bang instead and
+handle some errors via a <code class="language-plaintext highlighter-rouge">case</code> statement:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="ow">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
   <span class="n">url</span> <span class="o">=</span> <span class="s2">"http://api.thenounproject.com/collection/</span><span class="si">#{</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
@@ -376,11 +384,11 @@ handle some errors via a <code class="highlighter-rouge">case</code> statement:<
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Notice how I added the <a href="https://hexdocs.pm/elixir/master/guards.html">guard</a> <code class="highlighter-rouge">is_integer/1</code>? As we’re
-expecting <code class="highlighter-rouge">id</code> to only be an integer, we might as well enforce this.</p>
+<p>Notice how I added the <a href="https://hexdocs.pm/elixir/master/guards.html">guard</a> <code class="language-plaintext highlighter-rouge">is_integer/1</code>? As we’re
+expecting <code class="language-plaintext highlighter-rouge">id</code> to only be an integer, we might as well enforce this.</p>
 
 <p>We also change the return signature of our function to a tuple of
-<code class="highlighter-rouge">{status, payload}</code> so a caller of our function could do similar error
+<code class="language-plaintext highlighter-rouge">{status, payload}</code> so a caller of our function could do similar error
 handling. In this example, we react to all non-200 HTTP status codes
 the same way but of course we could pattern match any HTTP code
 specifically to react to erroneous responses in a more fine-grained
@@ -394,7 +402,7 @@ to an Elixir map.</p>
 <p>Great! Now, onto the next API endpoint.</p>
 
 <p>Um, not so fast. When coding up the function for the next endpoint, we
-would have to copy-paste that whole <code class="highlighter-rouge">case HTTPoison.get(url, headers)</code>
+would have to copy-paste that whole <code class="language-plaintext highlighter-rouge">case HTTPoison.get(url, headers)</code>
 block all over again, right?</p>
 
 <h3 id="extracting-http-requests">Extracting HTTP requests</h3>
@@ -417,7 +425,7 @@ request part into a private function:</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>That’s just copy-paste. Should be fine for now. Let’s have a look at our updated <code class="highlighter-rouge">get_collection/1</code>:</p>
+<p>That’s just copy-paste. Should be fine for now. Let’s have a look at our updated <code class="language-plaintext highlighter-rouge">get_collection/1</code>:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="ow">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
   <span class="n">url</span> <span class="o">=</span> <span class="s2">"http://api.thenounproject.com/collection/</span><span class="si">#{</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
@@ -429,12 +437,12 @@ request part into a private function:</p>
 
 <p>Nice and concise. Onwards to the next API endpoint! Looking at
 the <a href="http://api.thenounproject.com/documentation.html">Noun Project API docs</a> again, that would
-be <code class="highlighter-rouge">GET /collection/(int: id)/icons</code>. Let’s skip that for the moment
-and go on to the next (third) one, which is <code class="highlighter-rouge">GET /collection/(slug)</code>.</p>
+be <code class="language-plaintext highlighter-rouge">GET /collection/(int: id)/icons</code>. Let’s skip that for the moment
+and go on to the next (third) one, which is <code class="language-plaintext highlighter-rouge">GET /collection/(slug)</code>.</p>
 
 <p>Ugh! Your inner API designer moans. It’s the same endpoint which we
 already have coded but this time it accepts a different type of input
-(<code class="highlighter-rouge">slug</code> is a string, instead of <code class="highlighter-rouge">id</code> which was an integer
+(<code class="language-plaintext highlighter-rouge">slug</code> is a string, instead of <code class="language-plaintext highlighter-rouge">id</code> which was an integer
 earlier). Luckily, Elixir’s <a href="https://hexdocs.pm/elixir/master/guards.html">guard</a> has our back here
 (subtle pun intended).</p>
 
@@ -454,12 +462,12 @@ Returns a single collection by slug (string).
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Note that we use the guard <code class="highlighter-rouge">is_binary/1</code> here as strings are binaries
+<p>Note that we use the guard <code class="language-plaintext highlighter-rouge">is_binary/1</code> here as strings are binaries
 in Elixir. The rest remains the same.</p>
 
 <h3 id="endpoint-with-parameters">Endpoint with parameters</h3>
 
-<p>Onwards to the endpoint we skipped just now (the second): <code class="highlighter-rouge">GET
+<p>Onwards to the endpoint we skipped just now (the second): <code class="language-plaintext highlighter-rouge">GET
 /collection/(int: id)/icons</code>.</p>
 
 <p>Let’s code it:</p>
@@ -487,21 +495,21 @@ Returns a list of icons associated with a collection by id (int).
 additional query parameters to the url. This is what’s going on here:</p>
 
 <ol>
-  <li>First, assign <code class="highlighter-rouge">params</code> to be a keyword list of our parameters.</li>
-  <li>Then, encode that into a URI query e.g. <code class="highlighter-rouge">limit=123&amp;offset=3&amp;page=4</code></li>
-  <li>Concatenate that with the <code class="highlighter-rouge">base_url</code> and don’t forget a slash and
+  <li>First, assign <code class="language-plaintext highlighter-rouge">params</code> to be a keyword list of our parameters.</li>
+  <li>Then, encode that into a URI query e.g. <code class="language-plaintext highlighter-rouge">limit=123&amp;offset=3&amp;page=4</code></li>
+  <li>Concatenate that with the <code class="language-plaintext highlighter-rouge">base_url</code> and don’t forget a slash and
 question mark in between making our URL look like
-<code class="highlighter-rouge">http://api.foo.com/?limit=123&amp;offset=3&amp;page=4</code></li>
+<code class="language-plaintext highlighter-rouge">http://api.foo.com/?limit=123&amp;offset=3&amp;page=4</code></li>
 </ol>
 
 <p>Don’t forget that you have to pass the URL which includes the
 parameters to your OAuth function as those parameters are of course
-part of the URL - no use passing the <code class="highlighter-rouge">base_url</code> to the OAuth function!
+part of the URL - no use passing the <code class="language-plaintext highlighter-rouge">base_url</code> to the OAuth function!
 I hope I saved you another hour of debugging obscure auth bugs there,
 I certainly spent that time debugging…</p>
 
 <p>Now, this works but it becomes noticeable that we are still repeating
-ourselves. We always have to specify the <code class="highlighter-rouge">url</code> which we are requesting
+ourselves. We always have to specify the <code class="language-plaintext highlighter-rouge">url</code> which we are requesting
 and manually interpolate the request parameters into it. Now that we
 have explored the API endpoints further and know that we sometimes
 also have to add request parameters we might as well incorporate all
@@ -559,24 +567,24 @@ of that into a private function.</p>
 <p>What sort of wizardry have we done? For one parameter, it’s simple:</p>
 
 <ul>
-  <li>If it’s a string, simply concatenate it to <code class="highlighter-rouge">@base_url</code></li>
+  <li>If it’s a string, simply concatenate it to <code class="language-plaintext highlighter-rouge">@base_url</code></li>
   <li>If it’s a list, join the list’s contents with a slash and
-concatenate that to <code class="highlighter-rouge">@base_url</code></li>
+concatenate that to <code class="language-plaintext highlighter-rouge">@base_url</code></li>
 </ul>
 
-<p>By the way, we extracted the <code class="highlighter-rouge">base_url</code> to be a module attribute.</p>
+<p>By the way, we extracted the <code class="language-plaintext highlighter-rouge">base_url</code> to be a module attribute.</p>
 
-<p>Our <code class="highlighter-rouge">construct_url/2</code> is even more interesting: It calls
-<code class="highlighter-rouge">construct_url/1</code> with the first parameter <code class="highlighter-rouge">dirs</code> and just adds the
+<p>Our <code class="language-plaintext highlighter-rouge">construct_url/2</code> is even more interesting: It calls
+<code class="language-plaintext highlighter-rouge">construct_url/1</code> with the first parameter <code class="language-plaintext highlighter-rouge">dirs</code> and just adds the
 encoded URI parameters to the end of the string. That means that we
-can actually call it by passing either a string or a list to <code class="highlighter-rouge">dirs</code> as
+can actually call it by passing either a string or a list to <code class="language-plaintext highlighter-rouge">dirs</code> as
 both are handled appropriately by delegating to the one-parameter
-function <code class="highlighter-rouge">construct_url/1</code>!</p>
+function <code class="language-plaintext highlighter-rouge">construct_url/1</code>!</p>
 
 <p>Of course we could have handled this task with an external library but
 where’s the fun in that?</p>
 
-<p>Our updated <code class="highlighter-rouge">get_collection_icons/4</code> now looks like this:</p>
+<p>Our updated <code class="language-plaintext highlighter-rouge">get_collection_icons/4</code> now looks like this:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection_icons</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
       <span class="ow">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
@@ -594,11 +602,11 @@ where’s the fun in that?</p>
 
 <p>It looks yet cleaner again!</p>
 
-<p>By the way, the API docs state that when no <code class="highlighter-rouge">limit</code> is provided,
-<code class="highlighter-rouge">limit</code> is assumed to be 50. And if <code class="highlighter-rouge">page</code> is provided, <code class="highlighter-rouge">offset</code> is
+<p>By the way, the API docs state that when no <code class="language-plaintext highlighter-rouge">limit</code> is provided,
+<code class="language-plaintext highlighter-rouge">limit</code> is assumed to be 50. And if <code class="language-plaintext highlighter-rouge">page</code> is provided, <code class="language-plaintext highlighter-rouge">offset</code> is
 ignored. So that’s tricky with our function parameter order: If we
-only want to pass in a value for <code class="highlighter-rouge">page</code>, what do we do with <code class="highlighter-rouge">offset</code>?
-Pass <code class="highlighter-rouge">0</code>? That doesn’t seem very clean.</p>
+only want to pass in a value for <code class="language-plaintext highlighter-rouge">page</code>, what do we do with <code class="language-plaintext highlighter-rouge">offset</code>?
+Pass <code class="language-plaintext highlighter-rouge">0</code>? That doesn’t seem very clean.</p>
 
 <p>Wouldn’t it be better if we were to filter the parameters beforehand
 so that only “allowed” parameters could be passed? This would also
@@ -607,10 +615,10 @@ list.</p>
 
 <h3 id="parameter-filtering">Parameter filtering</h3>
 
-<p>Our new <code class="highlighter-rouge">get_collection_icons/2</code> should look something like this. We
+<p>Our new <code class="language-plaintext highlighter-rouge">get_collection_icons/2</code> should look something like this. We
 circumvent the problem of “parameter ordering” by passing all
-parameters as one variable <code class="highlighter-rouge">params</code> (a keyword list) and filtering
-them appropriately with <code class="highlighter-rouge">filter_params/2</code> which we still have to write:</p>
+parameters as one variable <code class="language-plaintext highlighter-rouge">params</code> (a keyword list) and filtering
+them appropriately with <code class="language-plaintext highlighter-rouge">filter_params/2</code> which we still have to write:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">get_collection_icons</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
       <span class="ow">when</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">do</span>
@@ -627,7 +635,7 @@ them appropriately with <code class="highlighter-rouge">filter_params/2</code> w
 
 <p>Looks better yet. We are basically describing which query parameters
 are allowed and discarding those which aren’t. The implementation of
-<code class="highlighter-rouge">filter_params/2</code> is trivial:</p>
+<code class="language-plaintext highlighter-rouge">filter_params/2</code> is trivial:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">filter_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">allowed_params</span><span class="p">)</span> <span class="k">do</span>
   <span class="no">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="k">fn</span> <span class="p">{</span><span class="n">key</span><span class="p">,</span> <span class="n">_value</span><span class="p">}</span> <span class="o">-&gt;</span>
@@ -636,14 +644,14 @@ are allowed and discarding those which aren’t. The implementation of
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>By deconstructing each entry of <code class="highlighter-rouge">params</code> to <code class="highlighter-rouge">{key, _value}</code> we can
+<p>By deconstructing each entry of <code class="language-plaintext highlighter-rouge">params</code> to <code class="language-plaintext highlighter-rouge">{key, _value}</code> we can
 iterate only over the keys and ignore the values for now. The
-expression <code class="highlighter-rouge">key in allowed_params</code> returns true if the our current
+expression <code class="language-plaintext highlighter-rouge">key in allowed_params</code> returns true if the our current
 parameter key is allowed and false otherwise. Using that in
-<code class="highlighter-rouge">Enum.filter/2</code> lets us simply discard all non-allowed params with
+<code class="language-plaintext highlighter-rouge">Enum.filter/2</code> lets us simply discard all non-allowed params with
 their values. Nice!</p>
 
-<p>There’s actually a built-in abstraction for that: <code class="highlighter-rouge">Keyword.take/2</code>. So
+<p>There’s actually a built-in abstraction for that: <code class="language-plaintext highlighter-rouge">Keyword.take/2</code>. So
 we could go on and yet further simplify our implementation:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defp</span> <span class="n">filter_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">allowed_params</span><span class="p">)</span> <span class="k">do</span>
@@ -651,18 +659,18 @@ we could go on and yet further simplify our implementation:</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>We could also call <code class="highlighter-rouge">Keyword.take/2</code> directly instead of calling it via
-<code class="highlighter-rouge">filter_params/2</code> - that’s a matter of style and personal preference,
+<p>We could also call <code class="language-plaintext highlighter-rouge">Keyword.take/2</code> directly instead of calling it via
+<code class="language-plaintext highlighter-rouge">filter_params/2</code> - that’s a matter of style and personal preference,
 I guess. You decide!</p>
 
 <h3 id="packing-more-into-do_request">Packing more into do_request</h3>
 
 <p>Now there still are some low-hanging fruit. We still are repeatedly
-calling <code class="highlighter-rouge">construct_url</code> and <code class="highlighter-rouge">construct_oauth_header/2</code> in every API
-request function. I suggest we integrate those into <code class="highlighter-rouge">do_request</code> as we
+calling <code class="language-plaintext highlighter-rouge">construct_url</code> and <code class="language-plaintext highlighter-rouge">construct_oauth_header/2</code> in every API
+request function. I suggest we integrate those into <code class="language-plaintext highlighter-rouge">do_request</code> as we
 will have to construct the url and auth headers for every request
-anyway. Due to <code class="highlighter-rouge">construct_oauth_header/2</code> having to know the request
-method (GET / POST), we will have to pass it to <code class="highlighter-rouge">do_request</code>.</p>
+anyway. Due to <code class="language-plaintext highlighter-rouge">construct_oauth_header/2</code> having to know the request
+method (GET / POST), we will have to pass it to <code class="language-plaintext highlighter-rouge">do_request</code>.</p>
 
 <p>From the other side, it should look something like this:</p>
 
@@ -670,8 +678,8 @@ method (GET / POST), we will have to pass it to <code class="highlighter-rouge">
                     <span class="ss">limit:</span> <span class="mi">20</span><span class="p">,</span> <span class="ss">offset:</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Note that Elixir passes the last two arguments (<code class="highlighter-rouge">limit: 20</code> and
-<code class="highlighter-rouge">offset: 10</code>) actually as one parameter (a keyword list) to the
+<p>Note that Elixir passes the last two arguments (<code class="language-plaintext highlighter-rouge">limit: 20</code> and
+<code class="language-plaintext highlighter-rouge">offset: 10</code>) actually as one parameter (a keyword list) to the
 function. If they weren’t the last parameters (e.g., somewhere in the
 middle) or we would want to write it in a more verbose manner, we
 could write:</p>
@@ -689,7 +697,7 @@ lists:</p>
 
 <p>Good to know. I didn’t understand this myself for quite some
 time. Anyway, let’s not get distracted and commence the implementation
-of <code class="highlighter-rouge">do_request/3</code>:</p>
+of <code class="language-plaintext highlighter-rouge">do_request/3</code>:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="n">do_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span> <span class="k">do</span>
@@ -711,7 +719,7 @@ of <code class="highlighter-rouge">do_request/3</code>:</p>
 </code></pre></div></div>
 
 <p>Looking good! I decided that passing the request method as an atom
-(<code class="highlighter-rouge">:get</code> instead of <code class="highlighter-rouge">"get"</code>) looks cleaner - but I’ll let you
+(<code class="language-plaintext highlighter-rouge">:get</code> instead of <code class="language-plaintext highlighter-rouge">"get"</code>) looks cleaner - but I’ll let you
 decide. Anyway, now we have to convert it to a string for the OAuth
 Voodoo library as seen above.</p>
 
@@ -736,8 +744,8 @@ before already.</p>
 <p>Awesome! How much cleaner can it get?</p>
 
 <p>What about our API endpoints which don’t take any query parameters?
-How about creating <code class="highlighter-rouge">do_request/2</code> which doesn’t take any <code class="highlighter-rouge">params</code> but
-delegates the call to <code class="highlighter-rouge">do_request/3</code> with an empty list for <code class="highlighter-rouge">params</code>?
+How about creating <code class="language-plaintext highlighter-rouge">do_request/2</code> which doesn’t take any <code class="language-plaintext highlighter-rouge">params</code> but
+delegates the call to <code class="language-plaintext highlighter-rouge">do_request/3</code> with an empty list for <code class="language-plaintext highlighter-rouge">params</code>?
 Sounds tricky but actually it’s a one-liner:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">do_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span> <span class="k">do</span>
@@ -745,7 +753,7 @@ Sounds tricky but actually it’s a one-liner:</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>We simply delegate the call to <code class="highlighter-rouge">do_request/3</code> with an empty list as <code class="highlighter-rouge">params</code>.</p>
+<p>We simply delegate the call to <code class="language-plaintext highlighter-rouge">do_request/3</code> with an empty list as <code class="language-plaintext highlighter-rouge">params</code>.</p>
 
 <p>Let’s take a look how the two other endpoints which we implemented
 earlier look now in their final iteration:</p>
@@ -828,14 +836,14 @@ keys will most likely be seen by a third party.</li>
 
 <p>How do we mitigate this issue? In
 the <a href="http://www.phoenixframework.org">Phoenix Framework</a> this problem is quite
-elegantly solved in config files with the suffix <code class="highlighter-rouge">.secret</code>,
-e.g. <code class="highlighter-rouge">prod.secret.exs</code> in the <code class="highlighter-rouge">config</code> directory of your project.</p>
+elegantly solved in config files with the suffix <code class="language-plaintext highlighter-rouge">.secret</code>,
+e.g. <code class="language-plaintext highlighter-rouge">prod.secret.exs</code> in the <code class="language-plaintext highlighter-rouge">config</code> directory of your project.</p>
 
 <p>That sounds like a great idea. Let’s steal it.</p>
 
 <h3 id="setting-up-the-config">Setting up the config</h3>
 
-<p>Create the file <code class="highlighter-rouge">dev.secret.exs</code> in the <code class="highlighter-rouge">config</code> directory:</p>
+<p>Create the file <code class="language-plaintext highlighter-rouge">dev.secret.exs</code> in the <code class="language-plaintext highlighter-rouge">config</code> directory:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">use</span> <span class="no">Mix</span><span class="o">.</span><span class="no">Config</span>
 
@@ -844,8 +852,8 @@ e.g. <code class="highlighter-rouge">prod.secret.exs</code> in the <code class="
   <span class="ss">api_secret:</span> <span class="s2">"YOUR_CONSUMER_SECRET"</span>
 </code></pre></div></div>
 
-<p>We then have to make sure it gets loaded, of course only in <code class="highlighter-rouge">dev</code> and
-<code class="highlighter-rouge">test</code> for now. Open up <code class="highlighter-rouge">config.exs</code>, also in the <code class="highlighter-rouge">config</code> directory
+<p>We then have to make sure it gets loaded, of course only in <code class="language-plaintext highlighter-rouge">dev</code> and
+<code class="language-plaintext highlighter-rouge">test</code> for now. Open up <code class="language-plaintext highlighter-rouge">config.exs</code>, also in the <code class="language-plaintext highlighter-rouge">config</code> directory
 and key this in:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">use</span> <span class="no">Mix</span><span class="o">.</span><span class="no">Config</span>
@@ -859,12 +867,12 @@ and key this in:</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>So we only import our <code class="highlighter-rouge">dev.secret.exs</code> file if it exists. We could
-omit the <code class="highlighter-rouge">File.exists?</code> check but then our application would crash
+<p>So we only import our <code class="language-plaintext highlighter-rouge">dev.secret.exs</code> file if it exists. We could
+omit the <code class="language-plaintext highlighter-rouge">File.exists?</code> check but then our application would crash
 when the file is missing.</p>
 
 <p>We of course have to modify our module attributes in
-<code class="highlighter-rouge">lib/noun_projex.ex</code> accordingly:</p>
+<code class="language-plaintext highlighter-rouge">lib/noun_projex.ex</code> accordingly:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">NounProjex</span> <span class="k">do</span>
   <span class="nv">@consumer_key</span> <span class="no">Application</span><span class="o">.</span><span class="n">get_env</span><span class="p">(</span><span class="ss">:noun_projex</span><span class="p">,</span> <span class="ss">:api_key</span><span class="p">)</span>
@@ -874,13 +882,13 @@ when the file is missing.</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>There’s not much to explain here - <code class="highlighter-rouge">Application.get_env</code> is simply a
-way to read variables which you have configured in your <code class="highlighter-rouge">config</code>
+<p>There’s not much to explain here - <code class="language-plaintext highlighter-rouge">Application.get_env</code> is simply a
+way to read variables which you have configured in your <code class="language-plaintext highlighter-rouge">config</code>
 directory.</p>
 
 <p>We are done, right? Nope. Notice what’s missing?</p>
 
-<p>We still have to add <code class="highlighter-rouge">dev.secret.exs</code> to the <code class="highlighter-rouge">.gitignore</code> in the root
+<p>We still have to add <code class="language-plaintext highlighter-rouge">dev.secret.exs</code> to the <code class="language-plaintext highlighter-rouge">.gitignore</code> in the root
 project directory otherwise our whole effort would have been futile:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># The directory Mix will write compiled artifacts to.
@@ -894,7 +902,7 @@ project directory otherwise our whole effort would have been futile:</p>
 config/dev.secret.exs  # &lt;-- this is new
 </code></pre></div></div>
 
-<p>Woopah! Nice and safe. Now you can <code class="highlighter-rouge">git commit</code> safely and your API keys
+<p>Woopah! Nice and safe. Now you can <code class="language-plaintext highlighter-rouge">git commit</code> safely and your API keys
 steer clear of your version control history.</p>
 
 <p>What else could there possibly be to do?</p>
@@ -914,7 +922,7 @@ doing? what are you doing?” and you have no clue but have to reply
 somehow. Very annoying.</p>
 
 <p>That’s not to say that we don’t need tests! Now that our API is
-stable, we should write some. Let’s open up <code class="highlighter-rouge">tests/noun_projex_test.exs</code>:</p>
+stable, we should write some. Let’s open up <code class="language-plaintext highlighter-rouge">tests/noun_projex_test.exs</code>:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">NounProjexTest</span> <span class="k">do</span>
   <span class="c1"># set async to true as our tests don't depend</span>
@@ -952,10 +960,10 @@ the three API endpoints we coded functions for:</p>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Run <code class="highlighter-rouge">mix test</code> in your shell and you should see three unremarkable
+<p>Run <code class="language-plaintext highlighter-rouge">mix test</code> in your shell and you should see three unremarkable
 green dots (I do hope so).</p>
 
-<p>Our test suite is very minimalistic. We are only expecting an <code class="highlighter-rouge">{:ok,
+<p>Our test suite is very minimalistic. We are only expecting an <code class="language-plaintext highlighter-rouge">{:ok,
 _result}</code> tuple which means that any test will pass as long as the
 HTTP response code is 200. Of course this isn’t very thorough and you
 should set up some more detailed fixtures. For example, you could call
@@ -969,7 +977,7 @@ parameters and probably a few more things. Not that bad at all.</p>
 
 <h2 id="summary">Summary</h2>
 
-<p>Phew! What a journey! We went from naively hacking in <code class="highlighter-rouge">HTTPoison.get!</code>
+<p>Phew! What a journey! We went from naively hacking in <code class="language-plaintext highlighter-rouge">HTTPoison.get!</code>
 requests to quite a polished API via approximately one thousand
 refactorings. We added proper configuration support and some tests to
 round things off.</p>
@@ -986,61 +994,81 @@ and <a href="https://github.com/schaary">@schaary</a>.</p>
 
 
   </article>
-</article>
-<section class="mt-8 mx-3 px-3 py-4 border border-gray-500 bg-gray-700 rounded shadow-lg hover:shadow-2xl">
-  <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Thanks for Reading!</h3>
+</div>
 
-  <p class="mt-2 text-sm text-gray-400 leading-snug tracking-wide">I write semi-regularly about programming, medicine and, of course, various self-experiments. If you'd like me to send you an e-mail once I've posted something new, feel free to subscribe below.</p>
+<section class="max-w-xl mt-8 px-3 mx-auto">
+  <section class="p-4 border border-gray-500 bg-gray-800 rounded shadow-lg">
+    <h3 class="text-xl text-white font-semibold tracking-wide leading-tight">Damn, you read this far?</h3>
 
-  <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-    <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
-    <input class="appearance-none px-3 py-2 bg-gray-600 hover:bg-gray-800 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
-  </form>
+    <p class="mt-2 text-sm text-gray-400">Let me make you an offer you can't refuse: Subscribe to my newsletter and be the first to read my new articles! 5 happy subscribers (including me) and counting.</p>
+
+    <form class="mt-4 flex justify-center" action="https://eidel.us20.list-manage.com/subscribe/post?u=e57e3fd638942b559576d7a14&amp;id=07ef9210b4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <input class="appearance-none w-64 px-3 py-2 bg-gray-200 text-gray-800 placeholder-gray-500 border-t border-b border-l border-gray-500 rounded-l tracking-wide leading-tight shadow-lg" type="email" value="" name="EMAIL" class="required" placeholder="your@email.com" id="mce-EMAIL">
+      <input class="appearance-none px-3 py-2 bg-gray-500 hover:bg-gray-600 border-t border-r border-b border-gray-500 rounded-r text-sm tracking-wide leading-tight uppercase shadow-lg" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e57e3fd638942b559576d7a14_07ef9210b4" tabindex="-1" value=""></div>
+    </form>
+  </section>
 </section>
 
 
-      </main>
-      <footer class="mt-8 text-xs text-gray-500 text-center" id="funny-quote">An App a Day keeps the Doctor away.</footer>
+    </main>
+
+    <footer class="mt-8 pb-8 text-xs text-gray-600 text-center">
+  <!-- We'll respect non-js people by having the first quote in the HTML DOM at the beginning -->
+  <a id="funny-quote" href="#">An App a Day keeps the Doctor away.</a>
+</footer>
 
 <script type="text/javascript">
  $(document).ready(function() {
-   // We'll respect non-js people by having the first quote in the
-   // HTML DOM at the beginning
-   var funnyQuotes = ["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","A Quality Management System won't save you from writing crappy software."];
-   var randomFunnyQuote = funnyQuotes[Math.floor(Math.random() * funnyQuotes.length)];
-   var footerEl = document.getElementById('funny-quote');
-   footerEl.innerHTML = randomFunnyQuote;
- });
-</script>
+   // Load array from config and shuffle
+   var funnyQuotes = shuffle(["An App a Day keeps the Doctor away.","Better a doctor working as a programmer than a programmer working as a doctor.","You can teach yourself to code but you can't teach yourself medicine.","No Quality Management System on this planet will save you from writing crappy software."]);
+   var funnyQuoteNode = $('#funny-quote');
+   var i = 0;
 
-    </div>
-    <div class="mt-4 mb-8 text-xs text-white text-center" id="look-behind-container">
-  <a id="look-behind" href="#">What's behind this?</a>
-</div>
-<div class="mx-auto h-screen flex items-center justify-center" style="display:none" id="show-content-container">
-  <section class="max-w-lg text-white text-center leading-tight">
-    <h3 class="text-lg font-semibold tracking-wide uppercase">Image Credit</h3>
-    <p class="text-xs mt-2">Photo by <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Clark Van Der Beken</a> on <a class="underline" href="https://unsplash.com/@snaps_by_clark?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>.</p>
-    <p class="mt-4 text-xs">Got it, Unsplash is cool!</p>
-    <a class="text-xs underline" id="show-content" href="#">Let's go back to Oliver's Blog.</a>
-</div>
+   // Set first quote on initial load
+   setFunnyQuote();
 
-<script type="text/javascript">
- $(document).ready(function() {
-   $('#look-behind').on('click', function() {
-     $('#look-behind-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#show-content-container').show();
+   // Cycle through quotes on clicks
+   funnyQuoteNode.click(function(event) {
+     event.preventDefault();
+
+     // Prevent off-by-one error, classic
+     if (i == funnyQuotes.length - 1) {
+       i = 0;
+     } else {
+       i++;
+     }
+
+     setFunnyQuote();
    });
 
-   $('#show-content').on('click', function() {
-     $('#show-content-container').hide();
-     $('#main-overlay').fadeToggle(500);
-     $('#look-behind-container').show();
-   });
+   // Lots of closures here, because we can
+   function setFunnyQuote() {
+     funnyQuoteNode.text(funnyQuotes[i]);
+   }
  });
+
+ function shuffle(array) {
+   // https://stackoverflow.com/a/2450976/4593972
+
+   var currentIndex = array.length, temporaryValue, randomIndex;
+
+   // While there remain elements to shuffle...
+   while (0 !== currentIndex) {
+
+     // Pick a remaining element...
+     randomIndex = Math.floor(Math.random() * currentIndex);
+     currentIndex -= 1;
+
+     // And swap it with the current element.
+     temporaryValue = array[currentIndex];
+     array[currentIndex] = array[randomIndex];
+     array[randomIndex] = temporaryValue;
+   }
+
+   return array;
+ }
 </script>
 
   </body>
