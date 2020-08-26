@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'jekyll', '~> 3.8', '>= 3.8.6'
+gem 'jekyll', '~> 4.1', '>= 4.1.1'
 
 gem "kramdown-parser-gfm", "~> 1.1"
 
