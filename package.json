@@ -10,6 +10,6 @@
   },
   "scripts": {
     "build": "JEKYLL_ENV=production bundle exec jekyll build",
-    "deploy": "gh-pages --branch master --dist _site"
+    "deploy": "JEKYLL_ENV=production bundle exec jekyll build && gh-pages --branch master --dist _site"
   }
 }
