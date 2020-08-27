@@ -3,8 +3,24 @@
     <channel>
         <title>Oliver Eidel - Articles</title>
         <description>Oliver Eidel's Blog</description>
-        <link>https://www.eidel.io</link>
-        <atom:link href="https://www.eidel.io/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://localhost:4000</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Regulation Is Killing Medical Software Innovation</title>
+            
+            <description>&lt;p&gt;I’m back from cryosleep. After &lt;a href=&quot;/2020/01/31/pioneers-vs-process-people/&quot;&gt;leaving Merantix Healthcare&lt;/a&gt; 7 months ago I haven’t
+been writing much. I took the summer off to finish my pilot’s license and to try out a few things on the
+side.&lt;/p&gt;
+
+</description>
+            
+            <pubDate>Thu, 27 Aug 2020 09:00:00 +0200</pubDate>
+            <link>http://localhost:4000/2020/08/27/regulation-killing-medical-software-innovation/</link>
+            <guid isPermaLink="true">http://localhost:4000/2020/08/27/regulation-killing-medical-software-innovation/</guid>
+        </item>
+        
         
         
         <item>
@@ -14,8 +30,8 @@
 </description>
             
             <pubDate>Fri, 31 Jan 2020 09:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2020/01/31/pioneers-vs-process-people/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2020/01/31/pioneers-vs-process-people/</guid>
+            <link>http://localhost:4000/2020/01/31/pioneers-vs-process-people/</link>
+            <guid isPermaLink="true">http://localhost:4000/2020/01/31/pioneers-vs-process-people/</guid>
         </item>
         
         
@@ -32,8 +48,8 @@ the Silicon Valley tech bubble.&lt;/p&gt;
 </description>
             
             <pubDate>Sat, 16 Nov 2019 13:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2019/11/16/become-a-full-stack-person/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/11/16/become-a-full-stack-person/</guid>
+            <link>http://localhost:4000/2019/11/16/become-a-full-stack-person/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/11/16/become-a-full-stack-person/</guid>
         </item>
         
         
@@ -46,8 +62,8 @@ ready for it.&lt;/p&gt;
 </description>
             
             <pubDate>Sun, 10 Nov 2019 13:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2019/11/10/the-un-natural-progression-of-machine-learning/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/11/10/the-un-natural-progression-of-machine-learning/</guid>
+            <link>http://localhost:4000/2019/11/10/the-un-natural-progression-of-machine-learning/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/11/10/the-un-natural-progression-of-machine-learning/</guid>
         </item>
         
         
@@ -61,8 +77,8 @@ later time; here, I’ll focus on some surprising results.&lt;/p&gt;
 </description>
             
             <pubDate>Thu, 17 Oct 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/10/17/co2-sensor-fart-detector/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/10/17/co2-sensor-fart-detector/</guid>
+            <link>http://localhost:4000/2019/10/17/co2-sensor-fart-detector/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/10/17/co2-sensor-fart-detector/</guid>
         </item>
         
         
@@ -75,8 +91,8 @@ childhood memories.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 14 Oct 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/10/14/the-rush-of-shipping/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/10/14/the-rush-of-shipping/</guid>
+            <link>http://localhost:4000/2019/10/14/the-rush-of-shipping/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/10/14/the-rush-of-shipping/</guid>
         </item>
         
         
@@ -88,8 +104,8 @@ childhood memories.&lt;/p&gt;
 </description>
             
             <pubDate>Wed, 09 Oct 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/10/09/dont-be-an-engineer-be-a-producer/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/10/09/dont-be-an-engineer-be-a-producer/</guid>
+            <link>http://localhost:4000/2019/10/09/dont-be-an-engineer-be-a-producer/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/10/09/dont-be-an-engineer-be-a-producer/</guid>
         </item>
         
         
@@ -103,8 +119,8 @@ businesspeople.&lt;/p&gt;
 </description>
             
             <pubDate>Tue, 01 Oct 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/10/01/businesspeople-are-useless/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/10/01/businesspeople-are-useless/</guid>
+            <link>http://localhost:4000/2019/10/01/businesspeople-are-useless/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/10/01/businesspeople-are-useless/</guid>
         </item>
         
         
@@ -119,8 +135,8 @@ to do with it yet.&lt;/p&gt;
 </description>
             
             <pubDate>Sun, 22 Sep 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/09/22/abstracting-light-switches-solving-real-problems/</guid>
+            <link>http://localhost:4000/2019/09/22/abstracting-light-switches-solving-real-problems/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/09/22/abstracting-light-switches-solving-real-problems/</guid>
         </item>
         
         
@@ -132,8 +148,8 @@ to do with it yet.&lt;/p&gt;
 </description>
             
             <pubDate>Wed, 05 Jun 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/06/05/we-need-more-hackers/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/06/05/we-need-more-hackers/</guid>
+            <link>http://localhost:4000/2019/06/05/we-need-more-hackers/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/06/05/we-need-more-hackers/</guid>
         </item>
         
         
@@ -149,8 +165,8 @@ street.&lt;/p&gt;
 </description>
             
             <pubDate>Wed, 24 Apr 2019 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2019/04/24/making-my-own-glasses/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/04/24/making-my-own-glasses/</guid>
+            <link>http://localhost:4000/2019/04/24/making-my-own-glasses/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/04/24/making-my-own-glasses/</guid>
         </item>
         
         
@@ -163,8 +179,8 @@ get an item from a queue and process it.&lt;/p&gt;
 </description>
             
             <pubDate>Tue, 22 Jan 2019 09:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2019/01/22/thread-safe-queues-clojure/</guid>
+            <link>http://localhost:4000/2019/01/22/thread-safe-queues-clojure/</link>
+            <guid isPermaLink="true">http://localhost:4000/2019/01/22/thread-safe-queues-clojure/</guid>
         </item>
         
         
@@ -176,8 +192,8 @@ get an item from a queue and process it.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 31 Dec 2018 21:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2018/12/31/react-less/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2018/12/31/react-less/</guid>
+            <link>http://localhost:4000/2018/12/31/react-less/</link>
+            <guid isPermaLink="true">http://localhost:4000/2018/12/31/react-less/</guid>
         </item>
         
         
@@ -191,8 +207,8 @@ daily fluctuations of mental focus very obvious.&lt;/p&gt;
 </description>
             
             <pubDate>Sat, 29 Sep 2018 22:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2018/09/29/correlation-project/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2018/09/29/correlation-project/</guid>
+            <link>http://localhost:4000/2018/09/29/correlation-project/</link>
+            <guid isPermaLink="true">http://localhost:4000/2018/09/29/correlation-project/</guid>
         </item>
         
         
@@ -206,8 +222,8 @@ tomorrow!  As a good Asian kid, that thought was very scary.&lt;/p&gt;
 </description>
             
             <pubDate>Wed, 19 Sep 2018 02:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2018/09/19/two-years-of-sleep-optimization/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2018/09/19/two-years-of-sleep-optimization/</guid>
+            <link>http://localhost:4000/2018/09/19/two-years-of-sleep-optimization/</link>
+            <guid isPermaLink="true">http://localhost:4000/2018/09/19/two-years-of-sleep-optimization/</guid>
         </item>
         
         
@@ -222,8 +238,8 @@ questions.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 21 May 2018 02:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2018/05/21/asking-stupid-questions/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2018/05/21/asking-stupid-questions/</guid>
+            <link>http://localhost:4000/2018/05/21/asking-stupid-questions/</link>
+            <guid isPermaLink="true">http://localhost:4000/2018/05/21/asking-stupid-questions/</guid>
         </item>
         
         
@@ -237,8 +253,8 @@ highly artificial benchmarks and checking whether it scales).&lt;/p&gt;
 </description>
             
             <pubDate>Thu, 13 Jul 2017 11:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2017/07/13/http-api-client-elixir-noun-project/</guid>
+            <link>http://localhost:4000/2017/07/13/http-api-client-elixir-noun-project/</link>
+            <guid isPermaLink="true">http://localhost:4000/2017/07/13/http-api-client-elixir-noun-project/</guid>
         </item>
         
         
@@ -256,8 +272,8 @@ everybody except me uses them.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 10 Jul 2017 14:00:00 +0200</pubDate>
-            <link>https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2017/07/10/dockerizing-django-uwsgi-postgres/</guid>
+            <link>http://localhost:4000/2017/07/10/dockerizing-django-uwsgi-postgres/</link>
+            <guid isPermaLink="true">http://localhost:4000/2017/07/10/dockerizing-django-uwsgi-postgres/</guid>
         </item>
         
         
@@ -269,8 +285,8 @@ everybody except me uses them.&lt;/p&gt;
 </description>
             
             <pubDate>Tue, 03 Jan 2017 13:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2017/01/03/open-sourcing-breast-segment/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2017/01/03/open-sourcing-breast-segment/</guid>
+            <link>http://localhost:4000/2017/01/03/open-sourcing-breast-segment/</link>
+            <guid isPermaLink="true">http://localhost:4000/2017/01/03/open-sourcing-breast-segment/</guid>
         </item>
         
         
@@ -282,8 +298,8 @@ everybody except me uses them.&lt;/p&gt;
 </description>
             
             <pubDate>Sun, 21 Feb 2016 13:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2016/02/21/framework-overflow/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2016/02/21/framework-overflow/</guid>
+            <link>http://localhost:4000/2016/02/21/framework-overflow/</link>
+            <guid isPermaLink="true">http://localhost:4000/2016/02/21/framework-overflow/</guid>
         </item>
         
         
@@ -295,8 +311,8 @@ everybody except me uses them.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 08 Feb 2016 13:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2016/02/08/bangkok-travel/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2016/02/08/bangkok-travel/</guid>
+            <link>http://localhost:4000/2016/02/08/bangkok-travel/</link>
+            <guid isPermaLink="true">http://localhost:4000/2016/02/08/bangkok-travel/</guid>
         </item>
         
         
@@ -310,8 +326,8 @@ node.js-style extendability sounds awesome.&lt;/p&gt;
 </description>
             
             <pubDate>Wed, 25 Nov 2015 00:00:00 +0100</pubDate>
-            <link>https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2015/11/25/parse-com-cloud-code-hell/</guid>
+            <link>http://localhost:4000/2015/11/25/parse-com-cloud-code-hell/</link>
+            <guid isPermaLink="true">http://localhost:4000/2015/11/25/parse-com-cloud-code-hell/</guid>
         </item>
         
         
@@ -323,8 +339,8 @@ node.js-style extendability sounds awesome.&lt;/p&gt;
 </description>
             
             <pubDate>Fri, 23 Oct 2015 01:50:00 +0200</pubDate>
-            <link>https://www.eidel.io/2015/10/23/hello-world/</link>
-            <guid isPermaLink="true">https://www.eidel.io/2015/10/23/hello-world/</guid>
+            <link>http://localhost:4000/2015/10/23/hello-world/</link>
+            <guid isPermaLink="true">http://localhost:4000/2015/10/23/hello-world/</guid>
         </item>
         
         
