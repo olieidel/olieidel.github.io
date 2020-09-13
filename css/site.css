@@ -45,7 +45,7 @@ article.post {
 
   blockquote {
     @apply mt-6 ml-6 pl-4 py-2 border-l-4 border-gray-500;
-    > p { @apply m-0 text-sm text-gray-300; }
+    > p { @apply m-0 text-sm text-gray-800; }
   }
 
   table {
