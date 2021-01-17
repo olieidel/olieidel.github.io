@@ -5,7 +5,86 @@ title: Reading
 
 Books that I've read, in chronological order, some with comments.
 
+## 2021
+
+### Essential Scrum (Kenneth S. Rubin)
+
+It's.. okay. After getting the general ideas around "agile" after reading Clean Agile (below), this is a
+good-enough follow-up to learn more about the specifics. It is very verbose though. Again, Clean Agile sets
+the bar for conciseness here which is hard to pass.
+
+### User Story Mapping (Jeff Patton) (unfinished)
+
+Wanted to learn more about agile after having read Clean Agile (below). This is a fairly good follow-up which
+goes further into the details of organizing User Stories while keeping the big picture visible. However, it's
+unnecessarily verbose. Similar to other methodology books like e.g. Getting Things Done, this one could have
+been summarized on a few pages. I read this after Clean Agile which is ultimately concise, so I suppose I'd
+have considered most books more verbose after that one.
+
+### Clean Agile (Robert C. Martin)
+
+What a great read. Now I know why everyone likes Uncle Bob! It's hard not to be thrilled by the level of
+to-the-point conciseness in his writing. He simply "gets it" - why "planned" software projects are never
+delivered on schedule, why it's hard to spec out software up front, and what "agile" development was actually
+meant to be before it got all bloated and conflated.
+
 ## 2020
+
+### Surgery, the Ultimate Placebo (Ian Harris) (unfinished)
+
+### Rage (Bob Woodward)
+
+Good follow-up to Disloyal (below), but I'd rather recommend Disloyal as it's closer to the actual events.
+
+### Disloyal: A Memoir (Michael Cohen)
+
+Towards the end of 2020, my productivity went down the drain, including my reading. I tried to get back into
+it by reading more prose-style, page-turner books and this was the first one.
+
+A very good read. From my perspective of an almost-Psychiatrist, it's really interesting to see how Michael
+Cohen was completely part of the cult, yet managed to pull himself out of it. It's very rare that these sort
+of things happen. It's also interesting to read his thoughts about it as he's an intelligent and analytical
+person. And then there's the elephant in the room: Trump is even more dangerous than we thought.
+
+### Getting Things Done (David Allen) (unfinished)
+
+Hah, I do see the irony of reading *the* classic book of Getting Things Done and *not finishing it*. It's a
+good read but I feel that the key methodology described in the book could have been compressed into a few
+pages. It's more about getting the principles and applying them while improving continuously. No need to read
+an entire book about it.
+
+### Who Says Elephants Can't Dance? (Louis V. Gerstner Jr.)
+
+I think I came across this book while reading the one below by Jim Collins. Good read. Lou Gerstner seens like
+a really solid, hands-on guy; probably also shown by the fact that he wrote this book himself.
+
+### How the Mighty Fall (Jim Collins)
+
+Classical Jim Collins. Some people don't like his methodology of "let's analyse startups after certain things
+have happened and arrive at some conclusions", but I like it.
+
+### Start Small, Stay Small (Rob Walling)
+
+This field about bootstrapped-indie-hacker-profitable startups deserves more attention. Rob Walling's book is
+a great starter and covers the important points.
+
+### The Choice (Eliyahu M. Goldratt)
+
+### The Goal (Eliyahu M. Goldratt)
+
+Same style as "The Phoenix Project" - written as a story. Also recommended.
+
+### The Phoenix Project (Gene Kim)
+
+Great book, I really enjoyed the style of wrapping it into a story.
+
+### Breath: The New Science of a Lost Art (James Nestor)
+
+Interesting read. I started tracking my snoring after this. Maybe there'll be some findings in the future.
+
+### Post-Capitalist Society (Peter Drucker)
+
+### Management Challenges for the 21st Century (Peter Drucker)
 
 ### Managing Oneself (Peter Drucker)
 
