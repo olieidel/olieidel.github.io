@@ -581,7 +581,7 @@ article.post blockquote {
     border-color: #a0aec0;
   }
 
-article.post blockquote > p { margin: 0; font-size: 0.875rem; color: #e2e8f0;
+article.post blockquote > p { margin: 0; font-size: 0.875rem; color: #2d3748;
     }
 
 article.post table {
@@ -1201,6 +1201,10 @@ article.post > div > div.highlight > pre.highlight > code .bp { color: #f8f8f2
 
 .tracking-widest {
   letter-spacing: 0.1em;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .invisible {
