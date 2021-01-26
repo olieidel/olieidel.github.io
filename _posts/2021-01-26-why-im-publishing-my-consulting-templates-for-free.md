@@ -27,8 +27,8 @@ I was very transparent about my knowledge. Like, *Hey, listen, I appreciate that
 accomplished this goal exactly once (at Vara) and I have no clue how much knowledge I'm lacking*.
 
 Surprisingly, all of them continued to hire me. And even more surprisingly, I saw the work which other
-consultants had done before me and noticed.. it was bad. Wait, does that mean I was better? That doesn't
-sounds right.
+consultants had done before me and noticed.. it was bad. Wait, does that mean I was better? That doesn't sound
+right.
 
 I certainly didn't know the regulations very well. So I couldn't be better.
 
