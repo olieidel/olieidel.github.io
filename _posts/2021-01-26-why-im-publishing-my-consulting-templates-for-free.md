@@ -131,8 +131,8 @@ game][dhh-open-source-beyond-the-market]. If I publish my knowledge, will that c
 someone reads it? Of course not. Will it reduce my billable hours? Maybe. But then again, I'm tired of
 regulatory consulting because a large chunk of it is repetitive and mind-numbing.
 
-So, today, I'm launching [OpenRegulatory][openregulatory]. It's place where I've started brain-dumping all my
-consultant knowledge and templates, for free. And it's my new company.
+So, today, I'm launching [OpenRegulatory][openregulatory]. It's a place where I've started brain-dumping all
+my consultant knowledge and templates, for free. And it's my new company.
 
 It's not complete, but it's a start. The [templates][openregulatory-templates] are mostly done, and there's a
 [step-by-step guide][openregulatory-blueprint] on how to certify software as a medical device.
